@@ -1,0 +1,107 @@
+# Hackathon Submission Draft
+
+## Project
+
+iPulse AI Options Alpha Agent
+
+## Tagline
+
+An inspectable AI research agent that can say WAIT, propose one bounded options
+trade, and prove why the paper broker accepted or rejected it.
+
+## Submission summary
+
+Most trading-agent demos optimize for activity. We optimize for inspectable
+decisions. The agent collects Alpaca market and portfolio evidence, selects a
+liquid option, records a structured thesis, and passes the proposal through a
+deterministic risk authority. Probabilistic advisors may recommend; they cannot
+bypass the execution limits.
+
+The initial development build is operational. It connects to Alpaca's official
+MCP server, reads a paper portfolio, normalizes SPY daily bars and quotes,
+queries a narrow option chain, selects a near-0.50-delta contract within a USD
+500 maximum-loss budget, and records the complete decision. A separate USD 1
+maximum-loss equity order proved the paper-order path, was verified by broker
+order ID, and was canceled before fill.
+
+## What makes it different
+
+- WAIT and rejected trades are first-class evidence, not hidden failures.
+- Every order has an idempotent client order ID and a deterministic risk trace.
+- The execution adapter requires two independent paper-only switches.
+- Credentials remain outside the repository and evidence stream.
+- Strategy performance, paper-fill limitations, stale data, and model errors
+  are disclosed rather than marketed away.
+
+## AI and autonomous logic
+
+Six independent advisors are implemented: technical regime, news catalyst,
+options liquidity, financials forensic auditor, value framework, and risk
+critic. Every output includes cited evidence, confidence, contrary evidence,
+invalidation tests, and a bounded action. Rules-based reasoning is the
+reproducible baseline; optional OpenAI Responses reasoning uses the same strict
+JSON contract. Consensus may create a proposal, but deterministic operational
+and portfolio gates remain final authority.
+
+The financials auditor checks cash conversion, accruals, leverage, dilution,
+ROIC, restatements, and auditor opinion. The value advisor applies margin of
+safety, cash yield, growth, forward P/E, and EV/EBITDA against peer medians.
+For ETF trades, the auditor uses real fund structure instead of invented company
+accounts: expense ratio, turnover, assets, diversification, concentration, and
+cash allocation.
+
+## Alpaca usage
+
+- Official Alpaca MCP server over stdio
+- Paper account and positions
+- Market clock and asset state
+- IEX daily bars and stock quotes
+- Indicative option-chain snapshots, Greeks, implied volatility, and spreads
+- Paper limit-order submission and order verification
+
+## Options logic
+
+- SPY, QQQ, and IWM initial universe
+- Direction requires aligned fast and slow returns
+- Volatility and spread filters can force WAIT
+- Near-0.50-delta contract selection
+- Long premium only in phase one
+- One contract, limit order, maximum USD 500 defined loss
+
+## Demonstration flow
+
+1. Show sanitized paper account status and normalized external evidence lineage.
+2. Run all six advisors over the real-market context.
+3. Open their evidence citations, disagreements, and consensus.
+4. Show the operational and portfolio risk decisions.
+5. Enable the explicit paper switches and submit one bounded order during
+   market hours.
+6. Re-read the order from Alpaca and show the append-only evidence trace.
+7. Show a forensic veto, an oversized rejection, and a stale-data WAIT.
+
+## Evidence already available
+
+- Forty-four passing unit tests
+- Paper account MCP connectivity and options-data access
+- Paper trading tools enabled only after read-only validation
+- One accepted, broker-verified, and canceled non-marketable paper smoke order
+- One real-data SPY call proposal approved but intentionally not executed while
+  validating the market pipeline
+- One real-data six-advisor evaluation that correctly chose WAIT when the market
+  was closed and its option quote was stale
+- Strict normalized evidence adapter for iPulse AI financials and valuation data
+- Live Alpaca news normalization and one production iPulse SPY fund snapshot in
+  the advisor evidence catalog
+- Self-contained static HTML report for the latest complete decision cycle
+
+## Required links before final submission
+
+- Public repository: pending owner-approved publication
+- Hosted demo: pending
+- Demo video: pending
+- Team page: iPulse AI Open Lab
+
+## Disclosure
+
+This is a research and simulated paper-trading project, not investment advice.
+Paper fills do not establish live profitability.

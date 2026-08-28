@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipulse.ai/schemas/options-alpha-research-evidence-v1.json",
+  "title": "iPulse AI Options Alpha Research Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "underlying",
+    "generated_at_utc",
+    "news",
+    "financials",
+    "valuation"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "underlying": { "type": "string", "minLength": 1, "maxLength": 32 },
+    "generated_at_utc": { "type": "string", "format": "date-time" },
+    "news": {
+      "type": "array",
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "headline",
+          "summary",
+          "source",
+          "published_at_utc",
+          "sentiment_score"
+        ],
+        "properties": {
+          "evidence_id": { "type": "string", "pattern": "^news:", "maxLength": 240 },
+          "headline": { "type": "string", "minLength": 1, "maxLength": 500 },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 4000 },
+          "source": { "type": "string", "minLength": 1, "maxLength": 240 },
+          "published_at_utc": { "type": "string", "format": "date-time" },
+          "sentiment_score": { "type": "number", "minimum": -1, "maximum": 1 }
+        }
+      }
+    },
+    "financials": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "as_of_date",
+            "source_ids",
+            "revenue_growth_pct",
+            "gross_margin_pct",
+            "operating_margin_pct",
+            "free_cash_flow_margin_pct",
+            "cash_conversion_pct",
+            "accrual_ratio_pct",
+            "net_debt_to_ebitda",
+            "share_count_growth_pct",
+            "roic_pct",
+            "restatement_count",
+            "auditor_opinion"
+          ],
+          "properties": {
+            "as_of_date": { "type": "string", "format": "date" },
+            "source_ids": { "$ref": "#/$defs/sourceIds" },
+            "revenue_growth_pct": { "type": "number" },
+            "gross_margin_pct": { "type": "number" },
+            "operating_margin_pct": { "type": "number" },
+            "free_cash_flow_margin_pct": { "type": "number" },
+            "cash_conversion_pct": { "type": "number" },
+            "accrual_ratio_pct": { "type": "number" },
+            "net_debt_to_ebitda": { "type": "number" },
+            "share_count_growth_pct": { "type": "number" },
+            "roic_pct": { "type": "number" },
+            "restatement_count": { "type": "integer", "minimum": 0, "maximum": 100 },
+            "auditor_opinion": {
+              "enum": [
+                "unqualified",
+                "qualified",
+                "adverse",
+                "going_concern",
+                "disclaimer",
+                "unknown"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "fund": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "as_of_date",
+            "source_ids",
+            "expense_ratio_pct",
+            "annual_turnover_pct",
+            "total_assets_usd",
+            "holdings_count",
+            "top_10_weight_pct",
+            "largest_holding_weight_pct",
+            "largest_sector_weight_pct",
+            "cash_weight_pct"
+          ],
+          "properties": {
+            "as_of_date": { "type": "string", "format": "date" },
+            "source_ids": { "$ref": "#/$defs/sourceIds" },
+            "expense_ratio_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+            "annual_turnover_pct": { "type": "number", "minimum": 0 },
+            "total_assets_usd": { "type": "number", "minimum": 0 },
+            "holdings_count": { "type": "integer", "minimum": 1 },
+            "top_10_weight_pct": { "$ref": "#/$defs/percentage" },
+            "largest_holding_weight_pct": { "$ref": "#/$defs/percentage" },
+            "largest_sector_weight_pct": { "$ref": "#/$defs/percentage" },
+            "cash_weight_pct": { "type": "number", "minimum": -100, "maximum": 100 }
+          }
+        }
+      ]
+    },
+    "fund_valuation": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "as_of_date",
+            "source_ids",
+            "prospective_pe",
+            "category_prospective_pe",
+            "price_to_cash_flow",
+            "category_price_to_cash_flow",
+            "long_term_earnings_growth_pct",
+            "category_long_term_earnings_growth_pct",
+            "historical_earnings_growth_pct",
+            "sales_growth_pct",
+            "cash_flow_growth_pct"
+          ],
+          "properties": {
+            "as_of_date": { "type": "string", "format": "date" },
+            "source_ids": { "$ref": "#/$defs/sourceIds" },
+            "prospective_pe": { "type": "number", "exclusiveMinimum": 0 },
+            "category_prospective_pe": { "type": "number", "exclusiveMinimum": 0 },
+            "price_to_cash_flow": { "type": "number", "exclusiveMinimum": 0 },
+            "category_price_to_cash_flow": { "type": "number", "exclusiveMinimum": 0 },
+            "long_term_earnings_growth_pct": { "type": "number" },
+            "category_long_term_earnings_growth_pct": { "type": "number" },
+            "historical_earnings_growth_pct": { "type": "number" },
+            "sales_growth_pct": { "type": "number" },
+            "cash_flow_growth_pct": { "type": "number" }
+          }
+        }
+      ]
+    },
+    "valuation": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "as_of_date",
+            "source_ids",
+            "market_price",
+            "estimated_fair_value",
+            "forward_pe",
+            "sector_median_forward_pe",
+            "ev_to_ebitda",
+            "sector_median_ev_to_ebitda",
+            "free_cash_flow_yield_pct",
+            "earnings_growth_pct"
+          ],
+          "properties": {
+            "as_of_date": { "type": "string", "format": "date" },
+            "source_ids": { "$ref": "#/$defs/sourceIds" },
+            "market_price": { "type": "number", "exclusiveMinimum": 0 },
+            "estimated_fair_value": { "type": "number", "exclusiveMinimum": 0 },
+            "forward_pe": { "type": "number" },
+            "sector_median_forward_pe": { "type": "number", "exclusiveMinimum": 0 },
+            "ev_to_ebitda": { "type": "number" },
+            "sector_median_ev_to_ebitda": { "type": "number", "exclusiveMinimum": 0 },
+            "free_cash_flow_yield_pct": { "type": "number" },
+            "earnings_growth_pct": { "type": "number" }
+          }
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "sourceIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 240 }
+    },
+    "percentage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    }
+  }
+}

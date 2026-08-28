@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ipulse-ai-options-alpha-agent"
+version = "0.1.0"
+description = "Inspectable autonomous options research and Alpaca paper-trading agent"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Future Edge Group FZE" }]
+dependencies = ["mcp>=1.20,<2"]
+
+[project.scripts]
+ipulse-options-alpha = "ipulse_options_alpha_agent.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ipulse_options_alpha_agent"]
