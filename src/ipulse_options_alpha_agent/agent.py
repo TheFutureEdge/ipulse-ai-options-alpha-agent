@@ -3,10 +3,18 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import Protocol
 
 from .domain import PortfolioSnapshot, TradeProposal
 from .risk import RiskDecision, RiskGate
 from .strategy import MomentumRegimeStrategy, StrategySignal
+
+
+class ProposalStrategy(Protocol):
+    """Small strategy contract kept separate from broker authority."""
+
+    def propose(self, signal: StrategySignal) -> TradeProposal | None:
+        """Return a bounded proposal or abstain."""
 
 
 @dataclass(frozen=True)
@@ -24,7 +32,7 @@ class OptionsAlphaAgent:
 
     def __init__(
         self,
-        strategy: MomentumRegimeStrategy | None = None,
+        strategy: ProposalStrategy | None = None,
         risk_gate: RiskGate | None = None,
     ) -> None:
         """Initialize the agent with replaceable strategy and risk components."""

@@ -15,7 +15,10 @@
 - Starting balance: $100,000
 - Account status: active
 - Options trading level: 3
-- Initial positions and fills: zero
+- Initial baseline positions and fills: zero
+- Strategy fills: one AAPL 11 September 2026 $330 call bought to open at $4.15,
+  one XLF 11 September 2026 $59 call at $0.30, and one AMZN 11 September 2026
+  $260 call at $3.80 on 3 September 2026; $825 combined long-premium maximum loss
 - Connectivity evidence: one canceled, deliberately non-marketable equity smoke
   order; it did not fill or change the starting balance
 - Public artifacts must never expose credentials or raw account identifiers
@@ -33,7 +36,7 @@ P&L, positions, orders, and fills without retaining the raw account number.
 | Autonomous AI trading agent | Bounded multi-cycle runner and append-only cycle journal | Rehearsal completes without bypassing WAIT or risk vetoes |
 | Alpaca Trading API | Account, clock, market, options, order and performance calls | Sanitized trace visible in demo |
 | Alpaca MCP or CLI | Official Alpaca MCP stdio client and tool receipts | MCP tool inventory and one verified order receipt |
-| Options trading | Long-call/long-put contract selection and paper execution | At least one strategy-generated options order if market evidence approves it |
+| Options trading | Long-call/long-put contract selection and paper execution | Three broker-verified fills (AAPL, XLF, AMZN) plus append-only evidence |
 | P&L performance | Dedicated account performance journal | Starting balance, current equity and return reconcile to Alpaca |
 | AI logic/risk/infrastructure | One-page write-up | Matches running code and names all deterministic gates |
 | Public repository | MIT-licensed GitHub repository | Clean clone passes tests and contains no secrets/artifacts |

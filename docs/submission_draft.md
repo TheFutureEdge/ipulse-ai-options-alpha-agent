@@ -11,7 +11,8 @@ trade, and prove why the paper broker accepted or rejected it.
 
 ## Submission summary
 
-Most trading-agent demos optimize for activity. We optimize for inspectable
+Most trading-agent demos optimize for activity. We optimize for falsifiable,
+inspectable
 decisions. The agent collects Alpaca market and portfolio evidence, selects a
 liquid option, records a structured thesis, and passes the proposal through a
 deterministic risk authority. Probabilistic advisors may recommend; they cannot
@@ -20,7 +21,11 @@ bypass the execution limits.
 The competition build is operational. It connects to Alpaca's official
 MCP server, reads a paper portfolio, normalizes SPY daily bars and quotes,
 queries a narrow option chain, selects a near-0.50-delta contract within a USD
-500 maximum-loss budget, and records the complete decision. A separate USD 1
+500 maximum-loss budget, and records the complete decision. On 3 September it
+also produced three broker-verified strategy fills: one AAPL 11 September $330
+call bought to open at $4.15 and one XLF 11 September $59 call bought to open
+at $0.30, plus one AMZN 11 September $260 call bought to open at $3.80, with
+$825 combined maximum long-premium risk. A separate USD 1
 maximum-loss equity order proved the paper-order path, was verified by broker
 order ID, and was canceled before fill.
 
@@ -32,6 +37,19 @@ order ID, and was canceled before fill.
 - Credentials remain outside the repository and evidence stream.
 - Strategy performance, paper-fill limitations, stale data, and model errors
   are disclosed rather than marketed away.
+- The original momentum experiment failed historical validation; the public
+  artifact says so instead of laundering it into a winning-looking backtest.
+- A frozen exhaustion-reversal challenger was selected on 2021–2023
+  development data and tested on untouched 2024–2026 data.
+
+## Historical validation
+
+The challenger uses only data available through close t, selects the strongest
+qualifying SPY/QQQ/IWM exhaustion event, and scores the opposite direction at
+close t+2. The untouched holdout contains 127 signals with a 55.9% directional
+win rate, 1.39 profit factor, +0.218% average signed underlying move, and a 2.01
+per-trade Sharpe proxy. These are directional diagnostics—not options P&L—and
+exclude spreads, option decay and broker slippage.
 
 ## AI and autonomous logic
 
@@ -81,12 +99,14 @@ cash allocation.
 
 ## Evidence already available
 
-- Fifty passing unit tests
+- Fifty-six passing unit tests
 - Paper account MCP connectivity and options-data access
 - Dedicated competition account created on 28 August 2026 with a verified
   USD 100,000 baseline, active status, options level 3, and zero initial fills
 - Paper trading tools enabled only after read-only validation
 - One accepted, broker-verified, and canceled non-marketable paper smoke order
+- Three broker-filled paper options: AAPL at $4.15, XLF at $0.30, and AMZN at $3.80
+- Reproducible walk-forward engine and complete scored-outcome ledger
 - One real-data SPY call proposal approved but intentionally not executed while
   validating the market pipeline
 - One real-data six-advisor evaluation that correctly chose WAIT when the market
@@ -104,7 +124,7 @@ cash allocation.
 - Public repository: https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent
 - Hosted demo: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/
 - Demo video: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4
-- Judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf
+- Judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf
 - Team page: iPulse AI Open Lab
 
 ## Disclosure

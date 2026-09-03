@@ -9,7 +9,7 @@ result inspectable.
 ## 0:25-0:50 - Real Alpaca evidence
 
 Show the competition panel: dedicated paper account, USD 100,000 starting
-equity, active status, options level 3, and no exposed account ID. Then run
+equity, three filled long-premium option orders, and no exposed account ID. Then run
 `evaluate-advisors-market`. Point out that the agent reads real SPY bars,
 quotes, portfolio and recent-order state, a narrow options chain, and hashed
 external research evidence.
@@ -30,18 +30,19 @@ oversized test and show REJECT.
 
 ## 1:58-2:30 - Paper execution
 
-During market hours, enable the explicit paper switches and run
-`run-paper-once`. Re-read the limit order from Alpaca and show the matching
-client order ID and sanitized broker status. If the current evidence produces
-WAIT, use the retained strategy-generated order receipt from the competition
-journal; never force a trade for the recording.
+Show the three retained paper receipts: AAPL, XLF, and AMZN calls, one contract
+each, all limit orders. Reconcile the USD 825 combined premium paid with the
+same USD 825 maximum defined premium risk. Explain that the three-entry daily
+cap is now binding, so the agent cannot keep trading for a prettier demo.
 
 ## 2:30-3:00 - Inspectability and scorecard
 
 Open the JSONL evidence trace and the public dashboard performance panel. Show
 starting equity, current equity, paper P&L, fills, and rejected/canceled orders.
-Close with: the AI proposes, deterministic risk decides, Alpaca executes, and
-the evidence remains inspectable.
+Then show the frozen 2024-2026 holdout: 127 signals, 55.9% win rate, +0.218%
+average signed underlying move, 1.39 profit factor, and the explicit warning
+that these are not option returns. Close with: the AI proposes, deterministic
+risk decides, Alpaca executes, and the evidence remains inspectable.
 
 On-screen footer: Research and simulated paper trading only. Not investment
 advice.

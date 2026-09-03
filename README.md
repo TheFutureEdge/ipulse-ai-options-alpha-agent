@@ -45,6 +45,36 @@ cd /Users/russlan/Documents/futureedge/code/ipulse_ai_options_alpha_agent
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
+## Performance evidence
+
+The original momentum rule remains in the repository as an inspectable
+experiment, but it did not survive historical validation. The frozen
+`exhaustion_reversal_v1` challenger was selected using development data only
+and evaluated separately on an untouched 2024–2026 holdout. Across SPY, QQQ,
+and IWM it produced 127 holdout signals, a 55.9% directional win rate, 1.39
+profit factor, and a +0.218% average signed two-session underlying move.
+
+These are underlying-direction diagnostics, not executable options P&L. The
+engine deliberately keeps broker paper performance, option fills, spread and
+premium costs separate. The complete configuration, scored outcomes and
+limitations are in
+[`artifacts/backtests/exhaustion_reversal_v1_scorecard.json`](artifacts/backtests/exhaustion_reversal_v1_scorecard.json).
+
+Run the scorecard against a saved Alpaca daily-bar response:
+
+```bash
+PYTHONPATH=src python -m ipulse_options_alpha_agent.backtest \
+  --input /path/to/alpaca-bars.json \
+  --output artifacts/backtests/exhaustion_reversal_v1_scorecard.json
+```
+
+The competition account also contains three broker-verified paper fills: one AAPL
+11 September 2026 $330 call bought to open at $4.15 and one XLF 11 September
+2026 $59 call bought to open at $0.30, plus one AMZN 11 September 2026 $260
+call bought to open at $3.80. Combined maximum long-premium risk is $825. The
+sanitized public receipt is in
+[`public/evidence/live_strategy_fill.json`](public/evidence/live_strategy_fill.json).
+
 Run a non-executing decision demo:
 
 ```bash
@@ -154,10 +184,10 @@ Public proof package:
 - [Source repository](https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent)
 - [Inspectable decision dashboard](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/)
 - [49-second visual walkthrough](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4)
-- [Judge presentation](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf)
+- [Judge presentation](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf)
 
 The local judge deck is
-[`docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx`](docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx).
+[`docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pptx`](docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pptx).
 
 The dated execution and submission sequence is maintained in
 [`docs/submission_runbook.md`](docs/submission_runbook.md).
@@ -169,7 +199,7 @@ final Lablab form is submitted:
 IPULSE_PUBLIC_REPOSITORY_URL=https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent \
 IPULSE_PUBLIC_DEMO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/ \
 IPULSE_DEMO_VIDEO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4 \
-IPULSE_SLIDES_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf \
+IPULSE_SLIDES_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf \
 PYTHONPATH=src python -m ipulse_options_alpha_agent submission-readiness
 ```
 

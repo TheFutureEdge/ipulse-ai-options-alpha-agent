@@ -5,7 +5,11 @@ from __future__ import annotations
 import unittest
 
 from ipulse_options_alpha_agent import OptionsAlphaAgent, PortfolioSnapshot
-from ipulse_options_alpha_agent.strategy import MomentumRegimeStrategy, StrategySignal
+from ipulse_options_alpha_agent.strategy import (
+    ExhaustionReversalStrategy,
+    MomentumRegimeStrategy,
+    StrategySignal,
+)
 
 
 def signal(**overrides: float | str) -> StrategySignal:
@@ -65,6 +69,29 @@ class StrategyAndAgentTests(unittest.TestCase):
         )
         self.assertEqual(decision.action, "WAIT")
         self.assertIsNone(decision.proposal)
+
+    def test_challenger_reverses_positive_exhaustion_with_a_put(self) -> None:
+        """The frozen challenger must express its tested opposite direction."""
+
+        proposal = ExhaustionReversalStrategy().propose(
+            signal(
+                option_symbol="SPY260911P00770000",
+                fast_return_pct=0.75,
+                slow_return_pct=3.50,
+                realized_volatility_pct=20,
+            )
+        )
+        self.assertIsNotNone(proposal)
+        self.assertEqual(proposal.strategy_name, "exhaustion_reversal_v1")
+        self.assertIn("PUT exhaustion reversal", proposal.rationale)
+
+    def test_challenger_rejects_wrong_contract_direction(self) -> None:
+        """A call contract cannot represent a positive-exhaustion reversal."""
+
+        proposal = ExhaustionReversalStrategy().propose(
+            signal(fast_return_pct=0.75, slow_return_pct=3.50)
+        )
+        self.assertIsNone(proposal)
 
 
 if __name__ == "__main__":

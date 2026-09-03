@@ -62,7 +62,7 @@ from .report import (
     render_decision_report,
 )
 from .risk import RiskDecision, RiskGate, RiskLimits
-from .strategy import MomentumRegimeStrategy, StrategySignal
+from .strategy import ExhaustionReversalStrategy, MomentumRegimeStrategy, StrategySignal
 
 __all__ = [
     "AgentDecision",
@@ -79,6 +79,7 @@ __all__ = [
     "ExecutionMode",
     "ExecutionPolicy",
     "ExecutionReceipt",
+    "ExhaustionReversalStrategy",
     "FinancialEvidence",
     "FinancialsForensicAuditor",
     "fund_evidence_from_snapshot",

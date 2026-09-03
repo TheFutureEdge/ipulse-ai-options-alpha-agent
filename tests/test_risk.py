@@ -57,6 +57,18 @@ class RiskGateTests(unittest.TestCase):
         self.assertTrue(decision.approved)
         self.assertEqual(decision.reasons, ())
 
+    def test_accepts_aapl_in_the_liquid_options_universe(self) -> None:
+        """The expanded liquid universe must remain explicitly allowlisted."""
+
+        candidate = proposal()
+        candidate = candidate.__class__(
+            **{**candidate.__dict__, "underlying": "AAPL", "symbol": "AAPL_TEST_CALL"}
+        )
+        decision = RiskGate().evaluate(
+            candidate, portfolio(), paper_environment=True
+        )
+        self.assertTrue(decision.approved)
+
     def test_rejects_live_environment(self) -> None:
         """The gate must fail closed outside paper trading."""
 

@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/">
   <link rel="canonical" href="https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/">
-  <title>iPulse AI Decision Report — SPY</title>
+  <title>iPulse AI Options Alpha Agent — Evidence Report</title>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"iPulse AI Options Alpha Agent","applicationCategory":"FinanceApplication","operatingSystem":"Web","license":"https://opensource.org/license/mit","description":"Inspectable autonomous options research and Alpaca paper-trading agent."}</script>
   <style>
     :root { color-scheme: dark; --bg:#080b12; --panel:#111722; --line:#263044; --text:#eef3ff; --muted:#9ca9bd; --cyan:#55d6ff; --green:#53e6a2; --amber:#ffc857; --red:#ff6b7d; }
@@ -20,9 +20,10 @@
     .cover { width:100%; height:auto; border:1px solid var(--line); border-radius:18px; margin:0 0 34px; box-shadow:0 18px 70px rgba(0,0,0,.32); }
     .hero,.advisor,.panel { background:rgba(17,23,34,.9); border:1px solid var(--line); border-radius:18px; box-shadow:0 18px 70px rgba(0,0,0,.24); }
     .hero { padding:28px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; } .hero-action { font-size:34px; font-weight:800; }
+    .grid,.proof-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; } .advisor { padding:20px; } .advisor-head { display:flex; justify-content:space-between; gap:12px; align-items:center; }
     .media-grid { display:grid; grid-template-columns:minmax(0,1.6fr) minmax(260px,.7fr); gap:16px; } .media-card { padding:18px; } video { width:100%; display:block; border-radius:12px; border:1px solid var(--line); }
     .button { display:inline-block; color:#04101a; background:var(--cyan); border-radius:10px; padding:10px 14px; text-decoration:none; font-weight:800; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; } .advisor { padding:20px; } .advisor-head { display:flex; justify-content:space-between; gap:12px; align-items:center; }
+    .metric-value { color:var(--cyan); font-size:30px; line-height:1; font-weight:900; margin:.35em 0; }
     .advisor h3 { margin:0; } .pill { border:1px solid var(--line); border-radius:999px; padding:5px 10px; font-size:12px; font-weight:800; } .call,.approve { color:var(--green); } .put,.reject { color:var(--red); } .wait { color:var(--amber); } .abstain { color:var(--muted); }
     .confidence,.muted { color:var(--muted); } details { border-top:1px solid var(--line); padding-top:10px; margin-top:10px; } summary { cursor:pointer; color:var(--cyan); }
     .panel { padding:18px; overflow:auto; } table { width:100%; border-collapse:collapse; min-width:900px; } th,td { text-align:left; padding:11px 12px; border-bottom:1px solid var(--line); vertical-align:top; } th { color:var(--cyan); font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
@@ -33,25 +34,34 @@
 <body><main>
   <img class="cover" src="assets/ipulse-options-alpha-agent-cover.png" alt="iPulse AI Options Alpha Agent architecture cover">
   <p class="eyebrow">Open Agentic Investment Research Platform</p>
-  <h1>SPY decision trace</h1>
-  <section class="hero">
-    <div><p class="muted">Recorded 2026-08-28T06:42:48.341497+00:00</p><div class="hero-action wait">WAIT</div><p>Advisor consensus chose WAIT: At least one independent advisor issued a hard veto.</p></div>
-    <div><strong>Consensus WAIT</strong><br>Confidence 1<br>Operational safety VETO</div>
+  <h1>Options alpha, with receipts.</h1>
+
+  <h2>Execution and validation proof</h2>
+  <section class="proof-grid">
+    <article class="panel metric"><p class="eyebrow">Broker verified</p><p class="metric-value approve">3 FILLS</p><p>AAPL260911C00330000, XLF260911C00059000, AMZN260911C00260000</p><p class="muted">Paper-only long premium · maximum combined premium risk $825.0.</p></article>
+    <article class="panel metric"><p class="eyebrow">Untouched 2024–2026 holdout</p><p class="metric-value">55.9%</p><p>127 independently scored signals · profit factor 1.39.</p><p class="muted">Average signed two-session underlying move 0.218%.</p></article>
+    <article class="panel metric"><p class="eyebrow">Frozen challenger</p><p class="metric-value">REVERSAL V1</p><p>±0.5% daily and ±3.0% five-session exhaustion · volatility ≤ 25.0%.</p><p class="muted">Directional signal proxy, not option P&amp;L. Costs and paper performance are reported separately.</p></article>
   </section>
+
   <h2>Judge overview</h2>
   <section class="media-grid">
     <article class="panel media-card">
       <video controls preload="metadata" poster="assets/ipulse-options-alpha-agent-cover.png">
         <source src="assets/ipulse-options-alpha-agent-49s-pitch.mp4" type="video/mp4">
       </video>
-      <p class="muted">49-second silent visual walkthrough: architecture, risk gates, verified account baseline, and refusal evidence.</p>
+      <p class="muted">Short visual walkthrough of the advisor architecture, deterministic gates, and Alpaca evidence path.</p>
     </article>
     <article class="panel media-card">
       <p class="eyebrow">Seven-slide judge deck</p>
       <h3>Inspect the complete proof path</h3>
       <p>AI proposes. Deterministic risk decides. Alpaca executes only in the paper environment.</p>
-      <p><a class="button" href="assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf" download>Download presentation</a></p>
+      <p><a class="button" href="assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf">Open presentation</a></p>
     </article>
+  </section>
+  <h2>Safety-control replay</h2>
+  <section class="hero">
+    <div><p class="muted">Recorded 2026-08-28T06:42:48.341497+00:00</p><div class="hero-action wait">WAIT</div><p>Advisor consensus chose WAIT: At least one independent advisor issued a hard veto.</p></div>
+    <div><strong>Consensus WAIT</strong><br>Confidence 1<br>Operational safety VETO</div>
   </section>
   <h2>Independent advisors</h2><section class="grid">
             <article class="advisor">
@@ -134,8 +144,8 @@
 
   <h2>Competition paper account</h2>
   <section class="grid">
-    <article class="panel"><h3>Paper P&amp;L</h3><p class="hero-action approve">$0.00</p><p>0.0% return from the required $100,000 starting balance.</p></article>
-    <article class="panel"><h3>Account baseline</h3><p>READY</p><p>Options level 3 · 0 positions · 0 filled orders</p><ul><li class="muted">None recorded</li></ul></article>
+    <article class="panel"><h3>Paper P&amp;L</h3><p class="hero-action reject">$-13.09</p><p>-0.01309% return from the required $100,000 starting balance.</p></article>
+    <article class="panel"><h3>Account baseline</h3><p>READY</p><p>Options level 3 · 3 positions · 3 filled orders</p><p class="muted">No baseline issues recorded.</p></article>
   </section>
 
   <h2>Evidence catalog</h2><section class="panel"><table><thead><tr><th>ID</th><th>Category</th><th>Value</th><th>Source</th><th>As of</th></tr></thead><tbody>

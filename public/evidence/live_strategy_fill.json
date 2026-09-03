@@ -1,0 +1,43 @@
+{
+  "paper_environment": true,
+  "strategy_name": "momentum_regime_v0",
+  "recorded_at_utc": "2026-09-03T19:49:45Z",
+  "filled_orders": 3,
+  "open_positions": 3,
+  "fills": [
+    {
+      "option_symbol": "AAPL260911C00330000",
+      "side": "buy_to_open",
+      "quantity": 1,
+      "order_type": "limit",
+      "limit_price_usd": 4.23,
+      "filled_price_usd": 4.15,
+      "premium_at_risk_usd": 415.0
+    },
+    {
+      "option_symbol": "XLF260911C00059000",
+      "side": "buy_to_open",
+      "quantity": 1,
+      "order_type": "limit",
+      "limit_price_usd": 0.32,
+      "filled_price_usd": 0.30,
+      "premium_at_risk_usd": 30.0
+    },
+    {
+      "option_symbol": "AMZN260911C00260000",
+      "side": "buy_to_open",
+      "quantity": 1,
+      "order_type": "limit",
+      "limit_price_usd": 3.87,
+      "filled_price_usd": 3.80,
+      "premium_at_risk_usd": 380.0
+    }
+  ],
+  "total_premium_paid_usd": 825.0,
+  "maximum_combined_premium_risk_usd": 825.0,
+  "equity_usd": 99986.91,
+  "cumulative_pnl_usd": -13.09,
+  "cumulative_return_pct": -0.01309,
+  "broker_status": "filled",
+  "disclosure": "Simulated Alpaca paper fill; not live trading and not evidence of future returns."
+}

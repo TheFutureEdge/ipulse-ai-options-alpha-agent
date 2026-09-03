@@ -61,31 +61,39 @@ Visual: three stacked gates.
 Speaker note: No advisor or LLM can bypass these rules. Failure produces WAIT or
 REJECT.
 
-## Slide 5 - Verified competition baseline
+## Slide 5 - Verified paper execution
 
-**Headline:** A clean account and an honest starting line
+**Headline:** Three bounded paper fills. No hidden risk.
 
 Visual: sanitized scorecard.
 
 - Starting equity: USD 100,000
-- Account: active Alpaca paper account
-- Options level: 3
-- Initial positions: 0
-- Initial fills: 0
-- Connectivity proof: one canceled USD 1 non-marketable equity limit order
+- Filled orders: 3
+- Contracts: AAPL, XLF, and AMZN calls
+- Maximum combined premium risk: USD 825
+- Current equity at the captured mark: USD 99,986.91
+- Current paper P&L at the captured mark: -USD 13.09
 
 Speaker note: The raw account ID appears only in the private Lablab judging
-field, never in a public artifact.
+field, never in a public artifact. This is a short live paper snapshot, not a
+profitability claim.
 
-## Slide 6 - The refusal test
+## Slide 6 - A frozen historical challenger
 
-**Headline:** Closed market + stale quote = WAIT
+**Headline:** Out-of-sample evidence, with limitations visible
 
-Visual: screenshot of the retained public decision trace showing the market and
-quote vetoes.
+Visual: holdout scorecard for the exhaustion-reversal challenger.
 
-Speaker note: The system did not force a trade for the demo. It preserved the
-evidence and refused execution.
+- Untouched holdout: 2024-2026
+- Signals: 127
+- Win rate: 55.9%
+- Average signed move: +0.218%
+- Profit factor: 1.39
+- Sharpe proxy: 2.01
+
+Speaker note: This is an underlying-direction diagnostic, not option P&L. It
+excludes option spreads, decay, fees, and execution costs. The original v0
+strategy failed its holdout; that negative result remains public.
 
 ## Slide 7 - What judges can inspect
 
@@ -96,7 +104,7 @@ Visual: four linked proof objects with final public URLs.
 - GitHub repository
 - Hosted decision dashboard
 - Alpaca paper performance scorecard
-- Three-minute demo video
+- 49-second pitch video
 
 Footer: Research and simulated paper trading only. Not investment advice.
 

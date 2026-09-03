@@ -885,6 +885,12 @@ def build_report() -> None:
         Path("artifacts/decisions/advisor_market_evidence.jsonl"),
         Path("artifacts/report/latest_decision.html"),
         Path("artifacts/competition/performance.jsonl"),
+        backtest_path=Path(
+            "artifacts/backtests/exhaustion_reversal_v1_scorecard.json"
+        ),
+        live_fill_path=Path(
+            "artifacts/competition/live_strategy_evidence.jsonl"
+        ),
     )
     print(json.dumps({"report_path": str(path)}, indent=2))
 
@@ -897,6 +903,8 @@ def build_public_site() -> None:
         Path("public/index.html"),
         Path("artifacts/competition/performance.jsonl"),
         "assets/ipulse-options-alpha-agent-cover.png",
+        Path("artifacts/backtests/exhaustion_reversal_v1_scorecard.json"),
+        Path("artifacts/competition/live_strategy_evidence.jsonl"),
     )
     print(json.dumps({"public_site_path": str(path)}, indent=2))
 

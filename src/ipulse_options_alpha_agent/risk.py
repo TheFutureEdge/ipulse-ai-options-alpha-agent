@@ -12,7 +12,27 @@ class RiskLimits:
     """Conservative limits for the first hackathon execution phase."""
 
     allowed_underlyings: frozenset[str] = field(
-        default_factory=lambda: frozenset({"SPY", "QQQ", "IWM"})
+        default_factory=lambda: frozenset(
+            {
+                "SPY",
+                "QQQ",
+                "IWM",
+                "DIA",
+                "XLK",
+                "XLF",
+                "XLE",
+                "TLT",
+                "GLD",
+                "SLV",
+                "AAPL",
+                "MSFT",
+                "NVDA",
+                "AMZN",
+                "META",
+                "GOOGL",
+                "AVGO",
+            }
+        )
     )
     max_daily_loss_pct: float = 0.02
     max_loss_per_trade_pct: float = 0.005

@@ -101,13 +101,17 @@ class ReportTests(unittest.TestCase):
                 journal, root / "report.html", performance
             )
             rendered = output.read_text(encoding="utf-8")
-        self.assertIn("SPY decision trace", rendered)
+        self.assertIn("Options alpha, with receipts.", rendered)
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", rendered)
         self.assertNotIn("<script>alert(1)</script>", rendered)
         self.assertNotIn("Do not publish this article excerpt.", rendered)
         self.assertIn("Execution forbidden", rendered)
         self.assertIn("Competition paper account", rendered)
         self.assertIn("$125.50", rendered)
+        self.assertIn("No baseline issues recorded.", rendered)
+        self.assertNotIn(
+            "2 filled orders</p><ul><li class=\"muted\">None recorded", rendered
+        )
         self.assertIn('content="index,follow,max-image-preview:large"', rendered)
 
 
