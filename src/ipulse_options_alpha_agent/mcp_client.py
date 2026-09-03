@@ -28,10 +28,44 @@ class AlpacaMcpClient:
         """Start the MCP process and initialize the protocol session."""
 
         self._stack = AsyncExitStack()
-        parameters = StdioServerParameters(command=self.command, args=self.args)
-        streams = await self._stack.enter_async_context(stdio_client(parameters))
-        self._session = await self._stack.enter_async_context(ClientSession(*streams))
-        await self._session.initialize()
+        inherited_keys = (
+            "PATH",
+            "HOME",
+            "TMPDIR",
+            "LANG",
+            "LC_ALL",
+            "UV_CACHE_DIR",
+            "UV_TOOL_DIR",
+            "XDG_CACHE_HOME",
+            "ALPACA_API_KEY",
+            "ALPACA_SECRET_KEY",
+            "ALPACA_TOOLSETS",
+        )
+        child_environment = {
+            key: value
+            for key in inherited_keys
+            if (value := os.environ.get(key)) is not None
+        }
+        child_environment["ALPACA_PAPER_TRADE"] = "true"
+        parameters = StdioServerParameters(
+            command=self.command,
+            args=self.args,
+            env=child_environment,
+        )
+        try:
+            streams = await self._stack.enter_async_context(stdio_client(parameters))
+            self._session = await self._stack.enter_async_context(
+                ClientSession(*streams)
+            )
+            await self._session.initialize()
+        except BaseException:
+            try:
+                await self._stack.aclose()
+            except BaseException:
+                pass
+            self._session = None
+            self._stack = None
+            raise
         return self
 
     async def __aexit__(self, exc_type: Any, exc: Any, traceback: Any) -> None:

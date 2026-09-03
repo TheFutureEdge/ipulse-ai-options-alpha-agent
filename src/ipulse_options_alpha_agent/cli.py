@@ -11,6 +11,7 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from .agent import AgentDecision, OptionsAlphaAgent
+from .competition import build_competition_snapshot
 from .domain import (
     AssetClass,
     PortfolioSnapshot,
@@ -42,7 +43,9 @@ from .research import (
     ValuationEvidence,
 )
 from .report import build_decision_report
+from .readiness import check_submission_readiness
 from .risk import RiskGate
+from .session import SessionPolicy, run_bounded_session
 from .strategy import StrategySignal
 
 
@@ -261,6 +264,46 @@ async def show_status() -> None:
         print(json.dumps(summary, indent=2, sort_keys=True))
 
 
+async def capture_competition_status() -> None:
+    """Record a sanitized eligibility and P&L snapshot from Alpaca MCP."""
+
+    from .mcp_client import AlpacaMcpClient
+
+    journal = EvidenceJournal(Path("artifacts/competition/performance.jsonl"))
+    async with AlpacaMcpClient() as client:
+        account = await client.call_json("get_account_info", {})
+        positions = await client.call_json_value("get_all_positions", {})
+        orders = await client.call_json(
+            "get_orders", {"status": "all", "limit": 500, "nested": True}
+        )
+        activities = await client.call_json(
+            "get_account_activities",
+            {
+                "after": "2026-08-28",
+                "page_size": 100,
+                "direction": "asc",
+            },
+        )
+        snapshot = build_competition_snapshot(
+            account=account,
+            positions=positions,
+            orders=orders,
+            activities=activities,
+            captured_at_utc=datetime.now(UTC).isoformat(),
+        )
+        journal.append_record("competition_performance", asdict(snapshot))
+        print(
+            json.dumps(
+                {
+                    "competition": asdict(snapshot),
+                    "evidence_path": str(journal.path),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+
+
 async def submit_paper_smoke() -> None:
     """Submit one non-marketable share as a paper connectivity proof."""
 
@@ -416,7 +459,9 @@ async def evaluate_market() -> None:
         )
 
 
-async def evaluate_advisors_market(*, execute: bool = False) -> None:
+async def evaluate_advisors_market(
+    *, execute: bool = False, print_result: bool = True
+) -> dict[str, object]:
     """Run all six advisors and optionally submit one fully gated paper order."""
 
     from .mcp_client import AlpacaMcpClient
@@ -462,8 +507,14 @@ async def evaluate_advisors_market(*, execute: bool = False) -> None:
                 "advisor_market_signal_unavailable",
                 {"underlying": "SPY", "reason": str(exc)},
             )
-            print(json.dumps({"action": "WAIT", "reason": str(exc)}, indent=2))
-            return
+            result: dict[str, object] = {
+                "action": "WAIT",
+                "reason": str(exc),
+                "execution": {"requested": execute, "submitted": False},
+            }
+            if print_result:
+                print(json.dumps(result, indent=2, sort_keys=True))
+            return result
         recent_orders = extract_order_records(recent_orders_payload)
         news_status: dict[str, object] = {"loaded": False, "count": 0}
         try:
@@ -672,23 +723,87 @@ async def evaluate_advisors_market(*, execute: bool = False) -> None:
                     journal.append_record(
                         "broker_order_verification", sanitized_verification
                     )
-        print(
-            json.dumps(
-                {
-                    "opinions": [asdict(item) for item in run.opinions],
-                    "consensus": asdict(run.consensus),
-                    "operational_safety": asdict(run.operational_safety),
-                    "decision": asdict(run.decision),
-                    "external_research_evidence": evidence_status,
-                    "ipulse_fund_evidence": ipulse_fund_status,
-                    "alpaca_news": news_status,
-                    "execution": execution_result,
-                    "evidence_path": str(journal.path),
-                },
-                indent=2,
-                sort_keys=True,
+        result = {
+            "opinions": [asdict(item) for item in run.opinions],
+            "consensus": asdict(run.consensus),
+            "operational_safety": asdict(run.operational_safety),
+            "decision": asdict(run.decision),
+            "external_research_evidence": evidence_status,
+            "ipulse_fund_evidence": ipulse_fund_status,
+            "alpaca_news": news_status,
+            "execution": execution_result,
+            "evidence_path": str(journal.path),
+        }
+        if print_result:
+            print(json.dumps(result, indent=2, sort_keys=True))
+        return result
+
+
+async def run_paper_session(*, max_cycles: int, interval_seconds: int) -> None:
+    """Run a finite autonomous session with execution and evidence gates on."""
+
+    if os.environ.get("IPULSE_ENABLE_PAPER_EXECUTION") != "true":
+        raise RuntimeError("IPULSE_ENABLE_PAPER_EXECUTION must explicitly be true.")
+    if os.environ.get("IPULSE_ALPACA_ENVIRONMENT") != "paper":
+        raise RuntimeError("IPULSE_ALPACA_ENVIRONMENT must explicitly be paper.")
+
+    policy = SessionPolicy(
+        max_cycles=max_cycles,
+        interval_seconds=interval_seconds,
+    )
+    policy.validate()
+    session_id = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    journal = EvidenceJournal(Path("artifacts/competition/session.jsonl"))
+    journal.append_record(
+        "autonomous_session_started",
+        {"session_id": session_id, "policy": asdict(policy)},
+    )
+
+    async def cycle(index: int) -> dict[str, object]:
+        try:
+            result = await evaluate_advisors_market(
+                execute=True, print_result=False
             )
-        )
+        except Exception as exc:
+            journal.append_record(
+                "autonomous_session_failed",
+                {
+                    "session_id": session_id,
+                    "cycle": index,
+                    "error_type": type(exc).__name__,
+                    "reason": str(exc),
+                },
+            )
+            raise
+        decision = result.get("decision")
+        execution = result.get("execution")
+        summary = {
+            "session_id": session_id,
+            "cycle": index,
+            "action": (
+                decision.get("action") if isinstance(decision, dict) else result.get("action")
+            ),
+            "submitted": (
+                bool(execution.get("submitted"))
+                if isinstance(execution, dict)
+                else False
+            ),
+            "evidence_path": result.get("evidence_path"),
+        }
+        journal.append_record("autonomous_session_cycle", summary)
+        print(json.dumps(summary, sort_keys=True), flush=True)
+        return summary
+
+    results = await run_bounded_session(cycle, policy)
+    submitted = sum(bool(item.get("submitted")) for item in results)
+    final = {
+        "session_id": session_id,
+        "cycles_completed": len(results),
+        "orders_submitted": submitted,
+        "evidence_path": str(journal.path),
+    }
+    journal.append_record("autonomous_session_completed", final)
+    print(json.dumps(final, indent=2, sort_keys=True))
 
 
 async def evaluate_advisors_demo(*, use_llm: bool) -> None:
@@ -769,8 +884,28 @@ def build_report() -> None:
     path = build_decision_report(
         Path("artifacts/decisions/advisor_market_evidence.jsonl"),
         Path("artifacts/report/latest_decision.html"),
+        Path("artifacts/competition/performance.jsonl"),
     )
     print(json.dumps({"report_path": str(path)}, indent=2))
+
+
+def build_public_site() -> None:
+    """Publish the latest sanitized evidence into the static site directory."""
+
+    path = build_decision_report(
+        Path("artifacts/decisions/advisor_market_evidence.jsonl"),
+        Path("public/index.html"),
+        Path("artifacts/competition/performance.jsonl"),
+        "assets/ipulse-options-alpha-agent-cover.png",
+    )
+    print(json.dumps({"public_site_path": str(path)}, indent=2))
+
+
+def show_submission_readiness() -> None:
+    """Report final-submission gates without mutating external state."""
+
+    result = check_submission_readiness(Path.cwd())
+    print(json.dumps(result.to_dict(), indent=2, sort_keys=True))
 
 
 def main() -> None:
@@ -781,21 +916,43 @@ def main() -> None:
         "command",
         choices=(
             "status",
+            "competition-status",
             "evaluate-demo",
             "evaluate-advisors-demo",
             "evaluate-ai-demo",
             "evaluate-advisors-market",
             "evaluate-market",
             "build-report",
+            "build-public-site",
+            "submission-readiness",
             "run-paper-once",
+            "run-paper-session",
             "submit-paper-smoke",
         ),
+    )
+    parser.add_argument(
+        "--max-cycles",
+        type=int,
+        default=12,
+        help="Finite cycle count for run-paper-session (1-78).",
+    )
+    parser.add_argument(
+        "--interval-seconds",
+        type=int,
+        default=300,
+        help="Cooldown for run-paper-session (60-1800 seconds).",
     )
     args = parser.parse_args()
     if args.command == "status":
         asyncio.run(show_status())
+    elif args.command == "competition-status":
+        asyncio.run(capture_competition_status())
     elif args.command == "build-report":
         build_report()
+    elif args.command == "build-public-site":
+        build_public_site()
+    elif args.command == "submission-readiness":
+        show_submission_readiness()
     elif args.command == "evaluate-demo":
         evaluate_demo()
     elif args.command == "evaluate-advisors-demo":
@@ -808,6 +965,13 @@ def main() -> None:
         asyncio.run(evaluate_market())
     elif args.command == "run-paper-once":
         asyncio.run(evaluate_advisors_market(execute=True))
+    elif args.command == "run-paper-session":
+        asyncio.run(
+            run_paper_session(
+                max_cycles=args.max_cycles,
+                interval_seconds=args.interval_seconds,
+            )
+        )
     else:
         asyncio.run(submit_paper_smoke())
 

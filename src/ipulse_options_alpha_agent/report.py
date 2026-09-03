@@ -96,6 +96,28 @@ def load_latest_decision_cycle(path: Path) -> DecisionReportData:
     )
 
 
+def load_latest_competition_snapshot(path: Path) -> Mapping[str, Any]:
+    """Load the newest sanitized performance record from a JSONL journal."""
+
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except OSError as exc:
+        raise ReportBuildError(f"Cannot read competition journal: {path}") from exc
+    for line in reversed(lines):
+        try:
+            record = json.loads(line)
+        except json.JSONDecodeError as exc:
+            raise ReportBuildError("Competition journal contains invalid JSON.") from exc
+        if not isinstance(record, dict):
+            continue
+        if record.get("event_type") != "competition_performance":
+            continue
+        payload = record.get("payload")
+        if isinstance(payload, dict):
+            return payload
+    raise ReportBuildError("Competition journal has no performance snapshot.")
+
+
 def _escape(value: object) -> str:
     return html.escape(str(value), quote=True)
 
@@ -104,7 +126,13 @@ def _format_value(value: object, unit: object) -> str:
     if isinstance(value, float):
         rendered = f"{value:,.4f}".rstrip("0").rstrip(".")
     elif isinstance(value, dict):
-        rendered = json.dumps(value, sort_keys=True)
+        public_value = value
+        if "headline" in value:
+            public_value = {
+                "headline": value.get("headline"),
+                "sentiment_score": value.get("sentiment_score"),
+            }
+        rendered = json.dumps(public_value, sort_keys=True)
     else:
         rendered = str(value)
     return _escape(f"{rendered} {unit}".strip() if unit else rendered)
@@ -116,7 +144,11 @@ def _list_items(values: object) -> str:
     return "".join(f"<li>{_escape(value)}</li>" for value in values)
 
 
-def render_decision_report(data: DecisionReportData) -> str:
+def render_decision_report(
+    data: DecisionReportData,
+    competition: Mapping[str, Any] | None = None,
+    cover_image_url: str | None = None,
+) -> str:
     """Render one self-contained HTML report with all external text escaped."""
 
     action = str(data.decision.get("action", "UNKNOWN"))
@@ -155,18 +187,41 @@ def render_decision_report(data: DecisionReportData) -> str:
         """
         for item in data.evidence
     )
+    performance_section = ""
+    if competition is not None:
+        pnl = float(competition.get("cumulative_pnl_usd", 0))
+        pnl_class = "approve" if pnl >= 0 else "reject"
+        issues = competition.get("issues")
+        performance_section = f"""
+  <h2>Competition paper account</h2>
+  <section class="grid">
+    <article class="panel"><h3>Paper P&amp;L</h3><p class="hero-action {pnl_class}">${_escape(f'{pnl:,.2f}')}</p><p>{_escape(competition.get('cumulative_return_pct', 0))}% return from the required $100,000 starting balance.</p></article>
+    <article class="panel"><h3>Account baseline</h3><p>{'READY' if competition.get('baseline_ready') else 'REVIEW REQUIRED'}</p><p>Options level {_escape(competition.get('options_trading_level', 'unknown'))} · {_escape(competition.get('open_positions', 0))} positions · {_escape(competition.get('filled_orders', 0))} filled orders</p><ul>{_list_items(issues)}</ul></article>
+  </section>
+"""
+    cover = (
+        f'<img class="cover" src="{_escape(cover_image_url)}" alt="iPulse AI Options Alpha Agent architecture cover">'
+        if cover_image_url
+        else ""
+    )
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="description" content="Inspectable multi-advisor options research and Alpaca paper-trading decisions from iPulse AI.">
+  <meta property="og:title" content="iPulse AI Options Alpha Agent">
+  <meta property="og:description" content="Every signal, dissent, risk gate, paper order and result is inspectable.">
+  <meta property="og:type" content="website">
   <title>iPulse AI Decision Report — {_escape(data.underlying)}</title>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"SoftwareApplication","name":"iPulse AI Options Alpha Agent","applicationCategory":"FinanceApplication","operatingSystem":"Web","license":"https://opensource.org/license/mit","description":"Inspectable autonomous options research and Alpaca paper-trading agent."}}</script>
   <style>
     :root {{ color-scheme: dark; --bg:#080b12; --panel:#111722; --line:#263044; --text:#eef3ff; --muted:#9ca9bd; --cyan:#55d6ff; --green:#53e6a2; --amber:#ffc857; --red:#ff6b7d; }}
     * {{ box-sizing:border-box; }} body {{ margin:0; background:radial-gradient(circle at 15% 0,#10273a 0,transparent 34%),var(--bg); color:var(--text); font:15px/1.55 Inter,ui-sans-serif,system-ui,sans-serif; }}
     main {{ width:min(1180px,calc(100% - 32px)); margin:0 auto; padding:48px 0 80px; }}
     .eyebrow {{ color:var(--cyan); letter-spacing:.14em; text-transform:uppercase; font-size:12px; }} h1 {{ margin:.2em 0; font-size:clamp(38px,8vw,80px); line-height:.95; }} h2 {{ margin-top:48px; }}
+    .cover {{ width:100%; height:auto; border:1px solid var(--line); border-radius:18px; margin:0 0 34px; box-shadow:0 18px 70px rgba(0,0,0,.32); }}
     .hero,.advisor,.panel {{ background:rgba(17,23,34,.9); border:1px solid var(--line); border-radius:18px; box-shadow:0 18px 70px rgba(0,0,0,.24); }}
     .hero {{ padding:28px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; }} .hero-action {{ font-size:34px; font-weight:800; }}
     .grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }} .advisor {{ padding:20px; }} .advisor-head {{ display:flex; justify-content:space-between; gap:12px; align-items:center; }}
@@ -178,6 +233,7 @@ def render_decision_report(data: DecisionReportData) -> str:
   </style>
 </head>
 <body><main>
+  {cover}
   <p class="eyebrow">Open Agentic Investment Research Platform</p>
   <h1>{_escape(data.underlying)} decision trace</h1>
   <section class="hero">
@@ -190,16 +246,27 @@ def render_decision_report(data: DecisionReportData) -> str:
     <article class="panel"><h3>Consensus</h3><p>{_escape(data.consensus.get('rationale', ''))}</p><h4>Hard vetoes</h4><ul>{_list_items(data.consensus.get('hard_vetoes'))}</ul></article>
     <article class="panel"><h3>Operational safety</h3><p>{'Approved' if safety_approved else 'Execution forbidden'}</p><ul>{_list_items(data.operational_safety.get('reasons'))}</ul></article>
   </section>
+{performance_section}
   <h2>Evidence catalog</h2><section class="panel"><table><thead><tr><th>ID</th><th>Category</th><th>Value</th><th>Source</th><th>As of</th></tr></thead><tbody>{evidence_rows}</tbody></table></section>
   <footer>Research and simulated paper trading only. Not investment advice. Missing or stale evidence results in ABSTAIN or WAIT.</footer>
 </main></body></html>"""
 
 
-def build_decision_report(journal_path: Path, output_path: Path) -> Path:
+def build_decision_report(
+    journal_path: Path,
+    output_path: Path,
+    competition_journal_path: Path | None = None,
+    cover_image_url: str | None = None,
+) -> Path:
     """Build the latest report atomically enough for local demonstration use."""
 
     data = load_latest_decision_cycle(journal_path)
-    rendered = render_decision_report(data)
+    competition = (
+        load_latest_competition_snapshot(competition_journal_path)
+        if competition_journal_path is not None and competition_journal_path.exists()
+        else None
+    )
+    rendered = render_decision_report(data, competition, cover_image_url)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     temporary_path = output_path.with_suffix(output_path.suffix + ".tmp")
     temporary_path.write_text(rendered, encoding="utf-8")

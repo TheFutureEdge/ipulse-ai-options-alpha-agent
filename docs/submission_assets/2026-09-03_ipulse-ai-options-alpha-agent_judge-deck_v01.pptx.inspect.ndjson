@@ -1,0 +1,119 @@
+{"kind":"deck","id":"pr/42muj6","name":"Deck"}
+{"kind":"layout","layoutId":"be57badd-0d41-433e-bc17-70caa620eea0","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"b1ce936d-9653-4e7e-bdc6-f4173fda5a36","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/xq37t2","slide":1,"title":"Slide 1","textShapes":0}
+{"kind":"image","id":"im/2hcv61kf","slide":1,"name":"","alt":"iPulse AI Options Alpha Agent competition cover","bbox":[0,0,1280,720]}
+{"kind":"notes","id":"nt/xq37t2","slide":1,"text":"Most trading-agent demos optimize for activity. We designed for accountability, including the ability to WAIT.\n\n[Sources]\n- https://lablab.ai/ai-hackathons/alpaca-ai-trading-agents-hackathon\n- Local generated cover: public/assets/ipulse-options-alpha-agent-cover.png"}
+{"kind":"slide","id":"sl/rjq3zq","slide":2,"title":"IPULSE AI OPTIONS ALPHA AGENT","textShapes":9}
+{"kind":"textbox","id":"sh/tkbqpg72","slide":2,"name":"eyebrow-2","text":"IPULSE AI OPTIONS ALPHA AGENT","textPreview":"IPULSE AI OPTIONS ALPHA AGENT","textChars":29,"textLines":1,"bbox":[56,38,600,26]}
+{"kind":"textbox","id":"sh/6hkru18b","slide":2,"name":"title-2","text":"A trade is not proof of intelligence","textPreview":"A trade is not proof of intelligence","textChars":36,"textLines":1,"bbox":[56,82,1168,78]}
+{"kind":"shape","id":"sh/7it8n6pw","slide":2,"name":"box","bbox":[56,174,1168,2]}
+{"kind":"textbox","id":"sh/kf29srq5","slide":2,"name":"page-2","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1170,672,54,22]}
+{"kind":"textbox","id":"sh/lgbqlw7q","slide":2,"name":"text","text":"BLACK BOX","textPreview":"BLACK BOX","textChars":9,"textLines":1,"bbox":[70,228,250,34]}
+{"kind":"textbox","id":"sh/ydkrq18f","slide":2,"name":"text","text":"Signal\nOrder\nOutcome","textPreview":"Signal | Order | Outcome","textChars":20,"textLines":3,"bbox":[70,285,360,190]}
+{"kind":"textbox","id":"sh/jet8j6p0","slide":2,"name":"text","text":"No visible evidence.\nNo preserved dissent.\nNo reason for refusal.","textPreview":"No visible evidence. | No preserved dissent. | No reason for refusal.","textChars":65,"textLines":3,"bbox":[70,510,420,110]}
+{"kind":"shape","id":"sh/4bm94vqp","slide":2,"name":"box","bbox":[548,212,4,400]}
+{"kind":"textbox","id":"sh/5cfax07a","slide":2,"name":"text","text":"INSPECTABLE AGENT","textPreview":"INSPECTABLE AGENT","textChars":17,"textLines":1,"bbox":[610,228,300,34]}
+{"kind":"textbox","id":"sh/pkned0nm","slide":2,"name":"text","text":"Evidence\nDisagreement\nRisk decision\nBroker receipt","textPreview":"Evidence | Disagreement | Risk decision | Broker receipt","textChars":50,"textLines":4,"bbox":[610,285,520,230]}
+{"kind":"shape","id":"sh/ojud4v61","slide":2,"name":"box","bbox":[610,548,540,58]}
+{"kind":"textbox","id":"sh/nilwbq5w","slide":2,"name":"text","text":"WAIT and REJECT are evidence, too.","textPreview":"WAIT and REJECT are evidence, too.","textChars":34,"textLines":1,"bbox":[632,561,495,34]}
+{"kind":"notes","id":"nt/rjq3zq","slide":2,"text":"If judges cannot reconstruct the evidence, dissent, vetoes, and broker result, autonomy is indistinguishable from unattended execution.\n\n[Sources]\n- Local source: docs/judge_one_pager.md"}
+{"kind":"slide","id":"sl/qa1yug","slide":3,"title":"IPULSE AI OPTIONS ALPHA AGENT","textShapes":19}
+{"kind":"textbox","id":"sh/ulo7i1kn","slide":3,"name":"eyebrow-3","text":"IPULSE AI OPTIONS ALPHA AGENT","textPreview":"IPULSE AI OPTIONS ALPHA AGENT","textChars":29,"textLines":1,"bbox":[56,38,600,26]}
+{"kind":"textbox","id":"sh/hof6tgjy","slide":3,"name":"title-3","text":"Never let one AI own the conclusion","textPreview":"Never let one AI own the conclusion","textChars":35,"textLines":1,"bbox":[56,82,1168,78]}
+{"kind":"shape","id":"sh/gn6pkb2d","slide":3,"name":"box","bbox":[56,174,1168,2]}
+{"kind":"textbox","id":"sh/7ixonm1w","slide":3,"name":"page-3","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1170,672,54,22]}
+{"kind":"textbox","id":"sh/6h47ehkb","slide":3,"name":"text","text":"PROBABILISTIC RESEARCH","textPreview":"PROBABILISTIC RESEARCH","textChars":22,"textLines":1,"bbox":[62,205,420,32]}
+{"kind":"textbox","id":"sh/tkf6pwj2","slide":3,"name":"text","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[64,265,40,32]}
+{"kind":"textbox","id":"sh/sj6pgr2h","slide":3,"name":"text","text":"Technical regime","textPreview":"Technical regime","textChars":16,"textLines":1,"bbox":[112,261,360,42]}
+{"kind":"shape","id":"sh/jedojm10","slide":3,"name":"box","bbox":[64,311,408,2]}
+{"kind":"textbox","id":"sh/it4nahkf","slide":3,"name":"text","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[64,347,40,32]}
+{"kind":"textbox","id":"sh/c3ytkny5","slide":3,"name":"text","text":"News catalyst","textPreview":"News catalyst","textChars":13,"textLines":1,"bbox":[112,343,360,42]}
+{"kind":"shape","id":"sh/x47utszq","slide":3,"name":"box","bbox":[64,393,408,2]}
+{"kind":"textbox","id":"sh/q1wbixgz","slide":3,"name":"text","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[64,429,40,32]}
+{"kind":"textbox","id":"sh/b2psrihk","slide":3,"name":"text","text":"Options liquidity","textPreview":"Options liquidity","textChars":17,"textLines":1,"bbox":[112,425,360,42]}
+{"kind":"shape","id":"sh/ofetgnyt","slide":3,"name":"box","bbox":[64,475,408,2]}
+{"kind":"textbox","id":"sh/pgnapsze","slide":3,"name":"text","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[520,265,40,32]}
+{"kind":"textbox","id":"sh/2dwbed03","slide":3,"name":"text","text":"Financials auditor","textPreview":"Financials auditor","textChars":18,"textLines":1,"bbox":[568,261,380,42]}
+{"kind":"shape","id":"sh/3e5sniho","slide":3,"name":"box","bbox":[520,311,428,2]}
+{"kind":"textbox","id":"sh/8bits7yd","slide":3,"name":"text","text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[520,347,40,32]}
+{"kind":"textbox","id":"sh/9cru1czy","slide":3,"name":"text","text":"Value framework","textPreview":"Value framework","textChars":15,"textLines":1,"bbox":[568,343,380,42]}
+{"kind":"shape","id":"sh/hsnalcr2","slide":3,"name":"box","bbox":[520,393,428,2]}
+{"kind":"textbox","id":"sh/gretc7qh","slide":3,"name":"text","text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[520,429,40,32]}
+{"kind":"textbox","id":"sh/vq5sj29w","slide":3,"name":"text","text":"Risk critic","textPreview":"Risk critic","textChars":11,"textLines":1,"bbox":[568,425,380,42]}
+{"kind":"shape","id":"sh/upwbax8b","slide":3,"name":"box","bbox":[520,475,428,2]}
+{"kind":"shape","id":"sh/tonahcrq","slide":3,"name":"box","bbox":[994,236,230,106]}
+{"kind":"textbox","id":"sh/8nut87q5","slide":3,"name":"text","text":"Consensus\nproposes","textPreview":"Consensus | proposes","textChars":18,"textLines":2,"bbox":[1018,262,182,62]}
+{"kind":"shape","id":"sh/7mlsf290","slide":3,"name":"box","bbox":[994,374,230,145]}
+{"kind":"textbox","id":"sh/61cb6x8f","slide":3,"name":"text","text":"Deterministic\nsafety\ndecides","textPreview":"Deterministic | safety | decides","textChars":28,"textLines":3,"bbox":[1018,398,182,95]}
+{"kind":"textbox","id":"sh/l03adsru","slide":3,"name":"text","text":"Every advisor cites evidence, contrary evidence, confidence, and an invalidation condition.","textPreview":"Every advisor cites evidence, contrary evidence, confidence, and an invalidation condition.","textChars":91,"textLines":1,"bbox":[64,580,920,46]}
+{"kind":"notes","id":"nt/qa1yug","slide":3,"text":"Advisors may CALL, PUT, WAIT, or ABSTAIN. Missing evidence never becomes a guess, and no advisor owns execution authority.\n\n[Sources]\n- Local source: src/ipulse_options_alpha_agent/advisors.py\n- Local source: src/ipulse_options_alpha_agent/consensus.py"}
+{"kind":"slide","id":"sl/gdz7dp","slide":4,"title":"IPULSE AI OPTIONS ALPHA AGENT","textShapes":12}
+{"kind":"textbox","id":"sh/qpk3axsv","slide":4,"name":"eyebrow-4","text":"IPULSE AI OPTIONS ALPHA AGENT","textPreview":"IPULSE AI OPTIONS ALPHA AGENT","textChars":29,"textLines":1,"bbox":[56,38,600,26]}
+{"kind":"textbox","id":"sh/dsbm5sr6","slide":4,"name":"title-4","text":"Reasoning may evolve. Capital boundaries stay explicit.","textPreview":"Reasoning may evolve. Capital boundaries stay explicit.","textChars":55,"textLines":1,"bbox":[56,82,1168,78]}
+{"kind":"shape","id":"sh/cr2lcnal","slide":4,"name":"box","bbox":[56,174,1168,2]}
+{"kind":"textbox","id":"sh/zut4729c","slide":4,"name":"page-4","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1170,672,54,22]}
+{"kind":"shape","id":"sh/etk3exsr","slide":4,"name":"box","bbox":[62,220,1156,100]}
+{"kind":"textbox","id":"sh/1wvm9cri","slide":4,"name":"text","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[88,249,56,36]}
+{"kind":"textbox","id":"sh/0v2lg7ax","slide":4,"name":"text","text":"Environment","textPreview":"Environment","textChars":11,"textLines":1,"bbox":[168,243,300,45]}
+{"kind":"textbox","id":"sh/fy9kvit8","slide":4,"name":"text","text":"Paper account only · two explicit execution switches","textPreview":"Paper account only · two explicit execution switches","textChars":52,"textLines":1,"bbox":[500,245,672,52]}
+{"kind":"shape","id":"sh/ux032dsn","slide":4,"name":"box","bbox":[62,352,1156,100]}
+{"kind":"textbox","id":"sh/0ryx8je5","slide":4,"name":"text","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[88,381,56,36]}
+{"kind":"textbox","id":"sh/1s7y1ovq","slide":4,"name":"text","text":"Market state","textPreview":"Market state","textChars":12,"textLines":1,"bbox":[168,375,300,45]}
+{"kind":"textbox","id":"sh/epwf69wf","slide":4,"name":"text","text":"Open session · fresh quote · complete broker state · no duplicate","textPreview":"Open session · fresh quote · complete broker state · no duplicate","textChars":65,"textLines":1,"bbox":[500,377,672,52]}
+{"kind":"shape","id":"sh/zqpgzed0","slide":4,"name":"box","bbox":[62,484,1156,100]}
+{"kind":"textbox","id":"sh/ofyxc3eh","slide":4,"name":"text","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[88,513,56,36]}
+{"kind":"textbox","id":"sh/9g7y58v2","slide":4,"name":"text","text":"Order and portfolio","textPreview":"Order and portfolio","textChars":19,"textLines":1,"bbox":[168,507,300,45]}
+{"kind":"textbox","id":"sh/mdgfatwb","slide":4,"name":"text","text":"One contract · limit only · long premium · max loss $500 · circuit breakers","textPreview":"One contract · limit only · long premium · max loss $500 · circuit breakers","textChars":75,"textLines":1,"bbox":[500,509,672,52]}
+{"kind":"notes","id":"nt/gdz7dp","slide":4,"text":"No advisor or language model can bypass these rules. A failed check returns WAIT or REJECT; it never changes order type, size, or environment.\n\n[Sources]\n- Local source: src/ipulse_options_alpha_agent/safety.py\n- Local source: src/ipulse_options_alpha_agent/risk.py\n- Local source: src/ipulse_options_alpha_agent/execution.py"}
+{"kind":"slide","id":"sl/ju0eq9","slide":5,"title":"IPULSE AI OPTIONS ALPHA AGENT","textShapes":11}
+{"kind":"textbox","id":"sh/i94fi9of","slide":5,"name":"eyebrow-5","text":"IPULSE AI OPTIONS ALPHA AGENT","textPreview":"IPULSE AI OPTIONS ALPHA AGENT","textChars":29,"textLines":1,"bbox":[56,38,600,26]}
+{"kind":"textbox","id":"sh/5cfedonq","slide":5,"name":"title-5","text":"A clean account and an honest starting line","textPreview":"A clean account and an honest starting line","textChars":43,"textLines":1,"bbox":[56,82,1168,78]}
+{"kind":"shape","id":"sh/4b6x4j6l","slide":5,"name":"box","bbox":[56,174,1168,2]}
+{"kind":"textbox","id":"sh/rexwfe5w","slide":5,"name":"page-5","text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1170,672,54,22]}
+{"kind":"textbox","id":"sh/6dof69ob","slide":5,"name":"text","text":"Dedicated Alpaca paper account created for the competition. Raw identifiers never enter public artifacts.","textPreview":"Dedicated Alpaca paper account created for the competition. Raw identifiers never enter public artifacts.","textChars":105,"textLines":1,"bbox":[62,205,1080,62]}
+{"kind":"shape","id":"sh/tgfehon2","slide":5,"name":"box","bbox":[62,320,360,240]}
+{"kind":"textbox","id":"sh/sf6x8j6h","slide":5,"name":"text","text":"$100K","textPreview":"$100K","textChars":5,"textLines":1,"bbox":[92,366,300,86]}
+{"kind":"textbox","id":"sh/nidw3u5s","slide":5,"name":"text","text":"starting equity","textPreview":"starting equity","textChars":15,"textLines":1,"bbox":[92,478,300,42]}
+{"kind":"shape","id":"sh/mhkvapo7","slide":5,"name":"box","bbox":[459,320,360,240]}
+{"kind":"textbox","id":"sh/0f2xw76d","slide":5,"name":"text","text":"LEVEL 3","textPreview":"LEVEL 3","textChars":7,"textLines":1,"bbox":[489,366,300,86]}
+{"kind":"textbox","id":"sh/1gby5c7y","slide":5,"name":"text","text":"options approval","textPreview":"options approval","textChars":16,"textLines":1,"bbox":[489,478,300,42]}
+{"kind":"shape","id":"sh/edkfuho7","slide":5,"name":"box","bbox":[856,320,360,240]}
+{"kind":"textbox","id":"sh/fetg32ps","slide":5,"name":"text","text":"0","textPreview":"0","textChars":1,"textLines":1,"bbox":[886,366,300,86]}
+{"kind":"textbox","id":"sh/ojmx0r69","slide":5,"name":"text","text":"initial fills","textPreview":"initial fills","textChars":13,"textLines":1,"bbox":[886,478,300,42]}
+{"kind":"textbox","id":"sh/p4vy9w7u","slide":5,"name":"text","text":"Connectivity proof: one deliberately non-marketable $1 equity limit order, canceled without a fill.","textPreview":"Connectivity proof: one deliberately non-marketable $1 equity limit order, canceled without a fill.","textChars":99,"textLines":1,"bbox":[62,604,1080,38]}
+{"kind":"notes","id":"nt/ju0eq9","slide":5,"text":"The dedicated account began with $100,000, active status, options level 3, and no positions or fills. The raw account ID belongs only in the private judging field.\n\n[Sources]\n- Local sanitized source: artifacts/competition/performance.jsonl\n- https://docs.alpaca.markets/docs/paper-trading"}
+{"kind":"slide","id":"sl/mqk30e","slide":6,"title":"IPULSE AI OPTIONS ALPHA AGENT","textShapes":10}
+{"kind":"textbox","id":"sh/vetkrmhs","slide":6,"name":"eyebrow-6","text":"IPULSE AI OPTIONS ALPHA AGENT","textPreview":"IPULSE AI OPTIONS ALPHA AGENT","textChars":29,"textLines":1,"bbox":[56,38,600,26]}
+{"kind":"textbox","id":"sh/wf2lkryd","slide":6,"name":"title-6","text":"The agent passed its refusal test","textPreview":"The agent passed its refusal test","textChars":33,"textLines":1,"bbox":[56,82,1168,78]}
+{"kind":"shape","id":"sh/hgbmtwzy","slide":6,"name":"box","bbox":[56,174,1168,2]}
+{"kind":"textbox","id":"sh/ihk3m1gj","slide":6,"name":"page-6","text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1170,672,54,22]}
+{"kind":"textbox","id":"sh/32t4v6h4","slide":6,"name":"text","text":"WAIT","textPreview":"WAIT","textChars":4,"textLines":1,"bbox":[70,224,460,150]}
+{"kind":"textbox","id":"sh/432loryp","slide":6,"name":"text","text":"A real retained run reached aligned technical and options views—then stopped.","textPreview":"A real retained run reached aligned technical and options views—then stopped.","textChars":77,"textLines":1,"bbox":[74,395,470,110]}
+{"kind":"shape","id":"sh/54bmxwza","slide":6,"name":"box","bbox":[624,230,540,118]}
+{"kind":"textbox","id":"sh/ylg3ax0f","slide":6,"name":"text","text":"MARKET CLOSED","textPreview":"MARKET CLOSED","textChars":13,"textLines":1,"bbox":[654,254,470,36]}
+{"kind":"textbox","id":"sh/zm9kj2h0","slide":6,"name":"text","text":"Regular US session was not open.","textPreview":"Regular US session was not open.","textChars":32,"textLines":1,"bbox":[654,302,470,28]}
+{"kind":"shape","id":"sh/z2xw36ps","slide":6,"name":"box","bbox":[624,376,540,118]}
+{"kind":"textbox","id":"sh/y1ovalo7","slide":6,"name":"text","text":"QUOTE STALE","textPreview":"QUOTE STALE","textChars":11,"textLines":1,"bbox":[654,400,470,36]}
+{"kind":"textbox","id":"sh/l4ze5g7i","slide":6,"name":"text","text":"The option quote exceeded the 120-second limit.","textPreview":"The option quote exceeded the 120-second limit.","textChars":47,"textLines":1,"bbox":[654,448,470,28]}
+{"kind":"shape","id":"sh/036xcb6d","slide":6,"name":"box","bbox":[624,526,540,62]}
+{"kind":"textbox","id":"sh/byxwz6pg","slide":6,"name":"text","text":"No fallback. No forced demo trade.","textPreview":"No fallback. No forced demo trade.","textChars":34,"textLines":1,"bbox":[654,542,470,32]}
+{"kind":"notes","id":"nt/mqk30e","slide":6,"text":"This was the desired result. The system preserved all advisor views and vetoes instead of forcing activity for a demo.\n\n[Sources]\n- Local source: artifacts/decisions/advisor_market_evidence.jsonl\n- Local source: public/index.html"}
+{"kind":"slide","id":"sl/qvvo7d","slide":7,"title":"THE PROOF PATH","textShapes":13}
+{"kind":"textbox","id":"sh/r65w7et8","slide":7,"name":"text","text":"THE PROOF PATH","textPreview":"THE PROOF PATH","textChars":14,"textLines":1,"bbox":[58,42,400,28]}
+{"kind":"textbox","id":"sh/s7yx0jut","slide":7,"name":"text","text":"From evidence to paper P&L, every step stays reviewable","textPreview":"From evidence to paper P&L, every step stays reviewable","textChars":55,"textLines":1,"bbox":[58,92,1110,126]}
+{"kind":"shape","id":"sh/t87e9oby","slide":7,"name":"box","bbox":[58,300,330,2]}
+{"kind":"textbox","id":"sh/e9gf29cj","slide":7,"name":"text","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[58,326,58,34]}
+{"kind":"textbox","id":"sh/fapwbet4","slide":7,"name":"text","text":"Public code","textPreview":"Public code","textChars":11,"textLines":1,"bbox":[58,375,330,48]}
+{"kind":"textbox","id":"sh/gvyx4jup","slide":7,"name":"text","text":"Tests, strategy, MCP adapter, and risk gates","textPreview":"Tests, strategy, MCP adapter, and risk gates","textChars":44,"textLines":1,"bbox":[58,444,330,94]}
+{"kind":"shape","id":"sh/1w7edoba","slide":7,"name":"box","bbox":[458,300,330,2]}
+{"kind":"textbox","id":"sh/udcvqpcf","slide":7,"name":"text","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[458,326,58,34]}
+{"kind":"textbox","id":"sh/velwzut0","slide":7,"name":"text","text":"Decision dashboard","textPreview":"Decision dashboard","textChars":18,"textLines":1,"bbox":[458,375,330,48]}
+{"kind":"textbox","id":"sh/7ihgn694","slide":7,"name":"text","text":"Advisor dissent, vetoes, orders, and scorecard","textPreview":"Advisor dissent, vetoes, orders, and scorecard","textChars":46,"textLines":1,"bbox":[458,444,330,94]}
+{"kind":"shape","id":"sh/mhofe1sj","slide":7,"name":"box","bbox":[858,300,330,2]}
+{"kind":"textbox","id":"sh/9kzypgra","slide":7,"name":"text","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[858,326,58,34]}
+{"kind":"textbox","id":"sh/8jqxgbap","slide":7,"name":"text","text":"Competition evidence","textPreview":"Competition evidence","textChars":20,"textLines":1,"bbox":[858,375,330,48]}
+{"kind":"textbox","id":"sh/zuxgjm98","slide":7,"name":"text","text":"Dedicated account baseline and paper performance","textPreview":"Dedicated account baseline and paper performance","textChars":48,"textLines":1,"bbox":[858,444,330,94]}
+{"kind":"textbox","id":"sh/ytofa1sn","slide":7,"name":"text","text":"AI proposes. Deterministic risk decides. Alpaca executes.","textPreview":"AI proposes. Deterministic risk decides. Alpaca executes.","textChars":57,"textLines":1,"bbox":[58,588,1020,50]}
+{"kind":"textbox","id":"sh/lgfylwry","slide":7,"name":"text","text":"Research and simulated paper trading only. Not investment advice.","textPreview":"Research and simulated paper trading only. Not investment advice.","textChars":65,"textLines":1,"bbox":[58,658,900,24]}
+{"kind":"notes","id":"nt/qvvo7d","slide":7,"text":"Close on the inspection path: code, dashboard, evidence, and final paper scorecard. Short paper performance does not predict live returns.\n\n[Sources]\n- https://github.com/alpacahq/alpaca-mcp-server\n- Local source: docs/judge_one_pager.md"}

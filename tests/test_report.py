@@ -22,7 +22,10 @@ class ReportTests(unittest.TestCase):
                         {
                             "evidence_id": "news:1",
                             "category": "news",
-                            "value": {"headline": "<script>alert(1)</script>"},
+                            "value": {
+                                "headline": "<script>alert(1)</script>",
+                                "summary": "Do not publish this article excerpt.",
+                            },
                             "source": "test",
                             "unit": None,
                             "as_of_utc": "2026-08-28T13:00:00Z",
@@ -75,12 +78,37 @@ class ReportTests(unittest.TestCase):
                 "\n".join(json.dumps(record) for record in records) + "\n",
                 encoding="utf-8",
             )
-            output = build_decision_report(journal, root / "report.html")
+            performance = root / "performance.jsonl"
+            performance.write_text(
+                json.dumps(
+                    {
+                        "event_type": "competition_performance",
+                        "payload": {
+                            "cumulative_pnl_usd": 125.5,
+                            "cumulative_return_pct": 0.1255,
+                            "baseline_ready": True,
+                            "options_trading_level": 3,
+                            "open_positions": 1,
+                            "filled_orders": 2,
+                            "issues": [],
+                        },
+                    }
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            output = build_decision_report(
+                journal, root / "report.html", performance
+            )
             rendered = output.read_text(encoding="utf-8")
         self.assertIn("SPY decision trace", rendered)
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", rendered)
         self.assertNotIn("<script>alert(1)</script>", rendered)
+        self.assertNotIn("Do not publish this article excerpt.", rendered)
         self.assertIn("Execution forbidden", rendered)
+        self.assertIn("Competition paper account", rendered)
+        self.assertIn("$125.50", rendered)
+        self.assertIn('content="index,follow,max-image-preview:large"', rendered)
 
 
 if __name__ == "__main__":

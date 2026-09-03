@@ -63,6 +63,14 @@ narrow options chain:
 PYTHONPATH=src python -m ipulse_options_alpha_agent evaluate-advisors-market
 ```
 
+Capture a sanitized competition baseline and current paper P&L. Raw Alpaca
+account identifiers are fingerprinted and never written to the public artifact:
+
+```bash
+PYTHONPATH=src python -m ipulse_options_alpha_agent competition-status
+PYTHONPATH=src python -m ipulse_options_alpha_agent build-report
+```
+
 Set `IPULSE_RESEARCH_EVIDENCE_FILE` to a fresh JSON document conforming to
 [`docs/research_evidence.schema.json`](docs/research_evidence.schema.json) to
 activate news, forensic-financial, and value analysis in that real-market run.
@@ -120,6 +128,18 @@ order, fewer than three recent fills, no recent order for the same contract, a
 15-minute cooldown, aligned advisor consensus, and every portfolio risk gate.
 Use `submit-paper-smoke` only for the separate USD 1 connectivity proof.
 
+Run a finite autonomous paper session only after the same two execution switches
+are set. The runner is bounded to 1–78 cycles, enforces a 60–1,800 second
+cooldown, records every cycle, stops on unexpected failure, and cannot bypass
+the strategy's deterministic gates:
+
+```bash
+IPULSE_ENABLE_PAPER_EXECUTION=true \
+IPULSE_ALPACA_ENVIRONMENT=paper \
+PYTHONPATH=src python -m ipulse_options_alpha_agent run-paper-session \
+  --max-cycles 12 --interval-seconds 300
+```
+
 ## Hackathon submission targets
 
 - Public MIT-licensed GitHub repository
@@ -127,7 +147,34 @@ Use `submit-paper-smoke` only for the separate USD 1 connectivity proof.
 - Alpaca paper account evidence
 - Autonomous options strategy using Alpaca MCP
 - One-page AI logic, risk-gate, and Alpaca infrastructure write-up
-- Demo video and presentation
+- Demo video and judge presentation
+
+Public proof package:
+
+- [Source repository](https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent)
+- [Inspectable decision dashboard](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/)
+- [49-second visual walkthrough](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4)
+- [Judge presentation](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx)
+
+The local judge deck is
+[`docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx`](docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx).
+
+The dated execution and submission sequence is maintained in
+[`docs/submission_runbook.md`](docs/submission_runbook.md).
+
+Audit the complete local package and the four required public URLs before the
+final Lablab form is submitted:
+
+```bash
+IPULSE_PUBLIC_REPOSITORY_URL=https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent \
+IPULSE_PUBLIC_DEMO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/ \
+IPULSE_DEMO_VIDEO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4 \
+IPULSE_SLIDES_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx \
+PYTHONPATH=src python -m ipulse_options_alpha_agent submission-readiness
+```
+
+The check fails until every required local artifact, the sanitized competition
+baseline, the public-artifact safety scan, and all four public HTTPS URLs pass.
 
 This software is for research and simulated paper trading only. It is not
 investment advice.

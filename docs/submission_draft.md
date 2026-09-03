@@ -17,7 +17,7 @@ liquid option, records a structured thesis, and passes the proposal through a
 deterministic risk authority. Probabilistic advisors may recommend; they cannot
 bypass the execution limits.
 
-The initial development build is operational. It connects to Alpaca's official
+The competition build is operational. It connects to Alpaca's official
 MCP server, reads a paper portfolio, normalizes SPY daily bars and quotes,
 queries a narrow option chain, selects a near-0.50-delta contract within a USD
 500 maximum-loss budget, and records the complete decision. A separate USD 1
@@ -81,8 +81,10 @@ cash allocation.
 
 ## Evidence already available
 
-- Forty-four passing unit tests
+- Fifty passing unit tests
 - Paper account MCP connectivity and options-data access
+- Dedicated competition account created on 28 August 2026 with a verified
+  USD 100,000 baseline, active status, options level 3, and zero initial fills
 - Paper trading tools enabled only after read-only validation
 - One accepted, broker-verified, and canceled non-marketable paper smoke order
 - One real-data SPY call proposal approved but intentionally not executed while
@@ -93,12 +95,16 @@ cash allocation.
 - Live Alpaca news normalization and one production iPulse SPY fund snapshot in
   the advisor evidence catalog
 - Self-contained static HTML report for the latest complete decision cycle
+- Finite autonomous runner with bounded cycle count, cooldown, failure stop, and
+  no path around the normal execution gates
+- Sanitized competition performance journal with no raw account identifiers
 
 ## Required links before final submission
 
-- Public repository: pending owner-approved publication
-- Hosted demo: pending
-- Demo video: pending
+- Public repository: https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent
+- Hosted demo: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/
+- Demo video: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4
+- Judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx
 - Team page: iPulse AI Open Lab
 
 ## Disclosure
