@@ -104,7 +104,7 @@ cash allocation.
 - Public repository: https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent
 - Hosted demo: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/
 - Demo video: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4
-- Judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx
+- Judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf
 - Team page: iPulse AI Open Lab
 
 ## Disclosure

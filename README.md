@@ -154,7 +154,7 @@ Public proof package:
 - [Source repository](https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent)
 - [Inspectable decision dashboard](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/)
 - [49-second visual walkthrough](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4)
-- [Judge presentation](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx)
+- [Judge presentation](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf)
 
 The local judge deck is
 [`docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx`](docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx).
@@ -169,7 +169,7 @@ final Lablab form is submitted:
 IPULSE_PUBLIC_REPOSITORY_URL=https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent \
 IPULSE_PUBLIC_DEMO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/ \
 IPULSE_DEMO_VIDEO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4 \
-IPULSE_SLIDES_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx \
+IPULSE_SLIDES_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf \
 PYTHONPATH=src python -m ipulse_options_alpha_agent submission-readiness
 ```
 

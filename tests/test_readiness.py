@@ -20,10 +20,14 @@ class SubmissionReadinessTests(unittest.TestCase):
             "public/assets/ipulse-options-alpha-agent-49s-pitch.mp4",
             "public/assets/"
             "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx",
+            "public/assets/"
+            "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf",
             "docs/judge_one_pager.md",
             "docs/presentation_outline.md",
             "docs/submission_assets/"
             "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx",
+            "output/pdf/"
+            "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf",
             "docs/demo_script.md",
             "docs/submission_draft.md",
         ):

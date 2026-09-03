@@ -127,12 +127,22 @@ def check_submission_readiness(root: Path) -> SubmissionReadiness:
             "public/assets/"
             "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx",
         ),
+        _file_check(
+            root,
+            "public/assets/"
+            "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf",
+        ),
         _file_check(root, "docs/judge_one_pager.md"),
         _file_check(root, "docs/presentation_outline.md"),
         _file_check(
             root,
             "docs/submission_assets/"
             "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pptx",
+        ),
+        _file_check(
+            root,
+            "output/pdf/"
+            "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v01.pdf",
         ),
         _file_check(root, "docs/demo_script.md"),
         _file_check(root, "docs/submission_draft.md"),
