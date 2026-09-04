@@ -9,10 +9,11 @@ result inspectable.
 ## 0:25-0:50 - Real Alpaca evidence
 
 Show the competition panel: dedicated paper account, USD 100,000 starting
-equity, three filled long-premium option orders, and no exposed account ID. Then run
-`evaluate-advisors-market`. Point out that the agent reads real SPY bars,
-quotes, portfolio and recent-order state, a narrow options chain, and hashed
-external research evidence.
+equity, three filled long-premium option orders, and no exposed account ID. Then
+run `evaluate-advisors-market`. Point out that the agent scans real SPY/QQQ/IWM
+bars, selects the strongest qualifying frozen-reversal signal, and only then
+reads quotes, portfolio and recent-order state, a narrow options chain, and
+hashed external research evidence.
 
 ## 0:50-1:25 - Independent research
 
@@ -30,10 +31,12 @@ oversized test and show REJECT.
 
 ## 1:58-2:30 - Paper execution
 
-Show the three retained paper receipts: AAPL, XLF, and AMZN calls, one contract
-each, all limit orders. Reconcile the USD 825 combined premium paid with the
-same USD 825 maximum defined premium risk. Explain that the three-entry daily
-cap is now binding, so the agent cannot keep trading for a prettier demo.
+Show the three retained exploratory v0 paper receipts: AAPL, XLF, and AMZN
+calls, one contract each, all limit orders. Reconcile the USD 825 combined
+premium paid with the same USD 825 maximum defined premium risk. State clearly
+that these prove the bounded broker path, not v1 returns. Explain that the
+three-entry daily cap was binding for that New York trading date, so the agent
+could not keep trading for a prettier demo.
 
 ## 2:30-3:00 - Inspectability and scorecard
 

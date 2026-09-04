@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import math
 import statistics
 from dataclasses import dataclass
@@ -190,10 +191,59 @@ class AlpacaMarketAdapter:
 
         self.client = client
 
-    async def build_evaluation(self, underlying: str = "SPY") -> MarketEvaluation:
+    async def build_evaluation(
+        self, underlying: str = "SPY", *, reversal: bool = False
+    ) -> MarketEvaluation:
         """Fetch and preserve a normalized signal, contract, and source timing."""
 
         symbol = underlying.upper()
+        fast_return, slow_return, realized_volatility = await self._fetch_regime(
+            symbol
+        )
+        return await self._build_contract_evaluation(
+            symbol,
+            fast_return=fast_return,
+            slow_return=slow_return,
+            realized_volatility=realized_volatility,
+            reversal=reversal,
+        )
+
+    async def build_reversal_evaluation(
+        self, underlyings: tuple[str, ...] = ("SPY", "QQQ", "IWM")
+    ) -> MarketEvaluation:
+        """Select the strongest qualifying frozen reversal before option lookup."""
+
+        normalized = tuple(symbol.upper() for symbol in underlyings)
+        regimes = await asyncio.gather(
+            *(self._fetch_regime(symbol) for symbol in normalized)
+        )
+        qualified = [
+            (symbol, *regime)
+            for symbol, regime in zip(normalized, regimes, strict=True)
+            if regime[2] <= 25
+            and (
+                (regime[0] >= 0.50 and regime[1] >= 3.00)
+                or (regime[0] <= -0.50 and regime[1] <= -3.00)
+            )
+        ]
+        if not qualified:
+            raise MarketSignalUnavailable(
+                "No SPY/QQQ/IWM signal meets the frozen exhaustion-reversal rule."
+            )
+        symbol, fast_return, slow_return, realized_volatility = max(
+            qualified, key=lambda item: abs(item[1]) + abs(item[2])
+        )
+        return await self._build_contract_evaluation(
+            symbol,
+            fast_return=fast_return,
+            slow_return=slow_return,
+            realized_volatility=realized_volatility,
+            reversal=True,
+        )
+
+    async def _fetch_regime(self, symbol: str) -> tuple[float, float, float]:
+        """Fetch one symbol's adjusted daily bars and compute its regime."""
+
         bars_payload = await self.client.call_json(
             "get_stock_bars",
             {
@@ -205,13 +255,26 @@ class AlpacaMarketAdapter:
                 "limit": 100,
             },
         )
+        return compute_regime(extract_bars(bars_payload, symbol))
+
+    async def _build_contract_evaluation(
+        self,
+        symbol: str,
+        *,
+        fast_return: float,
+        slow_return: float,
+        realized_volatility: float,
+        reversal: bool,
+    ) -> MarketEvaluation:
+        """Select an option contract after the underlying rule qualifies."""
+
         quote_payload = await self.client.call_json(
             "get_stock_latest_quote", {"symbols": symbol, "feed": "iex"}
         )
-        fast_return, slow_return, realized_volatility = compute_regime(
-            extract_bars(bars_payload, symbol)
-        )
-        direction = "call" if slow_return >= 0 else "put"
+        momentum_direction = "call" if slow_return >= 0 else "put"
+        direction = (
+            "put" if momentum_direction == "call" else "call"
+        ) if reversal else momentum_direction
         price_anchor = extract_quote_midpoint(quote_payload, symbol)
         today = datetime.now(UTC).date()
         chain_payload = await self.client.call_json(

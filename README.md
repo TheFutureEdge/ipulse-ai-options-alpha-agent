@@ -52,9 +52,14 @@ experiment, but it did not survive historical validation. The frozen
 `exhaustion_reversal_v1` challenger was selected using development data only
 and evaluated separately on an untouched 2024–2026 holdout. Across SPY, QQQ,
 and IWM it produced 127 holdout signals, a 55.9% directional win rate, 1.39
-profit factor, and a +0.218% average signed two-session underlying move.
+profit factor, and a +0.218% average signed two-session underlying move. The
+event-frequency-adjusted Sharpe proxy is 0.88, not a portfolio Sharpe ratio. A
+stricter non-overlapping view retains 81 signals with a 56.8% win rate, +0.377%
+average signed move, and 1.87 profit factor.
 
-These are underlying-direction diagnostics, not executable options P&L. The
+The 95% Wilson interval for the headline win rate is 47.2%-64.2%, so statistical
+uncertainty remains material. These are underlying-direction diagnostics, not
+executable options P&L. The
 engine deliberately keeps broker paper performance, option fills, spread and
 premium costs separate. The complete configuration, scored outcomes and
 limitations are in
@@ -68,10 +73,11 @@ PYTHONPATH=src python -m ipulse_options_alpha_agent.backtest \
   --output artifacts/backtests/exhaustion_reversal_v1_scorecard.json
 ```
 
-The competition account also contains three broker-verified paper fills: one AAPL
-11 September 2026 $330 call bought to open at $4.15 and one XLF 11 September
-2026 $59 call bought to open at $0.30, plus one AMZN 11 September 2026 $260
-call bought to open at $3.80. Combined maximum long-premium risk is $825. The
+The competition account also contains three broker-verified exploratory v0
+paper fills: one AAPL 11 September 2026 $330 call bought to open at $4.15 and
+one XLF 11 September 2026 $59 call bought to open at $0.30, plus one AMZN 11
+September 2026 $260 call bought to open at $3.80. Combined maximum long-premium
+risk is $825. These prove bounded paper execution, not v1 performance. The
 sanitized public receipt is in
 [`public/evidence/live_strategy_fill.json`](public/evidence/live_strategy_fill.json).
 
@@ -152,9 +158,11 @@ IPULSE_ALPACA_ENVIRONMENT=paper \
 PYTHONPATH=src python -m ipulse_options_alpha_agent run-paper-once
 ```
 
-`run-paper-once` is a single-cycle strategy path, not a daemon. It additionally
-requires an open regular session, a quote no older than 120 seconds, no pending
-order, fewer than three recent fills, no recent order for the same contract, a
+`run-paper-once` is a single-cycle strategy path, not a daemon. It scans
+SPY/QQQ/IWM for the strongest frozen exhaustion-reversal signal before selecting
+an opposite-direction option. It additionally requires an open regular session,
+a quote no older than 120 seconds, no pending order, fewer than three fills on
+the current New York trading date, no recent order for the same contract, a
 15-minute cooldown, aligned advisor consensus, and every portfolio risk gate.
 Use `submit-paper-smoke` only for the separate USD 1 connectivity proof.
 

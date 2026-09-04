@@ -23,13 +23,15 @@ class ResearchAdvisor(Protocol):
 
 
 def signal_direction(context: ResearchContext) -> AdvisoryAction:
-    """Return the deterministic direction encoded by normalized momentum."""
+    """Return the frozen exhaustion-reversal direction."""
 
     signal = context.signal
-    if signal.fast_return_pct >= 0.35 and signal.slow_return_pct >= 0.50:
-        return AdvisoryAction.CALL
-    if signal.fast_return_pct <= -0.35 and signal.slow_return_pct <= -0.50:
+    if signal.realized_volatility_pct > 25:
+        return AdvisoryAction.WAIT
+    if signal.fast_return_pct >= 0.50 and signal.slow_return_pct >= 3.00:
         return AdvisoryAction.PUT
+    if signal.fast_return_pct <= -0.50 and signal.slow_return_pct <= -3.00:
+        return AdvisoryAction.CALL
     return AdvisoryAction.WAIT
 
 
@@ -41,14 +43,12 @@ class TechnicalRegimeAdvisor:
     async def analyze(self, context: ResearchContext) -> AdvisorOpinion:
         action = signal_direction(context)
         signal = context.signal
-        if signal.realized_volatility_pct > 45:
-            action = AdvisoryAction.WAIT
         return AdvisorOpinion(
             advisor=self.name,
             action=action,
             confidence=signal.confidence if action is not AdvisoryAction.WAIT else 0.75,
             thesis=(
-                "Fast and slow momentum agree in an acceptable volatility regime."
+                "Fast and slow moves meet the frozen exhaustion-reversal rule in an acceptable volatility regime."
                 if action in {AdvisoryAction.CALL, AdvisoryAction.PUT}
                 else "Trend alignment or volatility regime is insufficient."
             ),
@@ -58,11 +58,11 @@ class TechnicalRegimeAdvisor:
                 "market:realized_volatility_pct",
             ),
             contrary_evidence=(
-                "Momentum can reverse before a daily-bar regime filter reacts.",
+                "A historical reversal pattern can fail or continue trending.",
             ),
             invalidation_conditions=(
-                "Fast and slow returns no longer agree in direction.",
-                "Realized volatility rises above 45 percent.",
+                "Fast or slow return no longer meets the frozen exhaustion threshold.",
+                "Realized volatility rises above 25 percent.",
             ),
             max_entry_price=context.signal.option_limit_price,
         )

@@ -89,11 +89,13 @@ Visual: holdout scorecard for the exhaustion-reversal challenger.
 - Win rate: 55.9%
 - Average signed move: +0.218%
 - Profit factor: 1.39
-- Sharpe proxy: 2.01
+- Event-frequency Sharpe proxy: 0.88 (not a portfolio Sharpe ratio)
+- Non-overlapping audit: 81 signals, 56.8% wins, +0.377% average, PF 1.87
 
 Speaker note: This is an underlying-direction diagnostic, not option P&L. It
 excludes option spreads, decay, fees, and execution costs. The original v0
-strategy failed its holdout; that negative result remains public.
+strategy failed its holdout; that negative result remains public. The headline
+win-rate Wilson interval is 47.2%-64.2%, so uncertainty is explicit.
 
 ## Slide 7 - What judges can inspect
 

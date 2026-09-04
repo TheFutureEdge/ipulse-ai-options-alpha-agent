@@ -45,10 +45,10 @@ def demo_context() -> ResearchContext:
         underlying="SPY",
         signal=StrategySignal(
             underlying="SPY",
-            option_symbol="SPY260904C00772000",
+            option_symbol="SPY260904P00772000",
             option_limit_price=2.50,
             fast_return_pct=0.60,
-            slow_return_pct=1.10,
+            slow_return_pct=3.10,
             realized_volatility_pct=18,
             option_spread_pct=3,
             confidence=0.82,
@@ -69,22 +69,22 @@ def demo_context() -> ResearchContext:
             gross_margin_pct=50,
             operating_margin_pct=20,
             free_cash_flow_margin_pct=15,
-            cash_conversion_pct=90,
-            accrual_ratio_pct=2,
-            net_debt_to_ebitda=1,
+            cash_conversion_pct=60,
+            accrual_ratio_pct=12,
+            net_debt_to_ebitda=5,
             share_count_growth_pct=0,
             roic_pct=12,
         ),
         valuation=ValuationEvidence(
             as_of_date="2026-08-27",
             source_ids=("valuation:model-v1",),
-            market_price=80,
+            market_price=125,
             estimated_fair_value=100,
-            forward_pe=15,
+            forward_pe=25,
             sector_median_forward_pe=20,
-            ev_to_ebitda=10,
+            ev_to_ebitda=14,
             sector_median_ev_to_ebitda=12,
-            free_cash_flow_yield_pct=5,
+            free_cash_flow_yield_pct=2,
             earnings_growth_pct=8,
         ),
     )
@@ -123,11 +123,11 @@ class ConsensusTests(unittest.IsolatedAsyncioTestCase):
             ),
             paper_environment=True,
         )
-        self.assertEqual(run.consensus.action, AdvisoryAction.CALL)
+        self.assertEqual(run.consensus.action, AdvisoryAction.PUT)
         self.assertEqual(run.decision.action, "APPROVE")
         self.assertEqual(
             run.decision.proposal and run.decision.proposal.strategy_name,
-            "multi_advisor_consensus_v0",
+            "multi_advisor_exhaustion_reversal_v1",
         )
 
     async def test_deterministic_safety_overrides_permissive_risk_advisor(self) -> None:

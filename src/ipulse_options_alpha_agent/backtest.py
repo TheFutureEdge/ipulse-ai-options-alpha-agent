@@ -127,6 +127,37 @@ def generate_signal_outcomes(
     return tuple(candidates_by_date[key] for key in sorted(candidates_by_date))
 
 
+def _elapsed_years(outcomes: Sequence[SignalOutcome]) -> float | None:
+    """Return the observed signal-to-exit span in calendar years."""
+
+    if len(outcomes) < 2:
+        return None
+    start = date.fromisoformat(min(item.signal_date for item in outcomes))
+    end = date.fromisoformat(max(item.exit_date for item in outcomes))
+    elapsed_days = (end - start).days
+    return elapsed_days / 365.2425 if elapsed_days > 0 else None
+
+
+def _wilson_interval(successes: int, observations: int) -> tuple[float, float]:
+    """Return a dependency-free 95% Wilson interval for a hit rate."""
+
+    if observations <= 0:
+        return 0.0, 0.0
+    z = 1.959963984540054
+    rate = successes / observations
+    denominator = 1 + (z * z / observations)
+    center = (rate + (z * z / (2 * observations))) / denominator
+    half_width = (
+        z
+        * math.sqrt(
+            (rate * (1 - rate) / observations)
+            + (z * z / (4 * observations * observations))
+        )
+        / denominator
+    )
+    return center - half_width, center + half_width
+
+
 def summarize(outcomes: Sequence[SignalOutcome]) -> dict[str, int | float | None]:
     """Summarize directional outcomes without presenting them as option P&L."""
 
@@ -139,6 +170,9 @@ def summarize(outcomes: Sequence[SignalOutcome]) -> dict[str, int | float | None
             "average_signed_return_pct": 0.0,
             "profit_factor": None,
             "sharpe_proxy": None,
+            "observed_signals_per_year": None,
+            "win_rate_wilson_95pct_low": 0.0,
+            "win_rate_wilson_95pct_high": 0.0,
             "max_drawdown_points": 0.0,
         }
     wins = [value for value in returns if value > 0]
@@ -153,17 +187,54 @@ def summarize(outcomes: Sequence[SignalOutcome]) -> dict[str, int | float | None
         peak = max(peak, equity)
         max_drawdown = min(max_drawdown, equity - peak)
     gross_loss = -sum(losses)
+    elapsed_years = _elapsed_years(outcomes)
+    signals_per_year = len(returns) / elapsed_years if elapsed_years else None
+    win_rate_low, win_rate_high = _wilson_interval(len(wins), len(returns))
     return {
         "signals": len(returns),
         "win_rate_pct": round(len(wins) / len(returns) * 100, 1),
         "sum_signed_return_points": round(sum(returns), 2),
         "average_signed_return_pct": round(average, 3),
         "profit_factor": round(sum(wins) / gross_loss, 2) if gross_loss else None,
-        "sharpe_proxy": round(average / deviation * math.sqrt(252), 2)
-        if deviation
+        "sharpe_proxy": round(
+            average / deviation * math.sqrt(signals_per_year), 2
+        )
+        if deviation and signals_per_year
         else None,
+        "observed_signals_per_year": round(signals_per_year, 1)
+        if signals_per_year
+        else None,
+        "win_rate_wilson_95pct_low": round(win_rate_low * 100, 1),
+        "win_rate_wilson_95pct_high": round(win_rate_high * 100, 1),
         "max_drawdown_points": round(max_drawdown, 2),
     }
+
+
+def _non_overlapping(
+    outcomes: Sequence[SignalOutcome],
+) -> tuple[SignalOutcome, ...]:
+    """Greedily keep signals whose holding windows do not overlap."""
+
+    selected: list[SignalOutcome] = []
+    latest_exit: str | None = None
+    for outcome in sorted(outcomes, key=lambda item: item.signal_date):
+        if latest_exit is None or outcome.signal_date > latest_exit:
+            selected.append(outcome)
+            latest_exit = outcome.exit_date
+    return tuple(selected)
+
+
+def _group_summaries(
+    outcomes: Sequence[SignalOutcome], *, attribute: str
+) -> dict[str, dict[str, int | float | None]]:
+    """Summarize outcome stability by one explicit outcome attribute."""
+
+    grouped: dict[str, list[SignalOutcome]] = {}
+    for outcome in outcomes:
+        raw_key = getattr(outcome, attribute)
+        key = raw_key[:4] if attribute == "signal_date" else raw_key
+        grouped.setdefault(key, []).append(outcome)
+    return {key: summarize(grouped[key]) for key in sorted(grouped)}
 
 
 def build_scorecard(
@@ -188,9 +259,14 @@ def build_scorecard(
             "selection": "Choose the highest absolute fast-plus-slow move among qualifying symbols.",
             "scoring": "Score direction against underlying close t+2.",
             "interpretation": "Directional signal proxy; not executable option P&L.",
+            "sharpe_proxy": "Event-level mean/stdev scaled by observed signals per calendar year; not a portfolio Sharpe ratio.",
+            "robustness": "Non-overlapping holdout greedily accepts a signal only after the prior selected holding window exits.",
         },
         "development": summarize(development),
         "holdout": summarize(holdout),
+        "holdout_non_overlapping": summarize(_non_overlapping(holdout)),
+        "holdout_by_year": _group_summaries(holdout, attribute="signal_date"),
+        "holdout_by_symbol": _group_summaries(holdout, attribute="symbol"),
         "full_period": summarize(outcomes),
         "outcomes": [asdict(item) for item in outcomes],
     }

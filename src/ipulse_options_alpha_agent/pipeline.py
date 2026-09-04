@@ -16,6 +16,7 @@ from .research import (
     ResearchContext,
 )
 from .safety import OperationalSafetyDecision, OperationalSafetyGate
+from .strategy import ExhaustionReversalStrategy
 
 
 @dataclass(frozen=True)
@@ -40,7 +41,7 @@ class MultiAdvisorPipeline:
     ) -> None:
         self.advisors = advisors or default_rule_advisors()
         self.consensus_engine = consensus_engine or ConsensusEngine()
-        self.agent = agent or OptionsAlphaAgent()
+        self.agent = agent or OptionsAlphaAgent(strategy=ExhaustionReversalStrategy())
         self.operational_safety_gate = (
             operational_safety_gate or OperationalSafetyGate()
         )
@@ -101,7 +102,9 @@ class MultiAdvisorPipeline:
         if decision.proposal is not None:
             proposal = replace(
                 decision.proposal,
-                strategy_name="multi_advisor_consensus_v0",
+                strategy_name=(
+                    f"multi_advisor_{decision.proposal.strategy_name}"
+                ),
                 confidence=consensus.confidence,
                 rationale=consensus.rationale,
                 source_signals={

@@ -11,7 +11,9 @@
     "signal_timing": "Signal uses daily closes through close t only.",
     "selection": "Choose the highest absolute fast-plus-slow move among qualifying symbols.",
     "scoring": "Score direction against underlying close t+2.",
-    "interpretation": "Directional signal proxy; not executable option P&L."
+    "interpretation": "Directional signal proxy; not executable option P&L.",
+    "sharpe_proxy": "Event-level mean/stdev scaled by observed signals per calendar year; not a portfolio Sharpe ratio.",
+    "robustness": "Non-overlapping holdout greedily accepts a signal only after the prior selected holding window exits."
   },
   "development": {
     "signals": 132,
@@ -19,7 +21,10 @@
     "sum_signed_return_points": 48.19,
     "average_signed_return_pct": 0.365,
     "profit_factor": 1.66,
-    "sharpe_proxy": 3.15,
+    "sharpe_proxy": 1.34,
+    "observed_signals_per_year": 45.6,
+    "win_rate_wilson_95pct_low": 50.6,
+    "win_rate_wilson_95pct_high": 67.1,
     "max_drawdown_points": -9.89
   },
   "holdout": {
@@ -28,7 +33,10 @@
     "sum_signed_return_points": 27.7,
     "average_signed_return_pct": 0.218,
     "profit_factor": 1.39,
-    "sharpe_proxy": 2.01,
+    "sharpe_proxy": 0.88,
+    "observed_signals_per_year": 48.0,
+    "win_rate_wilson_95pct_low": 47.2,
+    "win_rate_wilson_95pct_high": 64.2,
     "max_drawdown_points": -13.81
   },
   "full_period": {
@@ -37,7 +45,10 @@
     "sum_signed_return_points": 75.89,
     "average_signed_return_pct": 0.293,
     "profit_factor": 1.53,
-    "sharpe_proxy": 2.61,
+    "sharpe_proxy": 1.12,
+    "observed_signals_per_year": 46.6,
+    "win_rate_wilson_95pct_low": 51.4,
+    "win_rate_wilson_95pct_high": 63.4,
     "max_drawdown_points": -13.81
   },
   "outcomes": [
@@ -3149,5 +3160,93 @@
       "signed_return_pct": 0.6936776239417908,
       "selection_score": 4.213733532121633
     }
-  ]
+  ],
+  "holdout_non_overlapping": {
+    "signals": 81,
+    "win_rate_pct": 56.8,
+    "sum_signed_return_points": 30.54,
+    "average_signed_return_pct": 0.377,
+    "profit_factor": 1.87,
+    "sharpe_proxy": 1.33,
+    "observed_signals_per_year": 30.6,
+    "win_rate_wilson_95pct_low": 45.9,
+    "win_rate_wilson_95pct_high": 67.0,
+    "max_drawdown_points": -7.57
+  },
+  "holdout_by_year": {
+    "2024": {
+      "signals": 45,
+      "win_rate_pct": 53.3,
+      "sum_signed_return_points": 6.69,
+      "average_signed_return_pct": 0.149,
+      "profit_factor": 1.24,
+      "sharpe_proxy": 0.57,
+      "observed_signals_per_year": 45.9,
+      "win_rate_wilson_95pct_low": 39.1,
+      "win_rate_wilson_95pct_high": 67.1,
+      "max_drawdown_points": -11.8
+    },
+    "2025": {
+      "signals": 40,
+      "win_rate_pct": 55.0,
+      "sum_signed_return_points": 6.29,
+      "average_signed_return_pct": 0.157,
+      "profit_factor": 1.31,
+      "sharpe_proxy": 0.66,
+      "observed_signals_per_year": 44.0,
+      "win_rate_wilson_95pct_low": 39.8,
+      "win_rate_wilson_95pct_high": 69.3,
+      "max_drawdown_points": -6.26
+    },
+    "2026": {
+      "signals": 42,
+      "win_rate_pct": 59.5,
+      "sum_signed_return_points": 14.72,
+      "average_signed_return_pct": 0.35,
+      "profit_factor": 1.62,
+      "sharpe_proxy": 1.55,
+      "observed_signals_per_year": 66.7,
+      "win_rate_wilson_95pct_low": 44.5,
+      "win_rate_wilson_95pct_high": 73.0,
+      "max_drawdown_points": -13.81
+    }
+  },
+  "holdout_by_symbol": {
+    "IWM": {
+      "signals": 56,
+      "win_rate_pct": 53.6,
+      "sum_signed_return_points": 1.29,
+      "average_signed_return_pct": 0.023,
+      "profit_factor": 1.04,
+      "sharpe_proxy": 0.06,
+      "observed_signals_per_year": 21.8,
+      "win_rate_wilson_95pct_low": 40.7,
+      "win_rate_wilson_95pct_high": 66.0,
+      "max_drawdown_points": -12.42
+    },
+    "QQQ": {
+      "signals": 60,
+      "win_rate_pct": 60.0,
+      "sum_signed_return_points": 27.65,
+      "average_signed_return_pct": 0.461,
+      "profit_factor": 1.87,
+      "sharpe_proxy": 1.2,
+      "observed_signals_per_year": 22.7,
+      "win_rate_wilson_95pct_low": 47.4,
+      "win_rate_wilson_95pct_high": 71.4,
+      "max_drawdown_points": -12.91
+    },
+    "SPY": {
+      "signals": 11,
+      "win_rate_pct": 45.5,
+      "sum_signed_return_points": -1.25,
+      "average_signed_return_pct": -0.114,
+      "profit_factor": 0.78,
+      "sharpe_proxy": -0.21,
+      "observed_signals_per_year": 5.5,
+      "win_rate_wilson_95pct_low": 21.3,
+      "win_rate_wilson_95pct_high": 72.0,
+      "max_drawdown_points": -5.6
+    }
+  }
 }

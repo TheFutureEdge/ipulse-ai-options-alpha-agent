@@ -167,6 +167,7 @@ def render_decision_report(
     cover_image_url: str | None = None,
     backtest: Mapping[str, Any] | None = None,
     live_fill: Mapping[str, Any] | None = None,
+    preopen_validation: Mapping[str, Any] | None = None,
 ) -> str:
     """Render one self-contained HTML report with all external text escaped."""
 
@@ -229,18 +230,43 @@ def render_decision_report(
         else ""
     )
     proof_section = ""
-    if backtest is not None or live_fill is not None:
+    if backtest is not None or live_fill is not None or preopen_validation is not None:
         holdout = backtest.get("holdout", {}) if backtest is not None else {}
         config = backtest.get("config", {}) if backtest is not None else {}
         fill_count = live_fill.get("filled_orders") if live_fill else None
         fill_symbols = live_fill.get("symbols") if live_fill else None
         fill_risk = live_fill.get("maximum_combined_premium_risk_usd") if live_fill else None
+        validation_decision = (
+            preopen_validation.get("decision", {})
+            if preopen_validation is not None
+            else {}
+        )
+        validation_regimes = (
+            preopen_validation.get("regimes", {})
+            if preopen_validation is not None
+            else {}
+        )
+        qualified_count = (
+            sum(
+                bool(item.get("qualifies"))
+                for item in validation_regimes.values()
+                if isinstance(item, dict)
+            )
+            if isinstance(validation_regimes, dict)
+            else 0
+        )
+        validation_card = (
+            f'<article class="panel metric"><p class="eyebrow">Latest frozen-rule check</p><p class="metric-value wait">{_escape(validation_decision.get("action", "—"))}</p><p>{_escape(len(validation_regimes) if isinstance(validation_regimes, dict) else 0)} underlyings checked · {_escape(qualified_count)} qualified.</p><p class="muted">Captured {_escape(preopen_validation.get("captured_at_utc", "—"))}; no order was requested.</p></article>'
+            if preopen_validation is not None
+            else ""
+        )
         proof_section = f"""
   <h2>Execution and validation proof</h2>
   <section class="proof-grid">
-    <article class="panel metric"><p class="eyebrow">Broker verified</p><p class="metric-value approve">{_escape(fill_count or '—')} FILLS</p><p>{_escape(', '.join(fill_symbols) if isinstance(fill_symbols, list) else '—')}</p><p class="muted">Paper-only long premium · maximum combined premium risk ${_escape(fill_risk or '—')}.</p></article>
+    <article class="panel metric"><p class="eyebrow">Broker verified</p><p class="metric-value approve">{_escape(fill_count or '—')} FILLS</p><p>{_escape(', '.join(fill_symbols) if isinstance(fill_symbols, list) else '—')}</p><p class="muted">Exploratory v0 paper-only fills · maximum combined premium risk ${_escape(fill_risk or '—')} · execution proof, not v1 performance.</p></article>
     <article class="panel metric"><p class="eyebrow">Untouched 2024–2026 holdout</p><p class="metric-value">{_escape(holdout.get('win_rate_pct', '—'))}%</p><p>{_escape(holdout.get('signals', '—'))} independently scored signals · profit factor {_escape(holdout.get('profit_factor', '—'))}.</p><p class="muted">Average signed two-session underlying move {_escape(holdout.get('average_signed_return_pct', '—'))}%.</p></article>
     <article class="panel metric"><p class="eyebrow">Frozen challenger</p><p class="metric-value">REVERSAL V1</p><p>±{_escape(config.get('fast_threshold_pct', '—'))}% daily and ±{_escape(config.get('slow_threshold_pct', '—'))}% five-session exhaustion · volatility ≤ {_escape(config.get('max_realized_volatility_pct', '—'))}%.</p><p class="muted">Directional signal proxy, not option P&amp;L. Costs and paper performance are reported separately.</p></article>
+    {validation_card}
   </section>
 """
     rendered = f"""<!doctype html>
@@ -265,7 +291,7 @@ def render_decision_report(
     .cover {{ width:100%; height:auto; border:1px solid var(--line); border-radius:18px; margin:0 0 34px; box-shadow:0 18px 70px rgba(0,0,0,.32); }}
     .hero,.advisor,.panel {{ background:rgba(17,23,34,.9); border:1px solid var(--line); border-radius:18px; box-shadow:0 18px 70px rgba(0,0,0,.24); }}
     .hero {{ padding:28px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; }} .hero-action {{ font-size:34px; font-weight:800; }}
-    .grid,.proof-grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }} .advisor {{ padding:20px; }} .advisor-head {{ display:flex; justify-content:space-between; gap:12px; align-items:center; }}
+    .grid,.proof-grid {{ display:grid; gap:16px; }} .grid {{ grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }} .proof-grid {{ grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }} .advisor {{ padding:20px; }} .advisor-head {{ display:flex; justify-content:space-between; gap:12px; align-items:center; }}
     .media-grid {{ display:grid; grid-template-columns:minmax(0,1.6fr) minmax(260px,.7fr); gap:16px; }} .media-card {{ padding:18px; }} video {{ width:100%; display:block; border-radius:12px; border:1px solid var(--line); }}
     .button {{ display:inline-block; color:#04101a; background:var(--cyan); border-radius:10px; padding:10px 14px; text-decoration:none; font-weight:800; }}
     .metric-value {{ color:var(--cyan); font-size:30px; line-height:1; font-weight:900; margin:.35em 0; }}
@@ -296,7 +322,7 @@ def render_decision_report(
       <p><a class="button" href="assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf">Open presentation</a></p>
     </article>
   </section>
-  <h2>Safety-control replay</h2>
+  <h2>Historical v0 safety-control replay</h2>
   <section class="hero">
     <div><p class="muted">Recorded {_escape(data.recorded_at_utc)}</p><div class="hero-action {action_class}">{_escape(action)}</div><p>{_escape(data.decision.get('explanation', ''))}</p></div>
     <div><strong>Consensus {_escape(consensus_action)}</strong><br>Confidence {_escape(confidence)}<br>Operational safety {'PASS' if safety_approved else 'VETO'}</div>
@@ -321,6 +347,7 @@ def build_decision_report(
     cover_image_url: str | None = None,
     backtest_path: Path | None = None,
     live_fill_path: Path | None = None,
+    preopen_validation_path: Path | None = None,
 ) -> Path:
     """Build the latest report atomically enough for local demonstration use."""
 
@@ -340,12 +367,19 @@ def build_decision_report(
         if live_fill_path is not None and live_fill_path.exists()
         else None
     )
+    preopen_validation = (
+        json.loads(preopen_validation_path.read_text(encoding="utf-8"))
+        if preopen_validation_path is not None
+        and preopen_validation_path.exists()
+        else None
+    )
     rendered = render_decision_report(
         data,
         competition,
         cover_image_url,
         backtest=backtest,
         live_fill=live_fill,
+        preopen_validation=preopen_validation,
     )
     output_path.parent.mkdir(parents=True, exist_ok=True)
     temporary_path = output_path.with_suffix(output_path.suffix + ".tmp")

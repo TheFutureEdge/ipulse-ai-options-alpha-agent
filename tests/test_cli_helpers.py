@@ -7,6 +7,7 @@ from datetime import UTC, datetime
 
 from ipulse_options_alpha_agent.cli import (
     count_filled_orders,
+    count_session_fills,
     duplicate_option_signal,
     extract_order_records,
     minutes_since_last_fill,
@@ -32,6 +33,18 @@ class CliHelperTests(unittest.TestCase):
         }
         records = extract_order_records(payload)
         self.assertEqual(count_filled_orders(records), 1)
+        self.assertEqual(
+            count_session_fills(
+                records, now=datetime(2026, 8, 28, 14, 0, tzinfo=UTC)
+            ),
+            1,
+        )
+        self.assertEqual(
+            count_session_fills(
+                records, now=datetime(2026, 8, 29, 14, 0, tzinfo=UTC)
+            ),
+            0,
+        )
         self.assertTrue(duplicate_option_signal(records, "SPY260904C00772000"))
         self.assertEqual(
             minutes_since_last_fill(

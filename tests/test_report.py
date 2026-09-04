@@ -97,8 +97,26 @@ class ReportTests(unittest.TestCase):
                 + "\n",
                 encoding="utf-8",
             )
+            validation = root / "validation.json"
+            validation.write_text(
+                json.dumps(
+                    {
+                        "captured_at_utc": "2026-09-04T03:20:41Z",
+                        "regimes": {
+                            "SPY": {"qualifies": False},
+                            "QQQ": {"qualifies": False},
+                            "IWM": {"qualifies": False},
+                        },
+                        "decision": {"action": "WAIT"},
+                    }
+                ),
+                encoding="utf-8",
+            )
             output = build_decision_report(
-                journal, root / "report.html", performance
+                journal,
+                root / "report.html",
+                performance,
+                preopen_validation_path=validation,
             )
             rendered = output.read_text(encoding="utf-8")
         self.assertIn("Options alpha, with receipts.", rendered)
@@ -108,6 +126,9 @@ class ReportTests(unittest.TestCase):
         self.assertIn("Execution forbidden", rendered)
         self.assertIn("Competition paper account", rendered)
         self.assertIn("$125.50", rendered)
+        self.assertIn("Latest frozen-rule check", rendered)
+        self.assertIn("3 underlyings checked · 0 qualified", rendered)
+        self.assertIn("Historical v0 safety-control replay", rendered)
         self.assertIn("No baseline issues recorded.", rendered)
         self.assertNotIn(
             "2 filled orders</p><ul><li class=\"muted\">None recorded", rendered

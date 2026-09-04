@@ -13,7 +13,8 @@ and final.
 
 ## Independent advisors
 
-- Technical regime: trend alignment and realized-volatility regime.
+- Technical regime: frozen exhaustion thresholds, reversal direction, and
+  realized-volatility regime.
 - News catalyst: timestamped catalyst direction; abstains without coverage.
 - Options liquidity: direction, spread, premium, and contract consistency.
 - Financials forensic auditor: cash conversion, accruals, leverage, dilution,
@@ -38,7 +39,7 @@ This decouples the hackathon agent from iPulse AI's existing BigQuery
 fundamental period facts and derived metrics. The upstream platform may produce
 the normalized file; the trading process receives no database credentials.
 
-The live SPY path also has two narrow read-only adapters:
+The live selected-underlying path also has two narrow read-only adapters:
 
 - Alpaca news is symbol-matched, freshness-checked, length-bounded, and assigned
   an auditable lexicon sentiment baseline. Article text remains untrusted data.
@@ -67,7 +68,7 @@ refresh, the adapter will activate the ETF relative-value framework automaticall
 - Maximum estimated notional: USD 1,000.
 - Daily loss circuit breaker: 2 percent.
 - Maximum open positions: five.
-- Maximum three recent filled orders in the rolling 24-hour safety window.
+- Maximum three filled orders on the current New York trading date.
 - No pending order or prior recent order for the same contract.
 - Minimum 15 minutes between fills.
 - Maximum option quote age: 120 seconds.
@@ -92,7 +93,11 @@ present.
   USD 500 maximum-loss budget.
 - One non-marketable, one-share SPY DAY limit order was accepted, re-read by
   order ID, and canceled before fill in the paper account on 2026-08-28.
-- Real market evaluation selected a SPY call candidate, but did not execute it.
+- The original v0 market evaluation selected a SPY call candidate, but did not
+  execute it; it is retained as historical negative-result evidence.
+- The production path now scans SPY/QQQ/IWM and executes only the frozen
+  `exhaustion_reversal_v1` rule. A 4 September pre-open check found no qualifying
+  signal and recorded WAIT without requesting an order.
 - Six-advisor demo reaches auditable consensus including forensic financial and
   value-framework evidence.
 - A closed-market real-data run produced a hard risk veto and WAIT, as designed.

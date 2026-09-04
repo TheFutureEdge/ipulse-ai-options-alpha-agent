@@ -7,8 +7,10 @@ from datetime import date, timedelta
 
 from ipulse_options_alpha_agent.backtest import (
     ReversalConfig,
+    SignalOutcome,
     build_scorecard,
     generate_signal_outcomes,
+    summarize,
 )
 
 
@@ -65,6 +67,52 @@ class BacktestTests(unittest.TestCase):
         self.assertEqual(
             scorecard["methodology"]["interpretation"],
             "Directional signal proxy; not executable option P&L.",
+        )
+
+    def test_sharpe_proxy_uses_observed_event_frequency(self) -> None:
+        outcomes = tuple(
+            SignalOutcome(
+                signal_date=f"2024-01-{day:02d}",
+                exit_date=f"2024-01-{day + 2:02d}",
+                symbol="SPY",
+                direction="CALL",
+                fast_return_pct=-1,
+                slow_return_pct=-3,
+                realized_volatility_pct=20,
+                underlying_return_pct=value,
+                signed_return_pct=value,
+                selection_score=4,
+            )
+            for day, value in ((1, 1.0), (8, -0.5), (15, 0.75), (22, -0.25))
+        )
+        summary = summarize(outcomes)
+        self.assertLess(summary["observed_signals_per_year"], 100)
+        self.assertLess(summary["sharpe_proxy"], 5)
+        self.assertLess(
+            summary["win_rate_wilson_95pct_low"], summary["win_rate_pct"]
+        )
+        self.assertGreater(
+            summary["win_rate_wilson_95pct_high"], summary["win_rate_pct"]
+        )
+
+    def test_scorecard_reports_non_overlapping_and_stability_slices(self) -> None:
+        closes = [100 + index * 0.05 for index in range(65)]
+        closes[21] = 106
+        closes[22] = 108
+        closes[23] = 109
+        scorecard = build_scorecard(
+            {"SPY": bars(closes), "QQQ": bars(closes)},
+            ReversalConfig(
+                max_realized_volatility_pct=100,
+                development_cutoff="2023-11-01",
+            ),
+        )
+        self.assertIn("holdout_non_overlapping", scorecard)
+        self.assertIn("holdout_by_year", scorecard)
+        self.assertIn("holdout_by_symbol", scorecard)
+        self.assertLessEqual(
+            scorecard["holdout_non_overlapping"]["signals"],
+            scorecard["holdout"]["signals"],
         )
 
 

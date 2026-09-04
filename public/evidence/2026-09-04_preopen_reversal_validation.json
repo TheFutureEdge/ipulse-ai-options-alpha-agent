@@ -1,0 +1,51 @@
+{
+  "captured_at_utc": "2026-09-04T03:20:41Z",
+  "source": "Alpaca MCP market clock and IEX adjusted daily bars",
+  "market_clock": {
+    "timestamp_et": "2026-09-03T23:20:41-04:00",
+    "is_open": false,
+    "next_open_et": "2026-09-04T09:30:00-04:00",
+    "next_close_et": "2026-09-04T16:00:00-04:00"
+  },
+  "strategy": {
+    "name": "exhaustion_reversal_v1",
+    "fast_threshold_pct": 0.5,
+    "slow_threshold_pct": 3.0,
+    "max_realized_volatility_pct": 25.0,
+    "selection": "Strongest qualifying SPY/QQQ/IWM signal by absolute fast-plus-slow move"
+  },
+  "regimes": {
+    "SPY": {
+      "data_through": "2026-09-03",
+      "fast_return_pct": 1.044,
+      "slow_return_pct": 0.251,
+      "realized_volatility_pct": 8.29,
+      "qualifies": false
+    },
+    "QQQ": {
+      "data_through": "2026-09-03",
+      "fast_return_pct": 1.178,
+      "slow_return_pct": -0.489,
+      "realized_volatility_pct": 13.485,
+      "qualifies": false
+    },
+    "IWM": {
+      "data_through": "2026-09-03",
+      "fast_return_pct": 0.398,
+      "slow_return_pct": -1.544,
+      "realized_volatility_pct": 12.743,
+      "qualifies": false
+    }
+  },
+  "decision": {
+    "action": "WAIT",
+    "reasons": [
+      "Regular U.S. market session is closed.",
+      "No SPY/QQQ/IWM signal meets the frozen exhaustion-reversal rule."
+    ],
+    "execution_requested": false,
+    "order_submitted": false
+  },
+  "regression_tests_passed": 59,
+  "paper_only": true
+}

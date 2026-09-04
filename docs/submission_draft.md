@@ -19,13 +19,15 @@ deterministic risk authority. Probabilistic advisors may recommend; they cannot
 bypass the execution limits.
 
 The competition build is operational. It connects to Alpaca's official
-MCP server, reads a paper portfolio, normalizes SPY daily bars and quotes,
-queries a narrow option chain, selects a near-0.50-delta contract within a USD
-500 maximum-loss budget, and records the complete decision. On 3 September it
-also produced three broker-verified strategy fills: one AAPL 11 September $330
+MCP server, reads a paper portfolio, scans SPY/QQQ/IWM daily bars, queries a
+narrow option chain only after the frozen reversal rule qualifies, selects a
+near-0.50-delta contract within a USD 500 maximum-loss budget, and records the
+complete decision. On 3 September its exploratory v0 path also produced three
+broker-verified strategy fills: one AAPL 11 September $330
 call bought to open at $4.15 and one XLF 11 September $59 call bought to open
 at $0.30, plus one AMZN 11 September $260 call bought to open at $3.80, with
-$825 combined maximum long-premium risk. A separate USD 1
+$825 combined maximum long-premium risk. Those fills prove bounded paper
+execution, not v1 performance. A separate USD 1
 maximum-loss equity order proved the paper-order path, was verified by broker
 order ID, and was canceled before fill.
 
@@ -47,9 +49,12 @@ order ID, and was canceled before fill.
 The challenger uses only data available through close t, selects the strongest
 qualifying SPY/QQQ/IWM exhaustion event, and scores the opposite direction at
 close t+2. The untouched holdout contains 127 signals with a 55.9% directional
-win rate, 1.39 profit factor, +0.218% average signed underlying move, and a 2.01
-per-trade Sharpe proxy. These are directional diagnostics—not options P&L—and
-exclude spreads, option decay and broker slippage.
+win rate, 1.39 profit factor, +0.218% average signed underlying move, and a 0.88
+event-frequency-adjusted Sharpe proxy. A stricter non-overlapping audit retains
+81 signals with a 56.8% win rate, +0.377% average, and 1.87 profit factor. The
+headline win-rate 95% Wilson interval is 47.2%-64.2%, so uncertainty remains
+material. These are directional diagnostics—not options P&L—and exclude
+spreads, option decay and broker slippage.
 
 ## AI and autonomous logic
 
@@ -80,7 +85,7 @@ cash allocation.
 ## Options logic
 
 - SPY, QQQ, and IWM initial universe
-- Direction requires aligned fast and slow returns
+- Direction reverses only after aligned fast and slow exhaustion thresholds
 - Volatility and spread filters can force WAIT
 - Near-0.50-delta contract selection
 - Long premium only in phase one

@@ -72,9 +72,10 @@ The dedicated competition account was created on 28 August 2026 with a
 USD 100,000 paper balance, active status, options level 3, and no initial
 positions or fills. A deliberately non-marketable USD 1 equity limit order
 verified connectivity and was canceled without a fill. During the competition
-session, three one-contract long-call limit orders filled on AAPL, XLF, and
-AMZN. Combined premium paid, and therefore maximum defined premium risk, was
-USD 825. The captured paper mark showed USD 99,986.91 equity and -USD 13.09
+session, three exploratory v0 one-contract long-call limit orders filled on
+AAPL, XLF, and AMZN. They demonstrate bounded paper execution but are not v1
+performance. Combined premium paid, and therefore maximum defined premium risk,
+was USD 825. The captured paper mark showed USD 99,986.91 equity and -USD 13.09
 cumulative P&L. Competition snapshots retain only sanitized metrics; public
 artifacts contain no raw account ID.
 
@@ -90,9 +91,12 @@ dedicated Alpaca account.
 The original v0 momentum strategy failed its untouched holdout and remains
 reported as a negative result. A frozen exhaustion-reversal challenger selected
 only on development data then produced 127 signals, a 55.9% win rate, +0.218%
-average signed move, 1.39 profit factor, and a 2.01 Sharpe proxy on the untouched
-2024-2026 holdout. These are underlying-direction diagnostics, not option P&L;
-they exclude option spreads, decay, fees, and execution costs.
+average signed move, 1.39 profit factor, and a 0.88 event-frequency-adjusted
+Sharpe proxy on the untouched 2024-2026 holdout. A non-overlapping audit retains
+81 signals, a 56.8% win rate, +0.377% average signed move, and 1.87 profit factor.
+The headline win-rate 95% Wilson interval is 47.2%-64.2%. These are
+underlying-direction diagnostics, not option P&L; they exclude option spreads,
+decay, fees, and execution costs.
 
 This is research software operating with simulated funds. Paper fills and a
 historical directional diagnostic do not establish live profitability, and the

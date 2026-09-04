@@ -9,6 +9,7 @@ import os
 from dataclasses import asdict
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from .agent import AgentDecision, OptionsAlphaAgent
 from .competition import build_competition_snapshot
@@ -124,6 +125,33 @@ def count_filled_orders(records: tuple[dict[str, object], ...]) -> int:
     )
 
 
+def count_session_fills(
+    records: tuple[dict[str, object], ...], *, now: datetime | None = None
+) -> int:
+    """Count fills on the current New York trading date."""
+
+    effective_now = (now or datetime.now(UTC)).astimezone(UTC)
+    trading_date = effective_now.astimezone(ZoneInfo("America/New_York")).date()
+    fills = 0
+    for record in records:
+        if str(record.get("status", "")).lower() != "filled":
+            continue
+        raw = record.get("filled_at")
+        if raw is None:
+            continue
+        try:
+            parsed = datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        if (
+            parsed.tzinfo is not None
+            and parsed.astimezone(ZoneInfo("America/New_York")).date()
+            == trading_date
+        ):
+            fills += 1
+    return fills
+
+
 def duplicate_option_signal(
     records: tuple[dict[str, object], ...], option_symbol: str
 ) -> bool:
@@ -187,10 +215,10 @@ def demo_research_context(*, market_open: bool = True) -> ResearchContext:
         underlying="SPY",
         signal=StrategySignal(
             underlying="SPY",
-            option_symbol="SPY260904C00772000",
+            option_symbol="SPY260904P00772000",
             option_limit_price=2.50,
             fast_return_pct=0.62,
-            slow_return_pct=1.15,
+            slow_return_pct=3.15,
             realized_volatility_pct=18.5,
             option_spread_pct=3.0,
             confidence=0.82,
@@ -221,22 +249,22 @@ def demo_research_context(*, market_open: bool = True) -> ResearchContext:
             gross_margin_pct=52,
             operating_margin_pct=20,
             free_cash_flow_margin_pct=16,
-            cash_conversion_pct=92,
-            accrual_ratio_pct=3,
-            net_debt_to_ebitda=1.1,
+            cash_conversion_pct=60,
+            accrual_ratio_pct=12,
+            net_debt_to_ebitda=5.0,
             share_count_growth_pct=0.4,
             roic_pct=13,
         ),
         valuation=ValuationEvidence(
             as_of_date="2026-08-27",
             source_ids=("demo:value-model-v1",),
-            market_price=80,
+            market_price=125,
             estimated_fair_value=100,
-            forward_pe=16,
+            forward_pe=25,
             sector_median_forward_pe=20,
-            ev_to_ebitda=10,
+            ev_to_ebitda=14,
             sector_median_ev_to_ebitda=12,
-            free_cash_flow_yield_pct=5,
+            free_cash_flow_yield_pct=2,
             earnings_growth_pct=9,
         ),
     )
@@ -501,11 +529,11 @@ async def evaluate_advisors_market(
             open_positions=count_positions(positions),
         )
         try:
-            evaluation = await AlpacaMarketAdapter(client).build_evaluation("SPY")
+            evaluation = await AlpacaMarketAdapter(client).build_reversal_evaluation()
         except MarketSignalUnavailable as exc:
             journal.append_record(
                 "advisor_market_signal_unavailable",
-                {"underlying": "SPY", "reason": str(exc)},
+                {"underlyings": ["SPY", "QQQ", "IWM"], "reason": str(exc)},
             )
             result: dict[str, object] = {
                 "action": "WAIT",
@@ -521,7 +549,7 @@ async def evaluate_advisors_market(
             alpaca_news_payload = await client.call_json(
                 "get_news",
                 {
-                    "symbols": "SPY",
+                    "symbols": evaluation.signal.underlying,
                     "start": (datetime.now(UTC) - timedelta(days=3)).isoformat(),
                     "sort": "desc",
                     "limit": 10,
@@ -538,7 +566,7 @@ async def evaluate_advisors_market(
             )
         else:
             alpaca_news = normalize_alpaca_news(
-                alpaca_news_payload, underlying="SPY"
+                alpaca_news_payload, underlying=evaluation.signal.underlying
             )
             news_status.update({"loaded": True, "count": len(alpaca_news)})
             journal.append_record(
@@ -562,7 +590,8 @@ async def evaluate_advisors_market(
             ipulse_fund_status["configured"] = True
             try:
                 fund_research = await asyncio.to_thread(
-                    load_ipulse_fund_research_evidence, "SPY"
+                    load_ipulse_fund_research_evidence,
+                    evaluation.signal.underlying,
                 )
             except IPulseEvidenceUnavailable as exc:
                 ipulse_fund_status["error"] = str(exc)
@@ -589,7 +618,8 @@ async def evaluate_advisors_market(
             evidence_status["configured"] = True
             try:
                 bundle = load_json_research_evidence(
-                    Path(configured_evidence_path), underlying="SPY"
+                    Path(configured_evidence_path),
+                    underlying=evaluation.signal.underlying,
                 )
             except EvidenceLoadError as exc:
                 evidence_status["error"] = str(exc)
@@ -625,7 +655,7 @@ async def evaluate_advisors_market(
                     },
                 )
         context = ResearchContext(
-            underlying="SPY",
+            underlying=evaluation.signal.underlying,
             signal=evaluation.signal,
             as_of_utc=datetime.now(UTC).isoformat(),
             operational=OperationalState(
@@ -634,7 +664,7 @@ async def evaluate_advisors_market(
                     evaluation.selected_option.quote_timestamp_utc
                 ),
                 daily_trade_count=(
-                    count_filled_orders(recent_orders)
+                    count_session_fills(recent_orders)
                     if recent_orders_available
                     else None
                 ),
@@ -891,6 +921,9 @@ def build_report() -> None:
         live_fill_path=Path(
             "artifacts/competition/live_strategy_evidence.jsonl"
         ),
+        preopen_validation_path=Path(
+            "artifacts/competition/2026-09-04_preopen_reversal_validation.json"
+        ),
     )
     print(json.dumps({"report_path": str(path)}, indent=2))
 
@@ -905,6 +938,7 @@ def build_public_site() -> None:
         "assets/ipulse-options-alpha-agent-cover.png",
         Path("artifacts/backtests/exhaustion_reversal_v1_scorecard.json"),
         Path("artifacts/competition/live_strategy_evidence.jsonl"),
+        Path("artifacts/competition/2026-09-04_preopen_reversal_validation.json"),
     )
     print(json.dumps({"public_site_path": str(path)}, indent=2))
 
