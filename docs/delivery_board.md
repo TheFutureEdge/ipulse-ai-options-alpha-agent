@@ -1,6 +1,6 @@
 # Delivery Board to Final Submission
 
-Last updated: 28 August 2026, 13:25 GST
+Last updated: 4 September 2026
 Hard deadline: 4 September 2026, 19:00 GST
 Internal submission target: 4 September 2026, 16:00 GST
 
@@ -10,18 +10,18 @@ Internal submission target: 4 September 2026, 16:00 GST
 | --- | --- | --- |
 | Competition eligibility | DONE | Dedicated active Alpaca paper account, USD 100,000 baseline, options enabled |
 | Core agent | DONE | Six advisors, consensus, deterministic risk authority, WAIT/REJECT path |
-| Alpaca/MCP integration | READY, LOCAL KEY HANDOFF PENDING | Local runtime receives dedicated paper API credentials and completes status check |
+| Alpaca/MCP integration | DONE | Official MCP path, paper account reads, order receipts, and sanitized status verified |
 | Autonomous runner | DONE | Finite 1-78 cycle runner; cooldown and failure stop enforced |
 | Competition telemetry | DONE | Sanitized baseline/P&L journal; raw identifiers excluded |
-| Public dashboard | LOCALLY READY | Public HTTPS URL works signed out on desktop/mobile |
-| Repository | LOCALLY READY | Public GitHub URL, clean clone, tests pass, no secrets |
-| Paper evidence | MARKET-HOURS NEXT | At least one bounded rehearsal; strategy order only if evidence approves |
+| Public dashboard | DONE | Public HTTPS URL works signed out |
+| Repository | DONE | Public GitHub URL, tests pass, no public secrets |
+| Paper evidence | DONE | Three exploratory v0 fills retained; latest frozen v1 decision is WAIT |
 | One-page write-up | DONE | Technical brief matches running code |
 | Cover image | DONE | Correct 16:9 cover, no broker logo or performance claim |
-| Slides | OUTLINE READY, EDITABLE FILE BLOCKED | Public slide URL works signed out |
-| Demo video | SCRIPT READY | Public/unlisted video URL works signed out |
+| Slides | FINAL V06 READY | Ten-slide editable deck and PDF work without authentication |
+| Demo video | FINAL V03 READY | 4:54 video and English captions work without authentication |
 | Social links | COPY PACKAGE READY | Up to five verified public posts; no placeholder facts |
-| Lablab form | PENDING FINAL URLS | Every field complete and audited before submit |
+| Lablab form | FINAL ACTION | Corrected copy, private account ID, assets, and final Submit confirmation |
 
 ## Execution order
 
@@ -74,10 +74,10 @@ Exit: repository and demo URL checks pass.
 
 ### Gate 4 - Presentation and video
 
-1. Build the editable seven-slide deck from `presentation_outline.md`.
-2. Export a public PDF or hosted slide link.
-3. Record the three-minute path in `demo_script.md`.
-4. Upload the video as public or unlisted and verify signed-out access.
+1. Use the editable ten-slide deck in `docs/submission_assets`.
+2. Publish its final PDF and editable PPTX.
+3. Use the 4:54 narration in `demo_script.md`.
+4. Publish the MP4 with English captions and verify signed-out access.
 
 Exit: slide and video URL checks pass.
 

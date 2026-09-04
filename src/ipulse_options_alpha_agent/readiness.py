@@ -121,28 +121,30 @@ def check_submission_readiness(root: Path) -> SubmissionReadiness:
     checks = [
         _file_check(root, "public/index.html"),
         _file_check(root, "public/assets/ipulse-options-alpha-agent-cover.png"),
-        _file_check(root, "public/assets/ipulse-options-alpha-agent-49s-pitch.mp4"),
         _file_check(
-            root,
-            "public/assets/"
-            "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pptx",
+            root, "public/assets/ipulse-options-alpha-agent-judge-demo-v03.mp4"
         ),
         _file_check(
             root,
             "public/assets/"
-            "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf",
+            "2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pptx",
+        ),
+        _file_check(
+            root,
+            "public/assets/"
+            "2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pdf",
         ),
         _file_check(root, "docs/judge_one_pager.md"),
         _file_check(root, "docs/presentation_outline.md"),
         _file_check(
             root,
             "docs/submission_assets/"
-            "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pptx",
+            "2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pptx",
         ),
         _file_check(
             root,
             "output/pdf/"
-            "2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf",
+            "2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pdf",
         ),
         _file_check(root, "docs/demo_script.md"),
         _file_check(root, "docs/submission_draft.md"),

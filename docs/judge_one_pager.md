@@ -7,6 +7,21 @@
 authority
 **Environment:** Alpaca paper trading only
 
+### The buyer and business value
+
+The starting users are U.S. investment-adviser research teams, family offices,
+and sophisticated investment teams that want AI-scale evidence synthesis without
+allowing a probabilistic model to control capital. The U.S. SEC reports 22,932
+investment advisers and USD 177 trillion in regulatory assets under management
+for 2025. At an explicit, illustrative USD 12,000 annual contract assumption,
+that implies a roughly USD 275 million U.S. software opportunity. This is an
+assumption for market framing, not a forecast.
+
+The commercial path combines team SaaS, private enterprise deployment with
+firm-specific risk policies, and a usage-based evidence API. AI is essential for
+interpreting heterogeneous market, news, financial, valuation, and contrary
+evidence; deterministic software remains essential for capital control.
+
 ### The problem
 
 Many trading-agent demonstrations optimize for activity. That makes them easy to
@@ -101,3 +116,11 @@ decay, fees, and execution costs.
 This is research software operating with simulated funds. Paper fills and a
 historical directional diagnostic do not establish live profitability, and the
 project is not investment advice.
+
+### Public judge evidence
+
+- Deployed dashboard: <https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/>
+- Public MIT repository: <https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent>
+- Final 4:54 video: <https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-judge-demo-v03.mp4>
+- Final ten-slide deck: <https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pdf>
+- Editable deck: <https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pptx>

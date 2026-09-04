@@ -1,115 +1,107 @@
-# Seven-Slide Judge Presentation
+# Ten-Slide Judge Presentation
 
 Format: 16:9
-Target speaking time: 2 minutes 40 seconds, leaving 20 seconds for transitions
-Visual system: dark iPulse navy, cyan evidence paths, amber vetoes, white type
-Rule: one claim and one proof object per slide
+Target speaking time: 4 minutes 54 seconds
+Visual system: dark iPulse navy, cyan evidence paths, green approvals, amber
+constraints, white type
+Rule: one decision-ready claim and one proof object per slide
 
-## Slide 1 - The agent that can refuse
+## Slide 1 - Every trade is a claim
 
-**Headline:** Options Alpha Agent
-**Subhead:** Inspectable autonomous paper trading by iPulse AI
-**Proof line:** AI proposes. Deterministic risk decides. Alpaca executes.
+**Headline:** Every trade is a claim. We keep the evidence.
 
-Visual: use the final competition cover with the six advisor labels.
+Introduce the iPulse AI Options Alpha Agent as an inspectable autonomous
+options-research and Alpaca paper-trading system. Establish the governing
+principle: six independent advisors propose, deterministic risk controls decide,
+and every broker result remains reviewable.
 
-Speaker note: Most trading-agent demos optimize for activity. We designed for
-accountability, including the ability to WAIT.
+## Slide 2 - Problem and buyer
 
-## Slide 2 - Why activity is the wrong objective
+**Headline:** Investment teams cannot govern a black-box trading agent.
 
-**Headline:** A trade is not proof of intelligence
-**Claim:** If judges cannot reconstruct the evidence, disagreement, vetoes, and
-broker result, they cannot distinguish autonomy from unattended execution.
+Show the three governance failures: reasoning drift, risk bypass, and evidence
+loss. Name the starting user: RIA research teams, family offices, and
+sophisticated investors that need AI-scale synthesis without surrendering
+policy control.
 
-Visual: a single flow split into two outcomes: APPROVE -> bounded paper order;
-WAIT/REJECT -> retained evidence. Give both outcomes equal visual weight.
+## Slide 3 - Working product
 
-Speaker note: Refused trades are not hidden errors. They are part of the public
-record.
+**Headline:** A working product—not a chatbot wrapper.
 
-## Slide 3 - Six independent views
+Use the real public dashboard screenshot. Pair it with the three proof anchors:
+three broker-verified exploratory v0 option fills, 127 untouched holdout
+signals for the frozen v1 challenger, and the latest frozen-rule WAIT.
 
-**Headline:** Never let one AI own the conclusion
+## Slide 4 - Intended architecture
 
-Visual: six advisor nodes feeding a consensus ledger:
+**Headline:** One loop. Two kinds of intelligence. One evidence trail.
 
-1. Technical regime
-2. News catalyst
-3. Options liquidity
-4. Financials auditor
-5. Value framework
-6. Risk critic
+Show the editable end-to-end flow:
 
-Footer: Every view cites evidence, contrary evidence, confidence, and an
-invalidation condition.
+1. Alpaca account and market evidence plus cited research inputs.
+2. Six independent advisors: technical, news, options liquidity, financials
+   forensic auditor, value framework, and risk critic.
+3. Evidence-aware CALL, PUT, WAIT, or ABSTAIN consensus with dissent retained.
+4. Deterministic execution authority.
+5. Alpaca paper order, broker re-read, sanitized receipt, and P&L evidence.
 
-Speaker note: Advisors may call, put, wait, or abstain. Missing evidence does not
-become a guess.
+## Slide 5 - Why AI and where it stops
 
-## Slide 4 - Deterministic authority
+**Headline:** AI handles uncertainty. Code controls capital.
 
-**Headline:** Reasoning may evolve. Capital boundaries stay explicit.
+AI synthesizes heterogeneous evidence, surfaces contrary evidence, states
+confidence and invalidation, and abstains when evidence is missing.
+Deterministic code owns paper-only enforcement, session and quote freshness,
+one-contract sizing, USD 500 maximum loss, duplicate/cooldown rules, position
+caps, and drawdown gates. AI can abstain; AI cannot bypass.
 
-Visual: three stacked gates.
+## Slide 6 - Evidence without conflation
 
-- Environment: paper-only, two execution switches
-- Market: open session, fresh quote, complete broker state, no duplicate
-- Portfolio/order: one contract, limit only, long premium, USD 500 maximum loss,
-  cooldown, daily-loss and position caps
+**Headline:** We separate broker proof from strategy proof.
 
-Speaker note: No advisor or LLM can bypass these rules. Failure produces WAIT or
-REJECT.
+Execution proof: three exploratory v0 paper option fills, USD 825 combined
+maximum premium risk, and -USD 13.09 captured P&L. Strategy proof: the frozen
+v1 challenger produced 127 untouched 2024-2026 signals, 55.9% directional wins,
+1.39 profit factor, +0.218% average signed two-session underlying move, and a
+0.88 event-frequency Sharpe proxy. The latter is not options P&L.
 
-## Slide 5 - Verified paper execution
+## Slide 7 - Failure discipline
 
-**Headline:** Three bounded paper fills. No hidden risk.
+**Headline:** Trust grows when the agent shows failure—and restraint.
 
-Visual: sanitized scorecard.
+Show the published momentum v0 failure and the latest frozen WAIT side by side.
+Explain that the failed strategy was retired without tuning on the holdout, and
+that none of SPY, QQQ, or IWM qualified on the latest scan.
 
-- Starting equity: USD 100,000
-- Filled orders: 3
-- Contracts: AAPL, XLF, and AMZN calls
-- Maximum combined premium risk: USD 825
-- Current equity at the captured mark: USD 99,986.91
-- Current paper P&L at the captured mark: -USD 13.09
+## Slide 8 - Business value
 
-Speaker note: The raw account ID appears only in the private Lablab judging
-field, never in a public artifact. This is a short live paper snapshot, not a
-profitability claim.
+**Headline:** Governance software for the USD 177T adviser market.
 
-## Slide 6 - A frozen historical challenger
+Use the SEC 2025 counts: 22,932 U.S. investment advisers and USD 177 trillion
+regulatory AUM. Show an illustrative USD 275 million annual software TAM using
+an explicit USD 12,000 annual-contract assumption. Present team SaaS,
+enterprise private deployment, and a usage-based evidence API.
 
-**Headline:** Out-of-sample evidence, with limitations visible
+Source: https://www.sec.gov/data-research/statistics-data-visualizations/investment-adviser-statistics
 
-Visual: holdout scorecard for the exhaustion-reversal challenger.
+## Slide 9 - Originality and moat
 
-- Untouched holdout: 2024-2026
-- Signals: 127
-- Win rate: 55.9%
-- Average signed move: +0.218%
-- Profit factor: 1.39
-- Event-frequency Sharpe proxy: 0.88 (not a portfolio Sharpe ratio)
-- Non-overlapping audit: 81 signals, 56.8% wins, +0.377% average, PF 1.87
+**Headline:** The moat is falsifiable research governance.
 
-Speaker note: This is an underlying-direction diagnostic, not option P&L. It
-excludes option spreads, decay, fees, and execution costs. The original v0
-strategy failed its holdout; that negative result remains public. The headline
-win-rate Wilson interval is 47.2%-64.2%, so uncertainty is explicit.
+Compare the inspectable architecture with a typical agent demo across research,
+authority, validation, failure handling, and broker execution. Do not name or
+attack competitors; make the differentiating proof explicit.
 
-## Slide 7 - What judges can inspect
+## Slide 10 - Readiness and roadmap
 
-**Headline:** From evidence to P&L, every step remains reviewable
+**Headline:** Already working. Ready to extend responsibly.
 
-Visual: four linked proof objects with final public URLs.
+Current: deployed dashboard, 59 passing tests, three broker-verified fills, and
+a frozen scored ledger. Next: continuous paper forward testing, position
+lifecycle evidence, broker reconciliation, and drift alerts. Then: adviser-team
+shadow mode, policy packs, and private deployment. Live capital remains outside
+the hackathon scope and gated on stronger evidence.
 
-- GitHub repository
-- Hosted decision dashboard
-- Alpaca paper performance scorecard
-- 49-second pitch video
-
-Footer: Research and simulated paper trading only. Not investment advice.
-
-Speaker note: Close with the final account result and one limitation learned
-during the week. Do not claim that short paper performance predicts live
-returns.
+Close with the public dashboard, GitHub repository, team identity, and the line:
+AI proposes. Deterministic risk decides. Alpaca executes. The evidence remains
+inspectable.

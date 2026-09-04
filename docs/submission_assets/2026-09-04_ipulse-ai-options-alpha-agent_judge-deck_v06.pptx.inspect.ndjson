@@ -1,0 +1,228 @@
+{"kind":"deck","id":"pr/561fv6","name":"Deck"}
+{"kind":"layout","layoutId":"/ppt/slideMasters/slideMaster1.xml","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"/ppt/slideLayouts/slideLayout1.xml","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/y90nupkv","slide":1,"title":"iPULSE AI · OPTIONS ALPHA AGENT","textShapes":8}
+{"kind":"shape","id":"sh/547294r6","slide":1,"bbox":[490,0,420,720]}
+{"kind":"textbox","id":"sh/k3yl0zql","slide":1,"text":"iPULSE AI · OPTIONS ALPHA AGENT","textPreview":"iPULSE AI · OPTIONS ALPHA AGENT","textChars":31,"textLines":1,"bbox":[64,58,500,28]}
+{"kind":"textbox","id":"sh/7qp4be9c","slide":1,"text":"Every trade is a claim.\nWe keep the evidence.","textPreview":"Every trade is a claim. | We keep the evidence.","textChars":45,"textLines":2,"bbox":[64,125,600,175]}
+{"kind":"textbox","id":"sh/65g3298r","slide":1,"text":"An inspectable autonomous options-research and Alpaca paper-trading agent.","textPreview":"An inspectable autonomous options-research and Alpaca paper-trading agent.","textChars":74,"textLines":1,"bbox":[64,320,515,64]}
+{"kind":"textbox","id":"sh/ts7md4r2","slide":1,"text":"6 independent advisors","textPreview":"6 independent advisors","textChars":22,"textLines":1,"bbox":[64,430,186,30]}
+{"kind":"textbox","id":"sh/sryl4zqx","slide":1,"text":"deterministic authority","textPreview":"deterministic authority","textChars":23,"textLines":1,"bbox":[262,430,198,30]}
+{"kind":"textbox","id":"sh/fu94fe98","slide":1,"text":"broker receipts","textPreview":"broker receipts","textChars":15,"textLines":1,"bbox":[472,430,146,30]}
+{"kind":"textbox","id":"sh/utg3698n","slide":1,"text":"Open Agentic Investment Research Platform","textPreview":"Open Agentic Investment Research Platform","textChars":41,"textLines":1,"bbox":[64,602,500,28]}
+{"kind":"textbox","id":"sh/wn6dc7eh","slide":1,"text":"Russlan Ramdowar · Future Edge Group FZE","textPreview":"Russlan Ramdowar · Future Edge Group FZE","textChars":40,"textLines":1,"bbox":[64,642,500,22]}
+{"kind":"image","id":"im/ipofexcz","slide":1,"name":"","bbox":[628,0,652,720]}
+{"kind":"notes","id":"nt/y90nupkv","slide":1,"text":"Most trading-agent demos optimize for activity. iPulse AI optimizes for accountability. Every recommendation, dissent, veto, order, and result stays inspectable. The agent is paper-only and this presentation is not investment advice."}
+{"kind":"slide","id":"sl/hwbqtkby","slide":2,"title":"01","textShapes":13}
+{"kind":"textbox","id":"sh/s72xofmh","slide":2,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/9072xkry","slide":2,"text":"Investment teams cannot govern a black-box trading agent.","textPreview":"Investment teams cannot govern a black-box trading agent.","textChars":57,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/ozy1ofad","slide":2,"text":"The buyer is not asking for another signal. The buyer is asking: can we reconstruct why capital moved?","textPreview":"The buyer is not asking for another signal. The buyer is asking: can we reconstruct why capital moved?","textChars":102,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"shape","id":"sh/b29kza94","slide":2,"bbox":[64,205,350,208]}
+{"kind":"shape","id":"sh/a10jqpsj","slide":2,"bbox":[86,229,18,18]}
+{"kind":"textbox","id":"sh/x4r21kru","slide":2,"text":"Reasoning drift","textPreview":"Reasoning drift","textChars":15,"textLines":1,"bbox":[119,222,270,36]}
+{"kind":"textbox","id":"sh/w3i1sfa9","slide":2,"text":"A plausible narrative can silently change the strategy after every market move.","textPreview":"A plausible narrative can silently change the strategy after every market move.","textChars":79,"textLines":1,"bbox":[86,282,306,104]}
+{"kind":"shape","id":"sh/r65knqtk","slide":2,"bbox":[454,205,350,208]}
+{"kind":"shape","id":"sh/q5wjelsz","slide":2,"bbox":[476,229,18,18]}
+{"kind":"textbox","id":"sh/ove9o7yd","slide":2,"text":"Risk bypass","textPreview":"Risk bypass","textChars":11,"textLines":1,"bbox":[509,222,270,36]}
+{"kind":"textbox","id":"sh/9wnqhczy","slide":2,"text":"If the same AI proposes and authorizes, a confident mistake can become an order.","textPreview":"If the same AI proposes and authorizes, a confident mistake can become an order.","textChars":80,"textLines":1,"bbox":[476,282,306,104]}
+{"kind":"shape","id":"sh/mtwrmxg7","slide":2,"bbox":[844,205,350,208]}
+{"kind":"shape","id":"sh/nu58f2hs","slide":2,"bbox":[866,229,18,18]}
+{"kind":"textbox","id":"sh/wjy9sry9","slide":2,"text":"Evidence loss","textPreview":"Evidence loss","textChars":13,"textLines":1,"bbox":[899,222,270,36]}
+{"kind":"textbox","id":"sh/xk7qlczu","slide":2,"text":"Without dissent, timestamps, and broker reconciliation, post-trade review becomes guesswork.","textPreview":"Without dissent, timestamps, and broker reconciliation, post-trade review becomes guesswork.","textChars":92,"textLines":1,"bbox":[866,282,306,104]}
+{"kind":"textbox","id":"sh/ahwrqhgj","slide":2,"text":"Starting user","textPreview":"Starting user","textChars":13,"textLines":1,"bbox":[64,462,230,24]}
+{"kind":"textbox","id":"sh/bip8jmho","slide":2,"text":"RIA research teams · family offices · sophisticated investors","textPreview":"RIA research teams · family offices · sophisticated investors","textChars":61,"textLines":1,"bbox":[64,494,720,38]}
+{"kind":"textbox","id":"sh/cnupgny5","slide":2,"text":"They need AI-scale synthesis without surrendering policy control, auditability, or the ability to abstain.","textPreview":"They need AI-scale synthesis without surrendering policy control, auditability, or the ability to abstain.","textChars":106,"textLines":1,"bbox":[64,548,1040,54]}
+{"kind":"shape","id":"sh/do3q9szq","slide":2,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/t8byxkn2","slide":2,"text":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textPreview":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textChars":76,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"notes","id":"nt/hwbqtkby","slide":2,"text":"The focused problem is investment decision governance. The real user is a wealth or research team that wants AI to synthesize fragmented evidence but cannot accept an opaque trade recommendation or an LLM that can override controls."}
+{"kind":"slide","id":"sl/ofy9wn61","slide":3,"title":"02","textShapes":13}
+{"kind":"textbox","id":"sh/i9w3u58v","slide":3,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/cza94vmx","slide":3,"text":"A working product—not a chatbot wrapper.","textPreview":"A working product—not a chatbot wrapper.","textChars":40,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/d0jax03i","slide":3,"text":"Deployed dashboard, public repository, real Alpaca paper evidence, and a replayable decision trace.","textPreview":"Deployed dashboard, public repository, real Alpaca paper evidence, and a replayable decision trace.","textChars":99,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"shape","id":"sh/298ryl4v","slide":3,"bbox":[64,190,790,444]}
+{"kind":"textbox","id":"sh/obq90bml","slide":3,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[900,205,300,48]}
+{"kind":"textbox","id":"sh/pcjqtg36","slide":3,"text":"broker-verified option fills","textPreview":"broker-verified option fills","textChars":28,"textLines":1,"bbox":[900,257,300,24]}
+{"kind":"textbox","id":"sh/m5cra54z","slide":3,"text":"Exploratory v0 · one contract each","textPreview":"Exploratory v0 · one contract each","textChars":34,"textLines":1,"bbox":[900,284,300,32]}
+{"kind":"shape","id":"sh/n6ls3alk","slide":3,"bbox":[900,327,300,0]}
+{"kind":"textbox","id":"sh/n2l4fq98","slide":3,"text":"127","textPreview":"127","textChars":3,"textLines":1,"bbox":[900,350,300,48]}
+{"kind":"textbox","id":"sh/m1c3mlsn","slide":3,"text":"untouched holdout signals","textPreview":"untouched holdout signals","textChars":25,"textLines":1,"bbox":[900,402,300,24]}
+{"kind":"textbox","id":"sh/943mhgre","slide":3,"text":"Frozen reversal v1 · 2024–2026","textPreview":"Frozen reversal v1 · 2024–2026","textChars":30,"textLines":1,"bbox":[900,429,300,32]}
+{"kind":"shape","id":"sh/83ulovat","slide":3,"bbox":[900,472,300,0]}
+{"kind":"textbox","id":"sh/v6l4jq94","slide":3,"text":"WAIT","textPreview":"WAIT","textChars":4,"textLines":1,"bbox":[900,495,300,48]}
+{"kind":"textbox","id":"sh/a5c3ql8z","slide":3,"text":"latest frozen-rule decision","textPreview":"latest frozen-rule decision","textChars":27,"textLines":1,"bbox":[900,547,300,24]}
+{"kind":"textbox","id":"sh/x8nml0ra","slide":3,"text":"No qualifying SPY / QQQ / IWM signal","textPreview":"No qualifying SPY / QQQ / IWM signal","textChars":36,"textLines":1,"bbox":[900,574,300,32]}
+{"kind":"shape","id":"sh/w7ulsvqp","slide":3,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/ja54na9g","slide":3,"text":"Live proof: thefutureedge.github.io/ipulse-ai-options-alpha-agent/","textPreview":"Live proof: thefutureedge.github.io/ipulse-ai-options-alpha-agent/","textChars":66,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"image","id":"im/p4bu58jm","slide":3,"name":"","geometry":"roundRect","bbox":[72,198,774,428]}
+{"kind":"notes","id":"nt/ofy9wn61","slide":3,"text":"This is the public judge dashboard. It shows the broker fills, the frozen holdout, and the latest WAIT. The GitHub repository exposes the code and scored artifacts. Links are public and require no authentication."}
+{"kind":"slide","id":"sl/jyx0ra1s","slide":4,"title":"03","textShapes":21}
+{"kind":"textbox","id":"sh/5ony1oj6","slide":4,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/1cj2d8b6","slide":4,"text":"One loop. Two kinds of intelligence. One evidence trail.","textPreview":"One loop. Two kinds of intelligence. One evidence trail.","textChars":56,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/0ba143al","slide":4,"text":"Probabilistic research proposes; deterministic policy alone authorizes execution.","textPreview":"Probabilistic research proposes; deterministic policy alone authorizes execution.","textChars":81,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"shape","id":"sh/rm1k7yt4","slide":4,"bbox":[56,250,174,172]}
+{"kind":"textbox","id":"sh/ql8jytsj","slide":4,"text":"EVIDENCE","textPreview":"EVIDENCE","textChars":8,"textLines":1,"bbox":[76,270,134,22]}
+{"kind":"textbox","id":"sh/doj29oba","slide":4,"text":"Alpaca market + account\nCited research\nFinancial + valuation inputs","textPreview":"Alpaca market + account | Cited research | Financial + valuation inputs","textChars":67,"textLines":3,"bbox":[76,306,134,96]}
+{"kind":"shape","id":"sh/sna103ap","slide":4,"bbox":[280,200,316,272]}
+{"kind":"textbox","id":"sh/3ihk3et8","slide":4,"text":"SIX INDEPENDENT ADVISORS","textPreview":"SIX INDEPENDENT ADVISORS","textChars":24,"textLines":1,"bbox":[304,220,268,24]}
+{"kind":"textbox","id":"sh/ih8ju9sn","slide":4,"text":"Technical regime","textPreview":"Technical regime","textChars":16,"textLines":1,"bbox":[300,267,130,30]}
+{"kind":"textbox","id":"sh/kbm987y5","slide":4,"text":"News catalyst","textPreview":"News catalyst","textChars":13,"textLines":1,"bbox":[442,267,130,30]}
+{"kind":"textbox","id":"sh/5cva1cfq","slide":4,"text":"Options liquidity","textPreview":"Options liquidity","textChars":17,"textLines":1,"bbox":[300,321,130,30]}
+{"kind":"textbox","id":"sh/i94r6xgz","slide":4,"text":"Financials auditor","textPreview":"Financials auditor","textChars":18,"textLines":1,"bbox":[442,321,130,30]}
+{"kind":"textbox","id":"sh/jadsz2xk","slide":4,"text":"Value framework","textPreview":"Value framework","textChars":15,"textLines":1,"bbox":[300,375,130,30]}
+{"kind":"textbox","id":"sh/w72947yt","slide":4,"text":"Risk critic","textPreview":"Risk critic","textChars":11,"textLines":1,"bbox":[442,375,130,30]}
+{"kind":"textbox","id":"sh/x8vaxsfe","slide":4,"text":"evidence · contrary evidence · confidence · invalidation","textPreview":"evidence · contrary evidence · confidence · invalidation","textChars":56,"textLines":1,"bbox":[304,425,268,24]}
+{"kind":"shape","id":"sh/a5kr2xg3","slide":4,"bbox":[650,250,164,172]}
+{"kind":"textbox","id":"sh/v6tsv2xo","slide":4,"text":"CONSENSUS","textPreview":"CONSENSUS","textChars":9,"textLines":1,"bbox":[670,270,124,22]}
+{"kind":"textbox","id":"sh/g36tgryd","slide":4,"text":"CALL · PUT\nWAIT · ABSTAIN\nDissent preserved","textPreview":"CALL · PUT | WAIT · ABSTAIN | Dissent preserved","textChars":43,"textLines":3,"bbox":[670,318,124,74]}
+{"kind":"shape","id":"sh/h4fa9wfy","slide":4,"bbox":[868,200,188,272]}
+{"kind":"textbox","id":"sh/p0batw72","slide":4,"text":"DETERMINISTIC\nRISK AUTHORITY","textPreview":"DETERMINISTIC | RISK AUTHORITY","textChars":28,"textLines":2,"bbox":[888,220,148,48]}
+{"kind":"textbox","id":"sh/oz29krqh","slide":4,"text":"paper-only\nmarket + quote freshness\nsize + max loss\nduplicates + cooldown\nposition + drawdown","textPreview":"paper-only | market + quote freshness | size + max loss | duplicates + cooldown | position + drawdown","textChars":93,"textLines":5,"bbox":[890,292,144,142]}
+{"kind":"shape","id":"sh/3ytsrmpw","slide":4,"bbox":[1110,250,126,172]}
+{"kind":"textbox","id":"sh/2xkrih8b","slide":4,"text":"ALPACA","textPreview":"ALPACA","textChars":6,"textLines":1,"bbox":[1124,270,98,22]}
+{"kind":"textbox","id":"sh/1wbapc7q","slide":4,"text":"Paper order\nBroker re-read\nReceipt","textPreview":"Paper order | Broker re-read | Receipt","textChars":34,"textLines":3,"bbox":[1124,320,98,72]}
+{"kind":"shape","id":"sh/vm1s7mlk","slide":4,"bbox":[230,336,50,0]}
+{"kind":"shape","id":"sh/wr694nm1","slide":4,"bbox":[596,336,54,0]}
+{"kind":"shape","id":"sh/xsfqxs36","slide":4,"bbox":[814,336,54,0]}
+{"kind":"shape","id":"sh/do761ova","slide":4,"bbox":[1056,336,54,0]}
+{"kind":"textbox","id":"sh/sri9s7q9","slide":4,"text":"Append-only evidence: signal → opinions → vetoes → order → broker result → P&L","textPreview":"Append-only evidence: signal → opinions → vetoes → order → broker result → P&L","textChars":78,"textLines":1,"bbox":[240,525,800,34]}
+{"kind":"shape","id":"sh/ilwf69kv","slide":4,"bbox":[250,574,780,0]}
+{"kind":"shape","id":"sh/jm5gze1g","slide":4,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/knex8j21","slide":4,"text":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textPreview":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textChars":76,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"notes","id":"nt/jyx0ra1s","slide":4,"text":"The six advisors are independent roles, not six copies of one answer. They can disagree or abstain. The consensus is a proposal. Only the deterministic gate can authorize a paper order, and the broker is re-read after submission. Every transition is retained."}
+{"kind":"slide","id":"sl/i107q5of","slide":5,"title":"04","textShapes":11}
+{"kind":"textbox","id":"sh/58vehgvy","slide":5,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/dgbulwnm","slide":5,"text":"AI handles uncertainty. Code controls capital.","textPreview":"AI handles uncertainty. Code controls capital.","textChars":46,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/cf2tcr61","slide":5,"text":"This boundary is the product—not a hidden implementation detail.","textPreview":"This boundary is the product—not a hidden implementation detail.","textChars":64,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"shape","id":"sh/z2tcnm5s","slide":5,"bbox":[64,190,540,408]}
+{"kind":"textbox","id":"sh/yhkbe1o7","slide":5,"text":"AI RESEARCH LAYER","textPreview":"AI RESEARCH LAYER","textChars":17,"textLines":1,"bbox":[92,220,460,26]}
+{"kind":"textbox","id":"sh/l4bupwny","slide":5,"text":"Synthesizes technical, news, liquidity, financial, and valuation evidence\nSurfaces contrary evidence and invalidation conditions\nExpresses calibrated confidence and preserves dissent\nAbstains when required evidence is missing","textPreview":"Synthesizes technical, news, liquidity, financial, and valuation evidence | Surfaces contrary evidence and invalidation conditions | Expr...","textChars":225,"textLines":4,"bbox":[92,272,460,260]}
+{"kind":"textbox","id":"sh/032tgr6d","slide":5,"text":"Why AI? Cross-source interpretation and structured adversarial reasoning do not reduce to one rigid indicator.","textPreview":"Why AI? Cross-source interpretation and structured adversarial reasoning do not reduce to one rigid indicator.","textChars":110,"textLines":1,"bbox":[92,535,450,46]}
+{"kind":"shape","id":"sh/n6dcr65o","slide":5,"bbox":[676,190,540,408]}
+{"kind":"textbox","id":"sh/m5kbi1oj","slide":5,"text":"DETERMINISTIC AUTHORITY","textPreview":"DETERMINISTIC AUTHORITY","textChars":23,"textLines":1,"bbox":[704,220,460,26]}
+{"kind":"textbox","id":"sh/w32dkbuh","slide":5,"text":"Paper environment and explicit execution switches\nRegular session and fresh option quote\nOne contract · long premium · limit only\nUSD 500 maximum defined loss\nDuplicate, cooldown, position, and daily-loss gates","textPreview":"Paper environment and explicit execution switches | Regular session and fresh option quote | One contract · long premium · limit only | U...","textChars":210,"textLines":5,"bbox":[704,272,460,268]}
+{"kind":"textbox","id":"sh/x4vedgvm","slide":5,"text":"Every failed check becomes WAIT or REJECT. No advisor or model can bypass these controls.","textPreview":"Every failed check becomes WAIT or REJECT. No advisor or model can bypass these controls.","textChars":89,"textLines":1,"bbox":[704,548,450,36]}
+{"kind":"textbox","id":"sh/ahkvi1cb","slide":5,"text":"AI can abstain. AI cannot bypass.","textPreview":"AI can abstain. AI cannot bypass.","textChars":33,"textLines":1,"bbox":[300,623,680,34]}
+{"kind":"shape","id":"sh/v2twb6dw","slide":5,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/k7mxovud","slide":5,"text":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textPreview":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textChars":76,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"notes","id":"nt/i107q5of","slide":5,"text":"AI is used where interpretation is valuable: combining heterogeneous evidence, articulating competing cases, and stating what would invalidate each view. Deterministic code handles safety-critical authorization. This separation makes the system inspectable and testable."}
+{"kind":"slide","id":"sl/x8f69ofe","slide":6,"title":"05","textShapes":29}
+{"kind":"textbox","id":"sh/hcrqlcj6","slide":6,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/yhg7epsj","slide":6,"text":"We separate broker proof from strategy proof.","textPreview":"We separate broker proof from strategy proof.","textChars":45,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/zi98nu94","slide":6,"text":"Execution evidence answers “did the safe path work?” Holdout evidence answers “did the frozen idea survive?”","textPreview":"Execution evidence answers “did the safe path work?” Holdout evidence answers “did the frozen idea survive?”","textChars":108,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"shape","id":"sh/87ipkzal","slide":6,"bbox":[64,190,530,330]}
+{"kind":"textbox","id":"sh/98rqt4r6","slide":6,"text":"ALPACA PAPER EXECUTION · EXPLORATORY V0","textPreview":"ALPACA PAPER EXECUTION · EXPLORATORY V0","textChars":39,"textLines":1,"bbox":[92,216,470,24]}
+{"kind":"textbox","id":"sh/ml07i9sv","slide":6,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[92,268,130,48]}
+{"kind":"textbox","id":"sh/7m98ru9g","slide":6,"text":"filled orders","textPreview":"filled orders","textChars":13,"textLines":1,"bbox":[92,320,130,24]}
+{"kind":"textbox","id":"sh/oryp8fah","slide":6,"text":"$825","textPreview":"$825","textChars":4,"textLines":1,"bbox":[245,268,150,48]}
+{"kind":"textbox","id":"sh/pc76hkr2","slide":6,"text":"max premium risk","textPreview":"max premium risk","textChars":16,"textLines":1,"bbox":[245,320,150,24]}
+{"kind":"textbox","id":"sh/h4bupgn6","slide":6,"text":"–$13.09","textPreview":"–$13.09","textChars":7,"textLines":1,"bbox":[424,268,132,48]}
+{"kind":"textbox","id":"sh/w32twb6l","slide":6,"text":"captured P&L","textPreview":"captured P&L","textChars":12,"textLines":1,"bbox":[424,320,132,24]}
+{"kind":"textbox","id":"sh/v2tcn650","slide":6,"text":"AAPL · XLF · AMZN calls · one contract each · long-premium limits","textPreview":"AAPL · XLF · AMZN calls · one contract each · long-premium limits","textChars":65,"textLines":1,"bbox":[92,394,454,32]}
+{"kind":"textbox","id":"sh/u1kbu1ov","slide":6,"text":"Short paper snapshot. Proves broker integration and bounded loss—not v1 profitability.","textPreview":"Short paper snapshot. Proves broker integration and bounded loss—not v1 profitability.","textChars":86,"textLines":1,"bbox":[92,452,454,44]}
+{"kind":"shape","id":"sh/5svutgni","slide":6,"bbox":[650,190,566,330]}
+{"kind":"textbox","id":"sh/47mt0b6x","slide":6,"text":"FROZEN REVERSAL V1 · UNTOUCHED 2024–2026","textPreview":"FROZEN REVERSAL V1 · UNTOUCHED 2024–2026","textChars":40,"textLines":1,"bbox":[678,216,510,24]}
+{"kind":"textbox","id":"sh/j6dcr65c","slide":6,"text":"127","textPreview":"127","textChars":3,"textLines":1,"bbox":[678,268,120,48]}
+{"kind":"textbox","id":"sh/i54bylor","slide":6,"text":"signals","textPreview":"signals","textChars":7,"textLines":1,"bbox":[678,320,120,24]}
+{"kind":"textbox","id":"sh/twfux0ne","slide":6,"text":"55.9%","textPreview":"55.9%","textChars":5,"textLines":1,"bbox":[810,268,120,48]}
+{"kind":"textbox","id":"sh/svmt4v6t","slide":6,"text":"win rate","textPreview":"win rate","textChars":8,"textLines":1,"bbox":[810,320,120,24]}
+{"kind":"textbox","id":"sh/cbe5g3ih","slide":6,"text":"1.39","textPreview":"1.39","textChars":4,"textLines":1,"bbox":[944,268,112,48]}
+{"kind":"textbox","id":"sh/dcnm98zm","slide":6,"text":"profit factor","textPreview":"profit factor","textChars":13,"textLines":1,"bbox":[944,320,112,24]}
+{"kind":"textbox","id":"sh/qpwnet0b","slide":6,"text":"+0.218%","textPreview":"+0.218%","textChars":7,"textLines":1,"bbox":[1070,268,118,48]}
+{"kind":"textbox","id":"sh/bq547yhw","slide":6,"text":"avg signed move","textPreview":"avg signed move","textChars":15,"textLines":1,"bbox":[1070,320,118,24]}
+{"kind":"textbox","id":"sh/0fy5k3id","slide":6,"text":"Event-frequency Sharpe proxy 0.88 · 95% Wilson interval 47.2%–64.2%","textPreview":"Event-frequency Sharpe proxy 0.88 · 95% Wilson interval 47.2%–64.2%","textChars":67,"textLines":1,"bbox":[678,394,510,32]}
+{"kind":"textbox","id":"sh/lg76d8zy","slide":6,"text":"Underlying two-session directional diagnostic—not options P&L. Fees, spread, decay, and slippage excluded.","textPreview":"Underlying two-session directional diagnostic—not options P&L. Fees, spread, decay, and slippage excluded.","textChars":106,"textLines":1,"bbox":[678,452,510,44]}
+{"kind":"textbox","id":"sh/ydgnit07","slide":6,"text":"2021–2023","textPreview":"2021–2023","textChars":9,"textLines":1,"bbox":[110,566,140,24]}
+{"kind":"textbox","id":"sh/zep4byhs","slide":6,"text":"development only","textPreview":"development only","textChars":16,"textLines":1,"bbox":[110,592,140,20]}
+{"kind":"shape","id":"sh/gju58ji9","slide":6,"bbox":[250,579,220,0]}
+{"kind":"shape","id":"sh/1k3mhozu","slide":6,"bbox":[462,567,24,24]}
+{"kind":"textbox","id":"sh/jet8nm1c","slide":6,"text":"strategy frozen","textPreview":"strategy frozen","textChars":15,"textLines":1,"bbox":[405,613,140,20]}
+{"kind":"shape","id":"sh/idk7ehkr","slide":6,"bbox":[486,579,404,0]}
+{"kind":"textbox","id":"sh/50bqpcj2","slide":6,"text":"2024–2026","textPreview":"2024–2026","textChars":9,"textLines":1,"bbox":[900,566,160,24]}
+{"kind":"textbox","id":"sh/4f2pgr2h","slide":6,"text":"untouched holdout","textPreview":"untouched holdout","textChars":17,"textLines":1,"bbox":[900,592,160,20]}
+{"kind":"shape","id":"sh/va98j210","slide":6,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/u907axkf","slide":6,"text":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textPreview":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textChars":76,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"notes","id":"nt/x8f69ofe","slide":6,"text":"The three paper fills are intentionally separated from the frozen v1 strategy. They prove the broker path and defined risk. The holdout was selected only after development on 2021 to 2023, then evaluated on untouched 2024 to 2026 data. The 0.88 figure is an event-frequency-adjusted proxy, not a portfolio Sharpe ratio. A non-overlapping audit retained 81 signals with 56.8 percent wins and a 1.87 profit factor."}
+{"kind":"slide","id":"sl/gnmp4jqx","slide":7,"title":"06","textShapes":13}
+{"kind":"textbox","id":"sh/eh4jil4r","slide":7,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/cb2tkvap","slide":7,"text":"Trust grows when the agent shows failure—and restraint.","textPreview":"Trust grows when the agent shows failure—and restraint.","textChars":55,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/dcbud0ra","slide":7,"text":"Negative results and WAIT decisions are product outputs, not presentation problems.","textPreview":"Negative results and WAIT decisions are product outputs, not presentation problems.","textChars":83,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"shape","id":"sh/ydkbm5sv","slide":7,"bbox":[64,190,300,424]}
+{"kind":"textbox","id":"sh/zedcfa9g","slide":7,"text":"PUBLISHED FAILURE","textPreview":"PUBLISHED FAILURE","textChars":17,"textLines":1,"bbox":[88,216,252,24]}
+{"kind":"textbox","id":"sh/kzmdova1","slide":7,"text":"Momentum v0","textPreview":"Momentum v0","textChars":11,"textLines":1,"bbox":[88,272,252,40]}
+{"kind":"textbox","id":"sh/l0vuh0rm","slide":7,"text":"Failed its holdout. We kept the evidence, retired the strategy, and froze the challenger before the next test.","textPreview":"Failed its holdout. We kept the evidence, retired the strategy, and froze the challenger before the next test.","textChars":110,"textLines":1,"bbox":[88,330,252,128]}
+{"kind":"textbox","id":"sh/eh0ba1sr","slide":7,"text":"failure remains public","textPreview":"failure remains public","textChars":22,"textLines":1,"bbox":[88,522,198,30]}
+{"kind":"shape","id":"sh/fi9c369c","slide":7,"bbox":[398,190,536,424]}
+{"kind":"shape","id":"sh/a9ojq5kz","slide":7,"bbox":[968,190,248,424]}
+{"kind":"textbox","id":"sh/xcz2l03q","slide":7,"text":"LATEST FROZEN CHECK","textPreview":"LATEST FROZEN CHECK","textChars":19,"textLines":1,"bbox":[992,216,200,24]}
+{"kind":"textbox","id":"sh/cbq1sv25","slide":7,"text":"WAIT","textPreview":"WAIT","textChars":4,"textLines":1,"bbox":[992,268,200,54]}
+{"kind":"textbox","id":"sh/n6x0fqlo","slide":7,"text":"0 of 3 qualified","textPreview":"0 of 3 qualified","textChars":16,"textLines":1,"bbox":[992,338,200,28]}
+{"kind":"textbox","id":"sh/25ojml43","slide":7,"text":"SPY, QQQ, and IWM did not meet the frozen exhaustion rule. No order was requested.","textPreview":"SPY, QQQ, and IWM did not meet the frozen exhaustion rule. No order was requested.","textChars":82,"textLines":1,"bbox":[992,388,200,104]}
+{"kind":"textbox","id":"sh/p8fih03e","slide":7,"text":"restraint is observable","textPreview":"restraint is observable","textChars":23,"textLines":1,"bbox":[992,522,200,30]}
+{"kind":"shape","id":"sh/o761ov2t","slide":7,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/f2d0b6lc","slide":7,"text":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textPreview":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textChars":76,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"image","id":"im/hcbmpone","slide":7,"name":"","geometry":"roundRect","bbox":[406,198,520,408]}
+{"kind":"notes","id":"nt/gnmp4jqx","slide":7,"text":"This is a core differentiator. Momentum v0 did not survive validation, so it was published and retired rather than tuned on the holdout. The latest frozen-rule check also produced WAIT because no symbol qualified. The decision trace still records the evidence and advisor outputs."}
+{"kind":"slide","id":"sl/fu1gfa1s","slide":8,"title":"07","textShapes":25}
+{"kind":"textbox","id":"sh/na1sb2lg","slide":8,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/18byd4zy","slide":8,"text":"Governance software for the $177T adviser market.","textPreview":"Governance software for the $177T adviser market.","textChars":49,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/g72x4zyd","slide":8,"text":"Start with U.S. investment-adviser research teams that need inspectable AI before scaling autonomy.","textPreview":"Start with U.S. investment-adviser research teams that need inspectable AI before scaling autonomy.","textChars":99,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"textbox","id":"sh/ri9g7uhw","slide":8,"text":"22,932","textPreview":"22,932","textChars":6,"textLines":1,"bbox":[64,205,250,48]}
+{"kind":"textbox","id":"sh/6h0fypgb","slide":8,"text":"U.S. investment advisers","textPreview":"U.S. investment advisers","textChars":24,"textLines":1,"bbox":[64,257,250,24]}
+{"kind":"textbox","id":"sh/tkby9kzm","slide":8,"text":"SEC 2025 statistics","textPreview":"SEC 2025 statistics","textChars":19,"textLines":1,"bbox":[64,284,250,32]}
+{"kind":"textbox","id":"sh/sjix0zy1","slide":8,"text":"$177T","textPreview":"$177T","textChars":5,"textLines":1,"bbox":[340,205,250,48]}
+{"kind":"textbox","id":"sh/je9g3ahk","slide":8,"text":"regulatory AUM","textPreview":"regulatory AUM","textChars":14,"textLines":1,"bbox":[340,257,250,24]}
+{"kind":"textbox","id":"sh/id0fu50z","slide":8,"text":"SEC 2025 statistics","textPreview":"SEC 2025 statistics","textChars":19,"textLines":1,"bbox":[340,284,250,32]}
+{"kind":"shape","id":"sh/o7ydoret","slide":8,"bbox":[650,190,566,170]}
+{"kind":"textbox","id":"sh/98rehwve","slide":8,"text":"ILLUSTRATIVE U.S. SOFTWARE TAM","textPreview":"ILLUSTRATIVE U.S. SOFTWARE TAM","textChars":30,"textLines":1,"bbox":[682,216,500,22]}
+{"kind":"textbox","id":"sh/m5gvmhwn","slide":8,"text":"≈ $275M / year","textPreview":"≈ $275M / year","textChars":14,"textLines":1,"bbox":[682,256,500,52]}
+{"kind":"textbox","id":"sh/n6pwfmd8","slide":8,"text":"22,932 advisers × assumed $12k annual contract. Assumption, not a forecast.","textPreview":"22,932 advisers × assumed $12k annual contract. Assumption, not a forecast.","textChars":75,"textLines":1,"bbox":[682,316,500,26]}
+{"kind":"textbox","id":"sh/0jydkreh","slide":8,"text":"Product wedge","textPreview":"Product wedge","textChars":13,"textLines":1,"bbox":[64,402,270,26]}
+{"kind":"textbox","id":"sh/1k7edwv2","slide":8,"text":"Evidence-governed research workflow","textPreview":"Evidence-governed research workflow","textChars":35,"textLines":1,"bbox":[64,438,510,72]}
+{"kind":"textbox","id":"sh/ehgvihwr","slide":8,"text":"Research teams review advisor evidence, policy vetoes, model limitations, and broker outcomes in one audit trail.","textPreview":"Research teams review advisor evidence, policy vetoes, model limitations, and broker outcomes in one audit trail.","textChars":113,"textLines":1,"bbox":[64,528,510,62]}
+{"kind":"shape","id":"sh/zipwbmdc","slide":8,"bbox":[650,402,174,176]}
+{"kind":"textbox","id":"sh/kfixwbe1","slide":8,"text":"TEAM SAAS","textPreview":"TEAM SAAS","textChars":9,"textLines":1,"bbox":[666,420,142,20]}
+{"kind":"textbox","id":"sh/lgbepgvm","slide":8,"text":"$499–$1,999 / month","textPreview":"$499–$1,999 / month","textChars":19,"textLines":1,"bbox":[666,461,142,48]}
+{"kind":"textbox","id":"sh/tw7e9gnq","slide":8,"text":"Seats, policies, evidence retention","textPreview":"Seats, policies, evidence retention","textChars":35,"textLines":1,"bbox":[666,523,142,42]}
+{"kind":"shape","id":"sh/svydgb65","slide":8,"bbox":[838,402,174,176]}
+{"kind":"textbox","id":"sh/7u5w765k","slide":8,"text":"ENTERPRISE","textPreview":"ENTERPRISE","textChars":10,"textLines":1,"bbox":[854,420,142,20]}
+{"kind":"textbox","id":"sh/6twve1oz","slide":8,"text":"annual license","textPreview":"annual license","textChars":14,"textLines":1,"bbox":[854,461,142,48]}
+{"kind":"textbox","id":"sh/5sne5wne","slide":8,"text":"Private deployment + governance","textPreview":"Private deployment + governance","textChars":31,"textLines":1,"bbox":[854,523,142,42]}
+{"kind":"shape","id":"sh/kredcr6t","slide":8,"bbox":[1026,402,174,176]}
+{"kind":"textbox","id":"sh/jq5w365o","slide":8,"text":"API","textPreview":"API","textChars":3,"textLines":1,"bbox":[1042,420,142,20]}
+{"kind":"textbox","id":"sh/i5wva1o3","slide":8,"text":"usage-based","textPreview":"usage-based","textChars":11,"textLines":1,"bbox":[1042,461,142,48]}
+{"kind":"textbox","id":"sh/x4ne1wni","slide":8,"text":"Research and evidence primitives","textPreview":"Research and evidence primitives","textChars":32,"textLines":1,"bbox":[1042,523,142,42]}
+{"kind":"shape","id":"sh/w3ed8r6x","slide":8,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/m9sb2x4v","slide":8,"text":"Source: U.S. SEC Investment Adviser Statistics, 2025 · TAM uses an explicit annual-contract assumption","textPreview":"Source: U.S. SEC Investment Adviser Statistics, 2025 · TAM uses an explicit annual-contract assumption","textChars":102,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"notes","id":"nt/fu1gfa1s","slide":8,"text":"The SEC reports 22,932 investment advisers and 177 trillion dollars in regulatory assets under management for 2025. The 275 million dollar software TAM is an explicit bottom-up assumption: the adviser count multiplied by a 12 thousand dollar annual contract. The initial business model is team SaaS, enterprise private deployment, and an evidence API. Source: https://www.sec.gov/data-research/statistics-data-visualizations/investment-adviser-statistics"}
+{"kind":"slide","id":"sl/udsvah03","slide":9,"title":"08","textShapes":5}
+{"kind":"textbox","id":"sh/bih4na5w","slide":9,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/1cfmhgne","slide":9,"text":"The moat is falsifiable research governance.","textPreview":"The moat is falsifiable research governance.","textChars":44,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/0b65obm9","slide":9,"text":"What judges can verify that many trading-agent demos leave implicit.","textPreview":"What judges can verify that many trading-agent demos leave implicit.","textChars":68,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"textbox","id":"sh/mdonql4z","slide":9,"text":"Originality is observable: the agent treats disagreement, invalidation, and refusal as first-class artifacts.","textPreview":"Originality is observable: the agent treats disagreement, invalidation, and refusal as first-class artifacts.","textChars":109,"textLines":1,"bbox":[64,626,1152,32]}
+{"kind":"shape","id":"sh/9gzml0nq","slide":9,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/ofq5svm5","slide":9,"text":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textPreview":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textChars":76,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"table","id":"tb/3a5gnqpk","slide":9,"name":"","rows":6,"cols":3,"preview":"Governance proof | Typical agent demo | iPulse AI","bbox":[64,190,1152,410]}
+{"kind":"notes","id":"nt/udsvah03","slide":9,"text":"The original contribution is a falsifiable research-governance layer for autonomous investing. The output is not only CALL or PUT. It is the evidence, dissent, confidence, invalidation condition, policy decision, and broker outcome needed to reproduce and challenge the action."}
+{"kind":"slide","id":"sl/m90b6t0r","slide":10,"title":"09","textShapes":15}
+{"kind":"textbox","id":"sh/bu5cnqd8","slide":10,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[64,38,44,28]}
+{"kind":"textbox","id":"sh/xc3mho32","slide":10,"text":"Already working. Ready to extend responsibly.","textPreview":"Already working. Ready to extend responsibly.","textChars":45,"textLines":1,"bbox":[64,72,1144,58]}
+{"kind":"textbox","id":"sh/cbu58j2h","slide":10,"text":"The next milestone is more forward evidence—not broader risk.","textPreview":"The next milestone is more forward evidence—not broader risk.","textChars":61,"textLines":1,"bbox":[64,129,1144,34]}
+{"kind":"shape","id":"sh/zelojyl8","slide":10,"bbox":[64,200,346,250]}
+{"kind":"textbox","id":"sh/ydcnatkn","slide":10,"text":"NOW","textPreview":"NOW","textChars":3,"textLines":1,"bbox":[88,224,298,24]}
+{"kind":"textbox","id":"sh/l036l83y","slide":10,"text":"Deployed dashboard\n59 passing tests\n3 broker-verified fills\nFrozen holdout + full ledger","textPreview":"Deployed dashboard | 59 passing tests | 3 broker-verified fills | Frozen holdout + full ledger","textChars":88,"textLines":4,"bbox":[88,280,298,144]}
+{"kind":"shape","id":"sh/kzu5c32t","slide":10,"bbox":[450,200,346,250]}
+{"kind":"textbox","id":"sh/725onyl4","slide":10,"text":"NEXT 30 DAYS","textPreview":"NEXT 30 DAYS","textChars":12,"textLines":1,"bbox":[474,224,298,24]}
+{"kind":"textbox","id":"sh/m1cnetkj","slide":10,"text":"Continuous paper forward test\nPosition lifecycle + exits\nDaily broker reconciliation\nEvaluation drift alerts","textPreview":"Continuous paper forward test | Position lifecycle + exits | Daily broker reconciliation | Evaluation drift alerts","textChars":108,"textLines":4,"bbox":[474,280,298,144]}
+{"kind":"shape","id":"sh/s7yt4b21","slide":10,"bbox":[836,200,346,250]}
+{"kind":"textbox","id":"sh/d87uxg3m","slide":10,"text":"NEXT 90 DAYS","textPreview":"NEXT 90 DAYS","textChars":12,"textLines":1,"bbox":[860,224,298,24]}
+{"kind":"textbox","id":"sh/q5gb21kb","slide":10,"text":"Shadow mode for adviser teams\nPolicy packs + approvals\nPrivate deployment\nNo live capital before gates","textPreview":"Shadow mode for adviser teams | Policy packs + approvals | Private deployment | No live capital before gates","textChars":102,"textLines":4,"bbox":[860,280,298,144]}
+{"kind":"shape","id":"sh/exsrmhsf","slide":10,"bbox":[410,325,40,0]}
+{"kind":"shape","id":"sh/zyl8vmt0","slide":10,"bbox":[796,325,40,0]}
+{"kind":"textbox","id":"sh/1cru1g3y","slide":10,"text":"Inspect the evidence","textPreview":"Inspect the evidence","textChars":20,"textLines":1,"bbox":[64,510,300,32]}
+{"kind":"textbox","id":"sh/e9gb61k7","slide":10,"text":"Live dashboard  ·  GitHub repository","textPreview":"Live dashboard  ·  GitHub repository","textChars":36,"textLines":1,"bbox":[64,554,620,34]}
+{"kind":"textbox","id":"sh/fapcz6ls","slide":10,"text":"Russlan Ramdowar","textPreview":"Russlan Ramdowar","textChars":16,"textLines":1,"bbox":[778,510,438,32]}
+{"kind":"textbox","id":"sh/ozitcv29","slide":10,"text":"Founder · iPulse AI · Future Edge Group FZE","textPreview":"Founder · iPulse AI · Future Edge Group FZE","textChars":43,"textLines":1,"bbox":[778,552,438,24]}
+{"kind":"textbox","id":"sh/p0ru503u","slide":10,"text":"AI proposes. Deterministic risk decides. Alpaca executes. The evidence remains inspectable.","textPreview":"AI proposes. Deterministic risk decides. Alpaca executes. The evidence remains inspectable.","textChars":91,"textLines":1,"bbox":[200,620,880,34]}
+{"kind":"shape","id":"sh/xwnupgvy","slide":10,"bbox":[64,682,1152,0]}
+{"kind":"textbox","id":"sh/wvetgbud","slide":10,"text":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textPreview":"iPulse AI Options Alpha Agent · Alpaca paper trading · Not investment advice","textChars":76,"textLines":1,"bbox":[64,690,1152,18]}
+{"kind":"notes","id":"nt/m90b6t0r","slide":10,"text":"The system is already deployed and testable. The responsible roadmap is deeper forward paper evidence, complete lifecycle monitoring, and adviser-team shadow mode. Live capital is explicitly outside the hackathon scope and remains gated on evidence. Built by Russlan Ramdowar at iPulse AI, Future Edge Group FZE."}

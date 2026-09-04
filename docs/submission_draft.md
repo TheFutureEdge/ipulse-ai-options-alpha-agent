@@ -124,12 +124,21 @@ cash allocation.
   no path around the normal execution gates
 - Sanitized competition performance journal with no raw account identifiers
 
+## Business value
+
+The initial buyer is a U.S. investment-adviser research team. The SEC reports
+22,932 investment advisers and USD 177 trillion in regulatory AUM for 2025. An
+explicit USD 12,000 assumed annual contract implies an illustrative USD 275
+million U.S. software TAM; this is an assumption, not a forecast. The revenue
+model combines team SaaS, enterprise private deployment, and a usage-based
+research/evidence API.
+
 ## Required links before final submission
 
 - Public repository: https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent
 - Hosted demo: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/
-- Demo video: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4
-- Judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf
+- Demo video: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-judge-demo-v03.mp4
+- Judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pdf
 - Team page: iPulse AI Open Lab
 
 ## Disclosure

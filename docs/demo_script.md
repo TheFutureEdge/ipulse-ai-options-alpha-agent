@@ -1,61 +1,104 @@
-# Three-Minute Demo Script
+# 4:54 Judge Demo Script
 
-## 0:00-0:25 - The problem
+This script is the narration used by the final ten-slide judge video. The timing
+keeps the finished video below Lablab's five-minute limit.
 
-Trading agents are easy to make active and hard to make accountable. iPulse AI
-Options Alpha Agent makes every signal, rejection, risk decision, order, and
-result inspectable.
+## 0:00-0:17 - The promise
 
-## 0:25-0:50 - Real Alpaca evidence
+Every trade is a claim. iPulse AI keeps the evidence. This is an inspectable
+autonomous options research and Alpaca paper trading agent. Six independent
+advisors propose, deterministic risk controls decide, and every broker result
+remains reviewable.
 
-Show the competition panel: dedicated paper account, USD 100,000 starting
-equity, three filled long-premium option orders, and no exposed account ID. Then
-run `evaluate-advisors-market`. Point out that the agent scans real SPY/QQQ/IWM
-bars, selects the strongest qualifying frozen-reversal signal, and only then
-reads quotes, portfolio and recent-order state, a narrow options chain, and
-hashed external research evidence.
+## 0:17-0:41 - The user and problem
 
-## 0:50-1:25 - Independent research
+The real problem is not finding one more signal. Investment teams cannot govern
+a black-box trading agent. Reasoning can drift, a confident model can bypass
+risk, and missing evidence makes post-trade review guesswork. Our starting users
+are adviser research teams, family offices, and sophisticated investors who need
+AI-scale synthesis without surrendering policy control.
 
-Show all six opinions. Highlight the financials forensic auditor, value
-framework, cited evidence, contrary evidence, and invalidation conditions.
-Explain that missing coverage produces ABSTAIN and hard safety flags produce
-WAIT.
+## 0:41-1:01 - Deployed proof
 
-## 1:25-1:58 - Risk authority
+This is a working deployed product, not a chatbot wrapper. The public dashboard
+shows three broker-verified paper option fills, 127 untouched holdout signals for
+the frozen challenger, and the latest WAIT decision. Judges can open the
+dashboard and repository without authentication and replay the evidence path.
 
-Show consensus disagreement handling, paper-only enforcement, quote freshness,
-duplicate protection, cooldown, long-premium rule, one-contract cap, USD 500
-maximum loss, daily loss circuit breaker, and position cap. Run one deliberately
-oversized test and show REJECT.
+## 1:01-1:37 - Architecture
 
-## 1:58-2:30 - Paper execution
+The architecture separates two kinds of intelligence. Alpaca market and account
+data, cited research, financials, and valuation evidence feed six independent
+advisors: technical regime, news catalyst, options liquidity, a financials
+forensic auditor, a value framework, and a risk critic. Consensus may propose
+CALL, PUT, WAIT, or ABSTAIN. Deterministic policy then checks every execution
+condition. Only after approval can Alpaca receive a paper order, which is
+re-read and stored as a sanitized receipt.
 
-Show the three retained exploratory v0 paper receipts: AAPL, XLF, and AMZN
-calls, one contract each, all limit orders. Reconcile the USD 825 combined
-premium paid with the same USD 825 maximum defined premium risk. State clearly
-that these prove the bounded broker path, not v1 returns. Explain that the
-three-entry daily cap was binding for that New York trading date, so the agent
-could not keep trading for a prettier demo.
+## 1:37-2:08 - Why AI, and where it stops
 
-## 2:30-3:00 - Inspectability and scorecard
+AI is used where interpretation matters. It synthesizes heterogeneous evidence,
+states contrary evidence, expresses confidence, and says what would invalidate
+each view. Code controls capital. The paper environment, market session, quote
+freshness, one-contract limit, long-premium rule, USD 500 maximum loss,
+duplicate protection, cooldown, positions, and drawdown are deterministic. AI
+can abstain. AI cannot bypass.
 
-Open the JSONL evidence trace and the public dashboard performance panel. Show
-starting equity, current equity, paper P&L, fills, and rejected/canceled orders.
-Then show the frozen 2024-2026 holdout: 127 signals, 55.9% win rate, +0.218%
-average signed underlying move, 1.39 profit factor, and the explicit warning
-that these are not option returns. Close with: the AI proposes, deterministic
-risk decides, Alpaca executes, and the evidence remains inspectable.
+## 2:08-3:01 - Two separate proof tracks
+
+We deliberately separate broker proof from strategy proof. Three exploratory v0
+paper fills in AAPL, XLF, and AMZN demonstrate that the bounded execution path
+works. Their combined maximum premium risk was USD 825. The captured mark was
+down USD 13.09, and we publish that result.
+
+The frozen reversal v1 strategy is evaluated separately on untouched 2024-2026
+data: 127 signals, 55.9% directional wins, 1.39 profit factor, and a positive
+0.218% average signed two-session underlying move. The 0.88 Sharpe figure is an
+event-frequency proxy, not a portfolio Sharpe ratio, and the historical test is
+not options P&L.
+
+## 3:01-3:27 - Failure and restraint
+
+Failure and restraint are first-class outputs. Momentum v0 failed its holdout,
+so we kept the evidence, retired it, and froze the challenger before the next
+test. The latest frozen scan also produced WAIT because none of SPY, QQQ, or IWM
+met the rule. No order was requested. A trading agent should be judged by the
+decisions it refuses as well as the trades it places.
+
+## 3:27-3:59 - Business value
+
+The business is governance software for investment research teams. The U.S. SEC
+reports 22,932 investment advisers and USD 177 trillion in regulatory assets
+under management for 2025. At an explicit USD 12,000 annual-contract assumption,
+that is an illustrative USD 275 million U.S. software market. The commercial
+model combines team SaaS, enterprise private deployment, and a usage-based
+evidence API.
+
+## 3:59-4:26 - Originality and moat
+
+The moat is falsifiable research governance, not another signal. Instead of one
+model and one answer, we preserve independent views and abstention. Instead of
+letting reasoning authorize its own order, deterministic policy controls
+execution. Instead of a headline backtest, we publish development, freeze,
+untouched holdout, uncertainty, failures, WAIT decisions, broker receipts, and
+P&L.
+
+## 4:26-4:54 - Readiness and close
+
+The product is deployed now with 59 passing tests, three broker-verified fills,
+and a frozen scored ledger. Next comes continuous paper forward testing,
+complete position-lifecycle evidence, broker reconciliation, and evaluation
+drift alerts. Then adviser-team shadow mode and private policy deployment.
+
+AI proposes. Deterministic risk decides. Alpaca executes. The evidence remains
+inspectable.
 
 On-screen footer: Research and simulated paper trading only. Not investment
 advice.
 
-## Recording gate
+## Publication gate
 
-- Record only after the repository and dashboard URLs work in a signed-out
-  browser.
-- Use 1920x1080 capture, readable terminal zoom, and no notification overlays.
-- Never show credentials, raw account identifiers, environment files, or
-  private iPulse AI data.
-- Put repository, hosted demo, and one-page links in the video description.
-- Export a public, unlisted-or-public URL that opens without authentication.
+- Final video: `ipulse-options-alpha-agent-judge-demo-v03.mp4` (4:54).
+- English captions: `ipulse-options-alpha-agent-judge-demo-v03.srt`.
+- Resolution: 1920x1080; no credentials or raw account identifier appear.
+- Repository, dashboard, deck, and video must open without authentication.

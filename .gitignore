@@ -10,4 +10,5 @@ __pycache__/
 artifacts/decisions/*.jsonl
 artifacts/competition/*.jsonl
 artifacts/report/
+output/video/
 tmp/

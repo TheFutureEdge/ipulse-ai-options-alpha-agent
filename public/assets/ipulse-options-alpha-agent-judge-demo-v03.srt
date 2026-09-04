@@ -1,0 +1,311 @@
+1
+00:00:00,150 --> 00:00:02,395
+Every trade is a claim.
+
+2
+00:00:02,395 --> 00:00:04,641
+iPulse AI keeps the evidence.
+
+3
+00:00:04,641 --> 00:00:10,030
+This is an inspectable autonomous options research and Alpaca paper trading agent.
+
+4
+00:00:10,030 --> 00:00:14,969
+Six independent advisors propose, deterministic risk controls decide, and every broker
+
+5
+00:00:14,969 --> 00:00:16,317
+result remains reviewable.
+
+6
+00:00:16,817 --> 00:00:20,615
+The real problem is not finding one more signal.
+
+7
+00:00:20,615 --> 00:00:24,413
+Investment teams cannot govern a black box trading agent.
+
+8
+00:00:24,413 --> 00:00:29,899
+Reasoning can drift, a confident model can bypass risk, and missing evidence makes
+
+9
+00:00:29,899 --> 00:00:31,588
+post trade review guesswork.
+
+10
+00:00:31,588 --> 00:00:36,230
+Our starting users are adviser research teams, family offices, and sophisticated
+
+11
+00:00:36,230 --> 00:00:40,450
+investors who need AI scale synthesis without surrendering policy control.
+
+12
+00:00:40,950 --> 00:00:44,877
+This is a working deployed product, not a chatbot wrapper.
+
+13
+00:00:44,877 --> 00:00:49,589
+The public dashboard shows three broker verified paper option fills, one hundred
+
+14
+00:00:49,589 --> 00:00:54,694
+twenty seven untouched holdout signals for the frozen challenger, and the latest WAIT
+
+15
+00:00:54,694 --> 00:00:55,087
+decision.
+
+16
+00:00:55,087 --> 00:00:59,800
+Judges can open the dashboard and repository without authentication and replay the
+
+17
+00:00:59,800 --> 00:01:00,585
+evidence path.
+
+18
+00:01:01,085 --> 00:01:04,504
+The architecture separates two kinds of intelligence.
+
+19
+00:01:04,504 --> 00:01:09,877
+Alpaca market and account data, cited research, financials, and valuation evidence
+
+20
+00:01:09,877 --> 00:01:15,250
+feed six independent advisors: technical regime, news catalyst, options liquidity, a
+
+21
+00:01:15,250 --> 00:01:20,135
+financials forensic auditor, a value framework, and a risk critic.
+
+22
+00:01:20,135 --> 00:01:24,043
+Consensus may propose CALL, PUT, WAIT, or ABSTAIN.
+
+23
+00:01:24,043 --> 00:01:27,462
+Deterministic policy then checks every execution condition.
+
+24
+00:01:27,462 --> 00:01:35,277
+Only after approval can Alpaca receive a paper order, which is re-read and stored as a
+
+25
+00:01:35,277 --> 00:01:36,254
+sanitized receipt.
+
+26
+00:01:36,754 --> 00:01:40,004
+AI is used where interpretation matters.
+
+27
+00:01:40,004 --> 00:01:44,879
+It synthesizes heterogeneous evidence, states contrary evidence, expresses confidence,
+
+28
+00:01:44,879 --> 00:01:48,670
+and says what would invalidate each view.
+
+29
+00:01:48,670 --> 00:01:50,295
+Code controls capital.
+
+30
+00:01:50,295 --> 00:01:56,253
+The paper environment, market session, quote freshness, one contract limit, long
+
+31
+00:01:56,253 --> 00:02:01,670
+premium rule, five hundred dollar maximum loss, duplicate protection, cooldown,
+
+32
+00:02:01,670 --> 00:02:04,378
+positions, and drawdown are deterministic.
+
+33
+00:02:04,378 --> 00:02:06,003
+AI can abstain.
+
+34
+00:02:06,003 --> 00:02:07,628
+AI cannot bypass.
+
+35
+00:02:08,128 --> 00:02:11,425
+We deliberately separate broker proof from strategy proof.
+
+36
+00:02:11,425 --> 00:02:17,194
+Three exploratory version zero paper fills in AAPL, XLF, and AMZN demonstrate that the
+
+37
+00:02:17,194 --> 00:02:18,842
+bounded execution path works.
+
+38
+00:02:18,842 --> 00:02:23,375
+Their combined maximum premium risk was eight hundred twenty five dollars.
+
+39
+00:02:23,375 --> 00:02:29,144
+The captured mark was down thirteen dollars and nine cents, and we publish that
+
+40
+00:02:29,144 --> 00:02:29,556
+result.
+
+41
+00:02:29,556 --> 00:02:34,501
+The frozen reversal version one strategy is evaluated separately on untouched 2024
+
+42
+00:02:34,501 --> 00:02:39,859
+through 2026 data: one hundred twenty seven signals, fifty five point nine percent
+
+43
+00:02:39,859 --> 00:02:46,040
+directional wins, a one point three nine profit factor, and a positive zero point two
+
+44
+00:02:46,040 --> 00:02:49,749
+one eight percent average signed two session underlying move.
+
+45
+00:02:49,749 --> 00:02:55,930
+The zero point eight eight Sharpe figure is an event frequency proxy, not a portfolio
+
+46
+00:02:55,930 --> 00:03:00,875
+Sharpe ratio, and the historical test is not options P and L.
+
+47
+00:03:01,375 --> 00:03:03,994
+Failure and restraint are first class outputs.
+
+48
+00:03:03,994 --> 00:03:09,232
+Momentum version zero failed its holdout, so we kept the evidence, retired it, and
+
+49
+00:03:09,232 --> 00:03:11,852
+froze the challenger before the next test.
+
+50
+00:03:11,852 --> 00:03:17,838
+The latest frozen scan also produced WAIT because none of SPY, QQQ, or IWM met the
+
+51
+00:03:17,838 --> 00:03:18,212
+rule.
+
+52
+00:03:18,212 --> 00:03:19,709
+No order was requested.
+
+53
+00:03:19,709 --> 00:03:26,070
+A trading agent should be judged by the decisions it refuses as well as the trades it
+
+54
+00:03:26,070 --> 00:03:26,444
+places.
+
+55
+00:03:26,944 --> 00:03:30,865
+The business is governance software for investment research teams.
+
+56
+00:03:30,865 --> 00:03:31,736
+The U.S.
+
+57
+00:03:31,736 --> 00:03:37,399
+SEC reports twenty two thousand nine hundred thirty two investment advisers and one
+
+58
+00:03:37,399 --> 00:03:42,627
+hundred seventy seven trillion dollars in regulatory assets under management for 2025.
+
+59
+00:03:42,627 --> 00:03:47,855
+At an explicit twelve thousand dollar annual contract assumption, that is an
+
+60
+00:03:47,855 --> 00:03:51,340
+illustrative two hundred seventy five million dollar U.S.
+
+61
+00:03:51,340 --> 00:03:52,211
+software market.
+
+62
+00:03:52,211 --> 00:03:57,439
+The commercial model combines team SaaS, enterprise private deployment, and a usage
+
+63
+00:03:57,439 --> 00:03:58,746
+based evidence API.
+
+64
+00:03:59,246 --> 00:04:03,621
+The moat is falsifiable research governance, not another signal.
+
+65
+00:04:03,621 --> 00:04:09,939
+Instead of one model and one answer, we preserve independent views and abstention.
+
+66
+00:04:09,939 --> 00:04:15,286
+Instead of letting reasoning authorize its own order, deterministic policy controls
+
+67
+00:04:15,286 --> 00:04:15,772
+execution.
+
+68
+00:04:15,772 --> 00:04:21,119
+Instead of a headline backtest, we publish development, freeze, untouched holdout,
+
+69
+00:04:21,119 --> 00:04:25,979
+uncertainty, failures, WAIT decisions, broker receipts, and P and L.
+
+70
+00:04:26,479 --> 00:04:32,995
+The product is deployed now with fifty nine passing tests, three broker verified
+
+71
+00:04:32,995 --> 00:04:36,002
+fills, and a frozen scored ledger.
+
+72
+00:04:36,002 --> 00:04:41,014
+Next comes continuous paper forward testing, complete position lifecycle evidence,
+
+73
+00:04:41,014 --> 00:04:44,022
+broker reconciliation, and evaluation drift alerts.
+
+74
+00:04:44,022 --> 00:04:48,533
+Then adviser team shadow mode and private policy deployment.
+
+75
+00:04:48,533 --> 00:04:49,535
+AI proposes.
+
+76
+00:04:49,535 --> 00:04:51,039
+Deterministic risk decides.
+
+77
+00:04:51,039 --> 00:04:52,041
+Alpaca executes.
+
+78
+00:04:52,041 --> 00:04:54,046
+The evidence remains inspectable.

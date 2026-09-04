@@ -81,6 +81,18 @@ risk is $825. These prove bounded paper execution, not v1 performance. The
 sanitized public receipt is in
 [`public/evidence/live_strategy_fill.json`](public/evidence/live_strategy_fill.json).
 
+## Business value
+
+The starting buyer is a U.S. investment-adviser research team that wants
+AI-scale evidence synthesis without giving an LLM authority to bypass portfolio
+policy. The SEC reports 22,932 investment advisers and USD 177 trillion in
+regulatory assets under management for 2025. At an explicit USD 12,000 assumed
+annual contract, that implies an illustrative U.S. software TAM of about USD
+275 million per year; this is an assumption, not a forecast. The commercial
+path combines team SaaS, enterprise private deployment, and a usage-based
+research/evidence API. Source: [U.S. SEC Investment Adviser
+Statistics](https://www.sec.gov/data-research/statistics-data-visualizations/investment-adviser-statistics).
+
 Run a non-executing decision demo:
 
 ```bash
@@ -191,11 +203,11 @@ Public proof package:
 
 - [Source repository](https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent)
 - [Inspectable decision dashboard](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/)
-- [49-second visual walkthrough](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4)
-- [Judge presentation](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf)
+- [4:54 judge demo with narration and captions](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-judge-demo-v03.mp4)
+- [Ten-slide judge presentation](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pdf)
 
 The local judge deck is
-[`docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pptx`](docs/submission_assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pptx).
+[`docs/submission_assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pptx`](docs/submission_assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pptx).
 
 The dated execution and submission sequence is maintained in
 [`docs/submission_runbook.md`](docs/submission_runbook.md).
@@ -206,8 +218,8 @@ final Lablab form is submitted:
 ```bash
 IPULSE_PUBLIC_REPOSITORY_URL=https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent \
 IPULSE_PUBLIC_DEMO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/ \
-IPULSE_DEMO_VIDEO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-49s-pitch.mp4 \
-IPULSE_SLIDES_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-03_ipulse-ai-options-alpha-agent_judge-deck_v02.pdf \
+IPULSE_DEMO_VIDEO_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-judge-demo-v03.mp4 \
+IPULSE_SLIDES_URL=https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pdf \
 PYTHONPATH=src python -m ipulse_options_alpha_agent submission-readiness
 ```
 
