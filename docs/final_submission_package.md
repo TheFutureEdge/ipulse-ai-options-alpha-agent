@@ -2,6 +2,8 @@
 
 Prepared: 4 September 2026
 
+Submission status: **successfully submitted and publicly verified**
+
 ## Deadline
 
 - Official event end: 4 September 2026 at 15:00 UTC
@@ -69,6 +71,7 @@ credentials appear publicly. Paper only; not investment advice.
 - 4:54 judge demo: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-judge-demo-v03.mp4
 - Ten-slide judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pdf
 - Team page: https://lablab.ai/ai-hackathons/alpaca-ai-trading-agents-hackathon/ipulse-ai-open-lab
+- Published submission: https://lablab.ai/ai-hackathons/alpaca-ai-trading-agents-hackathon/ipulse-ai-open-lab/ipulse-ai-options-alpha-agent
 
 ## Additional information
 

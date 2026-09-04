@@ -201,6 +201,7 @@ PYTHONPATH=src python -m ipulse_options_alpha_agent run-paper-session \
 
 Public proof package:
 
+- [Official Lablab submission](https://lablab.ai/ai-hackathons/alpaca-ai-trading-agents-hackathon/ipulse-ai-open-lab/ipulse-ai-options-alpha-agent)
 - [Source repository](https://github.com/TheFutureEdge/ipulse-ai-options-alpha-agent)
 - [Inspectable decision dashboard](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/)
 - [4:54 judge demo with narration and captions](https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/ipulse-options-alpha-agent-judge-demo-v03.mp4)

@@ -306,6 +306,7 @@ def render_decision_report(
   {cover}
   <p class="eyebrow">Open Agentic Investment Research Platform</p>
   <h1>Options alpha, with receipts.</h1>
+  <p><a class="button" href="https://lablab.ai/ai-hackathons/alpaca-ai-trading-agents-hackathon/ipulse-ai-open-lab/ipulse-ai-options-alpha-agent">View the official Lablab submission</a></p>
 {proof_section}
   <h2>Judge overview</h2>
   <section class="media-grid">
