@@ -70,6 +70,42 @@ credentials appear publicly. Paper only; not investment advice.
 - Ten-slide judge deck: https://thefutureedge.github.io/ipulse-ai-options-alpha-agent/assets/2026-09-04_ipulse-ai-options-alpha-agent_judge-deck_v06.pdf
 - Team page: https://lablab.ai/ai-hackathons/alpaca-ai-trading-agents-hackathon/ipulse-ai-open-lab
 
+## Additional information
+
+Judge path: 1) watch the 4:54 video; 2) open the dashboard; 3) inspect six
+advisor views, dissent, and the safety replay; 4) compare broker proof with the
+frozen holdout; 5) review the MIT repository, 59 tests, and scored ledger.
+
+Why it matters: investment teams cannot govern black-box agents. iPulse AI makes
+the chain reconstructable. Technical regime, news catalyst, options liquidity,
+financials forensic audit, value framework, and risk critic each cite evidence,
+contrary evidence, confidence, and invalidation. Consensus may propose CALL,
+PUT, WAIT, or ABSTAIN. AI synthesizes uncertainty; code controls capital.
+
+Safety is fail-closed: Alpaca paper only, open session, fresh quote, complete
+broker state, duplicate/idempotency protection, cooldown, position and drawdown
+limits, one contract, long premium, limit order, and USD 500 max loss. Orders
+are re-read from Alpaca and retained as sanitized receipts.
+
+We separate evidence types. Three exploratory v0 paper fills in AAPL, XLF, and
+AMZN prove the bounded broker path. Combined maximum premium risk was USD 825;
+captured P&L was -USD 13.09. We publish the loss and make no v1 performance
+claim. Momentum v0 failed and remains public. Exhaustion-reversal v1 was selected
+on 2021-2023 development data, frozen, then tested on untouched 2024-2026 data:
+127 signals, 55.9% directional wins, +0.218% average signed two-session
+underlying move, 1.39 profit factor, and a 0.88 event-frequency Sharpe proxy.
+These are underlying diagnostics, not option returns. The latest v1 scan
+produced WAIT and no order.
+
+Business wedge: evidence-governed research for U.S. adviser teams. SEC 2025
+statistics report 22,932 advisers and USD 177T regulatory AUM. Team SaaS,
+enterprise private deployment, and a usage-based evidence API are the revenue
+path.
+
+Final release: commit f1830d9, deployed dashboard, captioned demo, ten-slide
+deck, sanitized evidence, and source. No public credentials or raw account ID.
+Paper only; not investment advice.
+
 ## Private judging field
 
 The dedicated Alpaca paper account ID must be entered only in Lablab's private
