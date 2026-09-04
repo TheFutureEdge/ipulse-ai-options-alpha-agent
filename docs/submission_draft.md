@@ -104,7 +104,7 @@ cash allocation.
 
 ## Evidence already available
 
-- Fifty-six passing unit tests
+- Fifty-nine passing unit tests
 - Paper account MCP connectivity and options-data access
 - Dedicated competition account created on 28 August 2026 with a verified
   USD 100,000 baseline, active status, options level 3, and zero initial fills
